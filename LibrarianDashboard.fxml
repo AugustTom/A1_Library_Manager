@@ -16,7 +16,7 @@
          <children>
             <ImageView fx:id="avatar_img" fitHeight="120.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Tawe-LibLogo0.png" />
+                  <Image url="@images/Tawe-LibLogo0.png" />
                </image>
                <viewport>
                   <Rectangle2D minX="20.0" />
