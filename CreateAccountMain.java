@@ -12,7 +12,7 @@ public class CreateAccountMain extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("CreateAccount.fxml"));
         primaryStage.show();
     }
-
+    
 
     public static void main(String[] args) {
 
