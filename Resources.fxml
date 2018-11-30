@@ -8,11 +8,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="resources_searchBar" layoutX="13.0" layoutY="15.0" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
       <Button fx:id="button_search" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" text="Go" />
-      <TabPane fx:id="resource_resultsTable" layoutX="14.0" layoutY="41.0" prefHeight="299.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="resource_resultsTable" layoutX="14.0" layoutY="41.0" prefHeight="434.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab fx:id="resource_bookTab" text="Book">
                <content>
