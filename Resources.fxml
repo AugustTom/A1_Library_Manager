@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="resources_searchBar" layoutX="13.0" layoutY="15.0" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
+      <Button fx:id="button_search" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" text="Go" />
+      <TabPane fx:id="resource_resultsTable" layoutX="14.0" layoutY="41.0" prefHeight="299.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="resource_bookTab" text="Book">
+               <content>
+                  <TableView fx:id="resource_bookResults" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn fx:id="resource_id" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="resource_title" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="resource_year" prefWidth="75.0" text="Year" />
+                        <TableColumn fx:id="resource_image" prefWidth="75.0" text="Image" />
+                        <TableColumn fx:id="resource_loanDuration" prefWidth="75.0" text="Loan Duration" />
+                        <TableColumn fx:id="resource_numberOfCopies" prefWidth="75.0" text="No. Copies" />
+                        <TableColumn fx:id="resource_author" prefWidth="75.0" text="Author" />
+                        <TableColumn fx:id="resource_publisher" prefWidth="75.0" text="Publisher" />
+                        <TableColumn fx:id="resource_ISBN" prefWidth="75.0" text="ISBN" />
+                        <TableColumn fx:id="resource_bookLanguage" prefWidth="75.0" text="Language" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+            <Tab fx:id="resource_DVDTab" text="DVD">
+               <content>
+                  <TableView fx:id="resource_DVDResults" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn fx:id="resource_id" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="resource_title" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="resource_year" prefWidth="75.0" text="Year" />
+                        <TableColumn fx:id="resource_image" prefWidth="75.0" text="Image" />
+                        <TableColumn fx:id="resource_loanDuration" prefWidth="75.0" text="Loan Duration" />
+                        <TableColumn fx:id="resource_numberOfCopies" prefWidth="75.0" text="No. Copies" />
+                        <TableColumn fx:id="resource_runtime" prefWidth="75.0" text="Runtime" />
+                        <TableColumn fx:id="resource_dvdLanguage" prefWidth="75.0" text="Language" />
+                        <TableColumn fx:id="resource_subtitleLanguages" prefWidth="75.0" text="Subtitle Languages" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+            <Tab fx:id="resource_LaptopTab" text="Laptop">
+               <content>
+                  <TableView prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn fx:id="resource_id" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="resource_title" prefWidth="75.0" text="Title" />
+                        <TableColumn fx:id="resource_year" prefWidth="75.0" text="Year" />
+                        <TableColumn fx:id="resource_image" prefWidth="75.0" text="Image" />
+                        <TableColumn fx:id="resource_loanDuration" prefWidth="75.0" text="Loan Duration" />
+                        <TableColumn fx:id="resource_numberOfCopies" prefWidth="75.0" text="No. Copies" />
+                        <TableColumn fx:id="resource_manufacturer" prefWidth="75.0" text="Manufacturer" />
+                        <TableColumn fx:id="resource_model" prefWidth="75.0" text="Model" />
+                        <TableColumn fx:id="resource_operatingSystem" prefWidth="75.0" text="Operating System" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</Pane>
