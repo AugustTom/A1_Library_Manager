@@ -23,7 +23,7 @@
             <TextField fx:id="newUser_staffNumber" layoutX="143.0" layoutY="200.0" prefHeight="25.0" prefWidth="195.0" promptText="Staff Number" />
             <Button fx:id="button_createAccount" layoutX="138.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="238.0" text="Create Account" />
             <Text layoutX="16.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an Avatar:" />
-            <RadioButton fx:id="avatar_sittingCat" alignment="TOP_LEFT" layoutX="17.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;">
+            <RadioButton fx:id="rb_sittingCat" alignment="TOP_LEFT" layoutX="17.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;">
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                <toggleGroup>
                   <ToggleGroup fx:id="selectAvatar" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="avatar_ghost" alignment="TOP_LEFT" layoutX="133.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
+            <RadioButton fx:id="rb_ghost" alignment="TOP_LEFT" layoutX="133.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,7 +49,7 @@
                   <Insets />
                </opaqueInsets>
             </RadioButton>
-            <RadioButton fx:id="avatar_monster" alignment="TOP_LEFT" layoutX="17.0" layoutY="355.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
+            <RadioButton fx:id="rb_monster" alignment="TOP_LEFT" layoutX="17.0" layoutY="355.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -61,7 +61,7 @@
                   <Insets />
                </opaqueInsets>
             </RadioButton>
-            <RadioButton fx:id="avatar_bird" alignment="TOP_LEFT" layoutX="249.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
+            <RadioButton fx:id="rb_bird" alignment="TOP_LEFT" layoutX="249.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -73,7 +73,7 @@
                   <Insets />
                </opaqueInsets>
             </RadioButton>
-            <RadioButton fx:id="avatar_fish" alignment="TOP_LEFT" layoutX="133.0" layoutY="355.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
+            <RadioButton fx:id="rb_fish" alignment="TOP_LEFT" layoutX="133.0" layoutY="355.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -85,7 +85,7 @@
                   <Insets />
                </opaqueInsets>
             </RadioButton>
-            <RadioButton fx:id="avatar_canvas" alignment="TOP_LEFT" layoutX="249.0" layoutY="355.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
+            <RadioButton fx:id="rb_canvas" alignment="TOP_LEFT" layoutX="249.0" layoutY="355.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="104.0" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
