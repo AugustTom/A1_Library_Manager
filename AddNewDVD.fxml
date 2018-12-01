@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="320.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddNewDVDController">
+   <children>
+      <Pane fx:id="addNewDVD" layoutX="15.0" layoutY="15.0" prefHeight="470.0" prefWidth="290.0">
+         <children>
+            <TextField fx:id="newResource_id" prefHeight="25.0" prefWidth="114.0" promptText="ID Number">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="newResource_title" layoutX="120.0" prefHeight="25.0" prefWidth="171.0" promptText="Title">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="newResource_year" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Text layoutX="79.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Copies: " />
+            <TextField fx:id="newResource_numberOfCopies" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Text layoutX="5.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loan Duration: " />
+            <TextField fx:id="newResource_loanDuration" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Text layoutX="115.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days" />
+            <Button fx:id="button_browseImage" alignment="CENTER_RIGHT" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" text="Browse">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <TextField fx:id="newResource_image" layoutX="55.0" layoutY="102.0" prefHeight="25.0" prefWidth="234.0" />
+            <TextField fx:id="newResource_director" layoutY="136.0" prefHeight="25.0" prefWidth="177.0" promptText="Director">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="newResource_runtime" layoutX="-1.0" layoutY="170.0" prefHeight="25.0" prefWidth="81.0" promptText="Runtime">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="newResource_language" layoutY="204.0" prefHeight="25.0" prefWidth="171.0" promptText="Language">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="newResource_subtitleLanguages" layoutY="238.0" prefHeight="25.0" prefWidth="171.0" promptText="Subtitle Languages">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Button fx:id="button_addNewDVD" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="431.0" mnemonicParsing="false" prefHeight="25.0" text="Add DVD">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Text layoutX="82.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="minutes" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
