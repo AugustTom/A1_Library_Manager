@@ -17,7 +17,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <TabPane layoutX="16.0" layoutY="175.0" prefHeight="141.0" prefWidth="359.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="16.0" layoutY="175.0" prefHeight="141.0" prefWidth="359.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
         <tabs>
           <Tab text="Book">
                <content>

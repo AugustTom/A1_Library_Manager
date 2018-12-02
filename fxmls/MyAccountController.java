@@ -20,9 +20,6 @@ import java.util.logging.Logger;
 public class MyAccountController implements Initializable {
 
     @FXML
-    private BorderPane borderPane;
-
-    @FXML
     private Pane myAccount;
 
     @FXML
@@ -51,9 +48,9 @@ public class MyAccountController implements Initializable {
 
 
     @FXML
-    void myAccountUpdate(MouseEvent event) {
-        loadUI("MyAccountUpdate");
-
+    void myAccountUpdate(MouseEvent event) throws IOException {
+        Pane myAccountUpdate = FXMLLoader.load(getClass().getResource("myAccountUpdate.fxml"));
+        myAccount.getChildren().setAll(myAccountUpdate);
     }
 
     @Override
@@ -61,13 +58,5 @@ public class MyAccountController implements Initializable {
 
     }
 
-    private void loadUI (String path){
-        Parent root = null;
-        try{
-            root = FXMLLoader.load(getClass().getResource(path + ".fxml"));
-            borderPane.setCenter(root);
-        } catch (IOException ex){
-            Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 }

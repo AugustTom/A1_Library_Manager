@@ -12,7 +12,7 @@
    <children>
       <TextField fx:id="resources_searchBar" layoutX="13.0" layoutY="15.0" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
       <Button fx:id="button_search" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" text="Go" />
-      <TabPane fx:id="resource_resultsTable" layoutX="14.0" layoutY="41.0" prefHeight="434.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="resource_resultsTable" layoutX="14.0" layoutY="41.0" prefHeight="434.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
          <tabs>
             <Tab fx:id="resource_bookTab" text="Book">
                <content>

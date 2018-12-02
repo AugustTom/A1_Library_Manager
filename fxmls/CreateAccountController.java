@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -35,13 +36,26 @@ public class CreateAccountController implements Initializable {
     private Button button_createAccount;
 
     @FXML
-    private TextField newUser_avatarUpload;
+    private RadioButton rb_sittingCat;
 
     @FXML
-    private Button newUser_browseAvatar;
+    private RadioButton rb_ghost;
+
+    @FXML
+    private RadioButton rb_monster;
+
+    @FXML
+    private RadioButton rb_bird;
+
+    @FXML
+    private RadioButton rb_fish;
+
+    @FXML
+    private RadioButton rb_canvas;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 }

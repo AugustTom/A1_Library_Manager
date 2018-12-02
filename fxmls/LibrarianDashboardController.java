@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
@@ -54,8 +53,7 @@ public class LibrarianDashboardController implements Initializable {
     @FXML
     private Button button_logOut;
 
-    @FXML
-    private SubScene user_subScene;
+
 
     @FXML
     private void addNewResource(MouseEvent event) {
