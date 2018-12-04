@@ -100,6 +100,21 @@ public class SearchResourceController implements Initializable {
         laptopModelColumn.setCellValueFactory(new PropertyValueFactory<Laptop, String>("model"));
         laptopOperatingSystemColumn.setCellValueFactory(new PropertyValueFactory<Laptop, String>("operatingSystem"));
 
+        /*bookTableView.setItems(getBook());
+        dvdTableView.setItems(getDVD());
+        laptopTableView.setItems(getLaptop());*/
+    }
+/*
+    public ObservableList<Book> getBook(){
+        ObservableList<Book> book = FXCollections.observableArrayList();
+        book.add(new Book(100231, "The Alchemist", 2012, "tawelib/images/TheAlchemist.png",
+                14, 20, 15, 5, "Paulo Coelho",
+                "Harper Collins", "Adventure", "12345678", "English"));
+        book.add(new Book(100232, "Java for Everyone", 2010, "tawelib/images/JavaForEveryone.png",
+                14, 10, 1, 9, "Cay S. Horstmann",
+                "John Wiley & Sons", "Education", "0471791911", "English"));
+        return book;
+>>>>>>> 80f9c78... i broke things, its fixed now
     }
 
 

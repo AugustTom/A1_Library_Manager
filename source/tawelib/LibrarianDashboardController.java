@@ -74,7 +74,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     void loginPage (MouseEvent event) throws IOException {
-        Parent loginPage = FXMLLoader.load(getClass().getResource("tawelib/login.fxml"));
+        Parent loginPage = FXMLLoader.load(getClass().getResource("login.fxml"));
         librarianDashboard.getChildren().setAll(loginPage);
     }
 

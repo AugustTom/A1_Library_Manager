@@ -24,9 +24,18 @@ public class LoginController implements Initializable {
     private Button loginButton;
 
     @FXML
-    void userDashboard(MouseEvent event) throws IOException {
+    void librarianDashboard(MouseEvent event) throws IOException {
+        final String username =  loginUsername.getText();
+
+        if( username.equals("lib")) {
+            Pane librarianDashboard = FXMLLoader.load(getClass().getResource("LibrarianDashboard.fxml"));
+            loginPage.getChildren().setAll(librarianDashboard);
+        } else {
             Pane userDashboard = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
             loginPage.getChildren().setAll(userDashboard);
+        }
+
+
     }
 
     @Override
