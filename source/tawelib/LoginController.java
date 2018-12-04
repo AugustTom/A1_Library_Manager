@@ -25,7 +25,7 @@ public class LoginController implements Initializable {
 
     @FXML
     void librarianDashboard(MouseEvent event) throws IOException {
-        Pane librarianDashboard = FXMLLoader.load(getClass().getResource("tawelib/LibrarianDashboard.fxml"));
+        Pane librarianDashboard = FXMLLoader.load(getClass().getResource("LibrarianDashboard.fxml"));
         loginPage.getChildren().setAll(librarianDashboard);
 
     }

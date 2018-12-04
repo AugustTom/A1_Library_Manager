@@ -1,69 +1,53 @@
 package tawelib;
-import javafx.beans.property.SimpleIntegerProperty;
-
-import javafx.beans.property.SimpleStringProperty;
+import java.util.ArrayList;
 
 public class DVD extends Resources {
-    protected SimpleStringProperty director;
-    protected SimpleIntegerProperty runtime;
-    protected SimpleStringProperty languages;
-    protected SimpleStringProperty subtitleLanguages;
+    protected String director;
+    protected int runtime;
+    protected String language;
+    protected String[] subtitleLanguages;
+    //ArrayList<String> subtitleLanguages = new ArrayList<String>();
 
-    public DVD(int id, String title, int year, String thumbnailImageID, int loanDuration, int numberOfCopies,
-               int availableCopies, int borrowedCopies, String director, int runtime, String languages,
-               String subtitleLanguages) {
-        super(id, title, year, thumbnailImageID, loanDuration, numberOfCopies, availableCopies, borrowedCopies);
-        this.director = new SimpleStringProperty(director);
-        this.runtime = new SimpleIntegerProperty(runtime);
-        this.languages = new SimpleStringProperty(languages);
-        this.subtitleLanguages = new SimpleStringProperty(subtitleLanguages);
+    //TODO write function for array to string conversion
+
+    public DVD (int id, String title, int year, String imageID, ArrayList<Integer> copies,
+                String director, int runtime, String[] subtitleLanguages, String language){
+        super(id, title, year, imageID, copies);
+        this.director = director;
+        this.runtime = runtime;
+        this.language = language;
+        this.subtitleLanguages = subtitleLanguages;
     }
 
     public String getDirector() {
-        return director.get();
-    }
-
-    public SimpleStringProperty directorProperty() {
         return director;
     }
 
     public void setDirector(String director) {
-        this.director.set(director);
+        this.director = director;
     }
 
     public int getRuntime() {
-        return runtime.get();
-    }
-
-    public SimpleIntegerProperty runtimeProperty() {
         return runtime;
     }
 
     public void setRuntime(int runtime) {
-        this.runtime.set(runtime);
+        this.runtime = runtime;
     }
 
-    public String getLanguages() {
-        return languages.get();
+    public String getLanguage() {
+        return language;
     }
 
-    public SimpleStringProperty languagesProperty() {
-        return languages;
-    }
-
-    public void setLanguages(String languages) {
-        this.languages.set(languages);
+    public void setLanguage(String languages) {
+        this.language = languages;
     }
 
     public String getSubtitleLanguages() {
-        return subtitleLanguages.get();
+        return String.join(",",this.subtitleLanguages);
     }
 
-    public SimpleStringProperty subtitleLanguagesProperty() {
-        return subtitleLanguages;
-    }
-
-    public void setSubtitleLanguages(String subtitleLanguages) {
-        this.subtitleLanguages.set(subtitleLanguages);
+    public void setSubtitleLanguages(String[] subtitleLanguages) {
+        this.subtitleLanguages = subtitleLanguages;
     }
 }

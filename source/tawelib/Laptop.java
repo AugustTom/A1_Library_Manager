@@ -1,53 +1,40 @@
 package tawelib;
-
-import javafx.beans.property.SimpleStringProperty;
+import java.util.ArrayList;
 
 public class Laptop extends Resources {
-    protected SimpleStringProperty manufacturer;
-    protected SimpleStringProperty model;
-    protected SimpleStringProperty operatingSystem;
+    protected String manufacturer;
+    protected String model;
+    protected String operatingSystem;
 
-    public Laptop (int id, String title, int year, String thumbnailImageID, int loanDuration, int numberOfCopies,
-                   int availableCopies, int borrowedCopies, String manufacturer, String model, String operatingSystem){
-        super(id, title, year, thumbnailImageID, loanDuration, numberOfCopies, availableCopies, borrowedCopies);
-        this.manufacturer = new SimpleStringProperty(manufacturer);
-        this.model = new SimpleStringProperty(model);
-        this.operatingSystem = new SimpleStringProperty(operatingSystem);
+    public Laptop (int id, String title, int year, String imageID, ArrayList<Integer> copies,
+                   String manufacturer, String model, String operatingSystem){
+        super(id, title, year, imageID, copies);
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.operatingSystem = operatingSystem;
     }
 
     public String getManufacturer() {
-        return manufacturer.get();
-    }
-
-    public SimpleStringProperty manufacturerProperty() {
         return manufacturer;
     }
 
     public void setManufacturer(String manufacturer) {
-        this.manufacturer.set(manufacturer);
+        this.manufacturer = manufacturer;
     }
 
     public String getModel() {
-        return model.get();
-    }
-
-    public SimpleStringProperty modelProperty() {
         return model;
     }
 
     public void setModel(String model) {
-        this.model.set(model);
+        this.model = model;
     }
 
     public String getOperatingSystem() {
-        return operatingSystem.get();
-    }
-
-    public SimpleStringProperty operatingSystemProperty() {
         return operatingSystem;
     }
 
     public void setOperatingSystem(String operatingSystem) {
-        this.operatingSystem.set(operatingSystem);
+        this.operatingSystem = operatingSystem;
     }
 }

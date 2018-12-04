@@ -32,11 +32,11 @@ public class Conn {
 
             return prepStmt;
 
-            } catch ( SQLException err ) {
-                System.out.println( err.getMessage() + "Error preparing statement");
-            }
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error preparing statement");
+        }
 
-            return null;
+        return null;
 
     }
 

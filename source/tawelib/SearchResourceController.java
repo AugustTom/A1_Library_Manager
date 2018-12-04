@@ -117,11 +117,11 @@ public class SearchResourceController implements Initializable {
         laptopModelColumn.setCellValueFactory(new PropertyValueFactory<Laptop, String>("model"));
         laptopOperatingSystemColumn.setCellValueFactory(new PropertyValueFactory<Laptop, String>("operatingSystem"));
 
-        bookTableView.setItems(getBook());
+        /*bookTableView.setItems(getBook());
         dvdTableView.setItems(getDVD());
-        laptopTableView.setItems(getLaptop());
+        laptopTableView.setItems(getLaptop());*/
     }
-
+/*
     public ObservableList<Book> getBook(){
         ObservableList<Book> book = FXCollections.observableArrayList();
         book.add(new Book(100231, "The Alchemist", 2012, "tawelib/images/TheAlchemist.png",
@@ -148,5 +148,6 @@ public class SearchResourceController implements Initializable {
                 "Windows 10"));
         return laptop;
     }
+    */
 
 }
