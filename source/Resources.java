@@ -1,13 +1,13 @@
+package GUI;
+
 import java.util.ArrayList;
 
 public class Resources {
 
-    //public enum State {AVAILABLE, BORROWED, REQUESTED};
     private int ID;
     private String title;
     private int year;
     private String imageID;
-    //private State state;
     private ArrayList<Integer> copies;
 
     public Resources(int ID, String title, int year, String imageID, ArrayList<Integer> copies) {

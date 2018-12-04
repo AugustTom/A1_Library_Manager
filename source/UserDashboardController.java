@@ -1,17 +1,12 @@
+package GUI;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class UserDashboardController implements Initializable
-{
-
+public class UserDashboardController {
     @FXML
     private BorderPane userDashboard;
 
@@ -57,12 +52,4 @@ public class UserDashboardController implements Initializable
     void searchResource(MouseEvent event) {
 
     }
-
-
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
 }
-
-
