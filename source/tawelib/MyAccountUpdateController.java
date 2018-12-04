@@ -34,7 +34,7 @@ public class MyAccountUpdateController implements Initializable {
 
     @FXML
     void myAccount(MouseEvent event) throws IOException {
-        Pane myAccount = FXMLLoader.load(getClass().getResource("tawelib/MyAccount.fxml"));
+        Pane myAccount = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
         myAccountUpdate.getChildren().setAll(myAccount);
 
     }
