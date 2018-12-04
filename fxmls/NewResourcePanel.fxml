@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="newResourcePanel" prefHeight="500.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NewResourcePanelController">
+<BorderPane fx:id="newResourcePanel" prefHeight="500.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewResourcePanelController">
    <left>
       <VBox prefHeight="500.0" prefWidth="70.0" style="-fx-background-color: #C1C1C1;" BorderPane.alignment="CENTER">
          <children>

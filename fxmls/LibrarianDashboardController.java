@@ -1,4 +1,4 @@
-package sample;
+package GUI;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,51 +19,47 @@ import java.util.logging.Logger;
 
 public class LibrarianDashboardController implements Initializable {
     @FXML
-    private BorderPane borderPane;
+    private BorderPane librarianDashboard;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb){;
-
-    }
 
     @FXML
-    private SplitPane librarianDashboard;
-
-    @FXML
-    private VBox user_librarianDashboard;
+    private VBox librarianControls;
 
     @FXML
     private ImageView avatar_img;
 
     @FXML
-    private Button button_myAccount;
+    private Button myAccountButton;
 
     @FXML
-    private Button button_resources;
+    private Button searchResourceButton;
 
     @FXML
-    private Button button_addNewResources;
+    private Button addNewResourcesButton;
 
     @FXML
-    private Button button_findMember;
+    private Button searchMembersButton;
 
     @FXML
-    private Button button_createNewAccount;
+    private Button createNewAccountButton;
 
     @FXML
-    private Button button_logOut;
+    private Button logOutButton;
 
+    @FXML
+    public void myAccount(MouseEvent event) {
+        loadUI("MyAccount");
+    }
+
+    @FXML
+    void searchResource(MouseEvent event) {
+        loadUI("searchResource");
+    }
 
 
     @FXML
     private void addNewResource(MouseEvent event) {
         loadUI("NewResourcePanel");
-    }
-
-    @FXML
-    void createNewAccount(MouseEvent event) {
-        loadUI("CreateAccount");
-
     }
 
     @FXML
@@ -73,28 +69,28 @@ public class LibrarianDashboardController implements Initializable {
     }
 
     @FXML
-    void logOut(MouseEvent event) {
-
+    void createNewAccount(MouseEvent event) {
+        loadUI("CreateAccount");
     }
 
     @FXML
-    public void myAccount(MouseEvent event) {
-        loadUI("MyAccount");
-    }
-
-    @FXML
-    void resources(MouseEvent event) {
-        loadUI("Resources");
-
+    void loginPage (MouseEvent event) throws IOException {
+        Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        librarianDashboard.getChildren().setAll(loginPage);
     }
 
     private void loadUI (String path){
         Parent root = null;
         try{
             root = FXMLLoader.load(getClass().getResource(path + ".fxml"));
-            borderPane.setCenter(root);
+            librarianDashboard.setCenter(root);
         } catch (IOException ex){
             Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

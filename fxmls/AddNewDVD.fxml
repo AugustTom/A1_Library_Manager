@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="320.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="addNewDVD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="320.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane fx:id="aaddNewDVD" layoutX="15.0" layoutY="10.0" prefHeight="480.0" prefWidth="290.0">
+      <Pane layoutX="15.0" layoutY="10.0" prefHeight="480.0" prefWidth="290.0">
          <children>
             <TextField fx:id="newResource_id" prefHeight="25.0" prefWidth="114.0" promptText="ID Number">
                <opaqueInsets>
@@ -64,7 +64,7 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button fx:id="button_addNewDVD" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" text="Add DVD">
+            <Button fx:id="button_addNewDVD" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" mnemonicParsing="false" prefHeight="25.0" text="Add DVD">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

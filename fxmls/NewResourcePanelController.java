@@ -1,4 +1,4 @@
-package sample;
+package GUI;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,13 +36,11 @@ public class NewResourcePanelController implements Initializable {
     @FXML
     void addNewDVD(MouseEvent event) {
         loadUI("AddNewDVD");
-
     }
 
     @FXML
     void addNewLaptop(MouseEvent event) {
         loadUI("AddNewLaptop");
-
     }
 
     private void loadUI (String path){
