@@ -24,10 +24,9 @@ public class LoginController implements Initializable {
     private Button loginButton;
 
     @FXML
-    void librarianDashboard(MouseEvent event) throws IOException {
-        Pane librarianDashboard = FXMLLoader.load(getClass().getResource("LibrarianDashboard.fxml"));
-        loginPage.getChildren().setAll(librarianDashboard);
-
+    void userDashboard(MouseEvent event) throws IOException {
+            Pane userDashboard = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
+            loginPage.getChildren().setAll(userDashboard);
     }
 
     @Override

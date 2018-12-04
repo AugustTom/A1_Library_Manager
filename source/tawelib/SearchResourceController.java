@@ -100,10 +100,9 @@ public class SearchResourceController implements Initializable {
         laptopModelColumn.setCellValueFactory(new PropertyValueFactory<Laptop, String>("model"));
         laptopOperatingSystemColumn.setCellValueFactory(new PropertyValueFactory<Laptop, String>("operatingSystem"));
 
-        bookTableView.setItems(getBook());
     }
 
-    
+
 /*
     public ObservableList<DVD> getDVD() {
         ObservableList<DVD> dvd = FXCollections.observableArrayList();

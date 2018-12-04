@@ -13,12 +13,12 @@
 
 <BorderPane fx:id="userDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.UserDashboardController">
    <left>
-      <VBox prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: #FF9626;" BorderPane.alignment="CENTER">
+      <VBox fx:id="librarianControls" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: #FF9626;" BorderPane.alignment="CENTER">
          <children>
             <Region prefHeight="75.0" prefWidth="210.0" VBox.vgrow="ALWAYS" />
             <ImageView fx:id="avatar_img" fitHeight="120.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="" />
+                  <Image url="@images/Tawe-LibLogo0.png" />
                </image>
                <viewport>
                   <Rectangle2D minX="20.0" />
@@ -35,7 +35,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="searchResourceButton" mnemonicParsing="false" onMouseClicked="#searchResource" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="Search Resources">
+            <Button fx:id="resourcesButton" mnemonicParsing="false" onMouseClicked="#searchResource" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="Search Resources">
                <padding>
                   <Insets bottom="5.0" top="10.0" />
                </padding>
@@ -43,7 +43,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="viewBorrowedResourcesButton" mnemonicParsing="false" onMouseClicked="#addNewResource" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View borrowed Resources">
+            <Button fx:id="addNewResourcesButton" mnemonicParsing="false" onMouseClicked="#viewResources" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Borrowed">
                <padding>
                   <Insets bottom="5.0" top="10.0" />
                </padding>
@@ -51,7 +51,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="viewRequestedResourcesButton" mnemonicParsing="false" onMouseClicked="#memberSearch" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View requested Resources">
+            <Button fx:id="searchMembersButton" mnemonicParsing="false" onMouseClicked="#viewRequested" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Requested">
                <padding>
                   <Insets bottom="5.0" top="10.0" />
                </padding>
