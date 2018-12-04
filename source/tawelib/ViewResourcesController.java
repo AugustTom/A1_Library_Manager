@@ -1,5 +1,3 @@
-package tawelib;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;

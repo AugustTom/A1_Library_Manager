@@ -1,12 +1,16 @@
 package tawelib;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
-public class UserDashboardController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class UserDashboardController implements Initializable {
     @FXML
     private BorderPane userDashboard;
 
@@ -50,6 +54,11 @@ public class UserDashboardController {
 
     @FXML
     void searchResource(MouseEvent event) {
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }
