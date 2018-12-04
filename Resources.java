@@ -1,30 +1,46 @@
+import java.util.ArrayList;
+
 public class Resources {
 
-    public enum State {AVAILABLE, BORROWED, REQUESTED};
+    //public enum State {AVAILABLE, BORROWED, REQUESTED};
     private int ID;
     private String title;
     private int year;
-    private String thumbnailImageID;
-    private int loanDuration;
-    private int numberOfCopies;
-    private State state;
+    private String imageID;
+    //private State state;
+    private ArrayList<Integer> copies;
 
-    public Resources(int ID, String title, int year, String thumbnailImageID, int loanDuration, int numberOfCopies,
-                     State state) {
+    public Resources(int ID, String title, int year, String imageID, ArrayList<Integer> copies) {
         this.ID = ID;
         this.title = title;
         this.year = year;
-        this.thumbnailImageID = thumbnailImageID;
-        this.loanDuration = loanDuration;
-        this.numberOfCopies = numberOfCopies;
-        this.state = state;
+        this.imageID = imageID;
+        this.copies = copies;
     }
 
-    public boolean checkAvailability(){
-        return true;
+    public void setCopies(ArrayList<Integer> copies) {
+        this.copies = copies;
     }
-    public void setState(State state){
-        this.state = state;
+
+    public ArrayList<Integer> getCopies() {
+        return this.copies;
+    }
+
+    //Checks if any of the copies are available and if any are sets
+    public boolean checkAvailability(){
+
+        for(int copyid : this.copies) {
+            if (Conn.getCopyState(copyid) == "Available") {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
+    public void setState(ArrayList<Integer> copies){
+        this.copies = copies;
     }
 
     public int getID() {
@@ -51,27 +67,12 @@ public class Resources {
         this.year = year;
     }
 
-    public String getThumbnailImageID() {
-        return thumbnailImageID;
+    public String getimageID() {
+        return imageID;
     }
 
-    public void setThumbnailImageID(String thumbnailImageID) {
-        this.thumbnailImageID = thumbnailImageID;
+    public void setimageID(String imageID) {
+        this.imageID = imageID;
     }
 
-    public int getLoanDuration() {
-        return loanDuration;
-    }
-
-    public void setLoanDuration(int loanDuration) {
-        this.loanDuration = loanDuration;
-    }
-
-    public int getNumberOfCopies() {
-        return numberOfCopies;
-    }
-
-    public void setNumberOfCopies(int numberOfCopies) {
-        this.numberOfCopies = numberOfCopies;
-    }
 }

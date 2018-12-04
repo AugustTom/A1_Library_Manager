@@ -1,21 +1,20 @@
-/**
- *
- */
-
 import java.util.ArrayList;
 
 public class DVD extends Resources {
     protected String director;
     protected int runtime;
-    protected String languages;
-    ArrayList<String> subtitleLanguages = new ArrayList<String>();
+    protected String language;
+    protected String[] subtitleLanguages;
+    //ArrayList<String> subtitleLanguages = new ArrayList<String>();
 
-    public DVD (int id, String title, int year, String thumbnailImageID, int loanDuration, int numberOfCopies,
-                 String director, int runtime, String languages){
-        super(id, title, year, thumbnailImageID, loanDuration, numberOfCopies);
+    //TODO write function for array to string conversion
+
+    public DVD (int id, String title, int year, String imageID, ArrayList<Integer> copies,
+                String director, int runtime, String[] subtitleLanguages, String language){
+        super(id, title, year, imageID, copies);
         this.director = director;
         this.runtime = runtime;
-        this.languages = languages;
+        this.language = language;
         this.subtitleLanguages = subtitleLanguages;
     }
 
@@ -35,19 +34,19 @@ public class DVD extends Resources {
         this.runtime = runtime;
     }
 
-    public String getLanguages() {
-        return languages;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setLanguages(String languages) {
-        this.languages = languages;
+    public void setLanguage(String languages) {
+        this.language = languages;
     }
 
-    public ArrayList<String> getSubtitleLanguages() {
-        return subtitleLanguages;
+    public String getSubtitleLanguages() {
+        return String.join(",",this.subtitleLanguages);
     }
 
-    public void setSubtitleLanguages(ArrayList<String> subtitleLanguages) {
+    public void setSubtitleLanguages(String[] subtitleLanguages) {
         this.subtitleLanguages = subtitleLanguages;
     }
 }

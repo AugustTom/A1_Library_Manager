@@ -1,19 +1,18 @@
-/**
- *
- */
+import java.util.ArrayList;
+
 public class Book extends Resources {
     protected String author;
     protected String publisher;
     protected String ISBN;
-    protected String languages;
+    protected String language;
 
-    public Book (int id, String title, int year, String thumbnailImageID, int loanDuration, int numberOfCopies,
-                 String author, String publisher, String ISBN, String languages){
-        super(id, title, year, thumbnailImageID, loanDuration, numberOfCopies);
+    public Book (int id, String title, int year, String imageID, ArrayList<Integer> copies,
+                 String author, String publisher, String ISBN, String language){
+        super(id, title, year, imageID, copies);
         this.author = author;
         this.publisher = publisher;
         this.ISBN = ISBN;
-        this.languages = languages;
+        this.language = language;
     }
 
     public String getAuthor() {
@@ -40,11 +39,11 @@ public class Book extends Resources {
         this.ISBN = ISBN;
     }
 
-    public String getLanguages() {
-        return languages;
+    public String getLanguage() {
+        return this.language;
     }
 
-    public void setLanguages(String languages) {
-        this.languages = languages;
+    public void setLanguage(String languages) {
+        this.language = languages;
     }
 }
