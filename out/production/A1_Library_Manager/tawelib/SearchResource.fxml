@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="viewResources" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.ViewResourcesController">
+<Pane fx:id="searchResource" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.SearchResourceController">
    <children>
-      <TabPane fx:id="resourcesTable" layoutX="11.0" layoutY="16.0" prefHeight="459.0" prefWidth="365.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
+      <TextField fx:id="resourceSearchBar" layoutX="13.0" layoutY="15.0" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
+      <Button fx:id="resourceSearchButton" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" text="Go" />
+      <TabPane fx:id="resourcesTable" layoutX="14.0" layoutY="41.0" prefHeight="434.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
          <tabs>
             <Tab fx:id="bookTab" text="Book">
                <content>
                   <TableView fx:id="bookTableView" prefHeight="200.0" prefWidth="200.0">
                      <columns>
-                        <TableColumn fx:id="bookIDColumn" prefWidth="50.0" text="ID" />
-                        <TableColumn fx:id="bookTitleColumn" prefWidth="130.0" text="Title" />
-                        <TableColumn fx:id="bookYearColumn" prefWidth="100.0" text="Year" />
-                        <TableColumn fx:id="bookImageColumn" prefWidth="100.0" text="Image" />
-                        <TableColumn fx:id="bookLoanDurationColumn" prefWidth="100.0" text="Loan Duration" />
-                        <TableColumn fx:id="bookNumberOfCopies" prefWidth="100.0" text="No. Copies" />
-                        <TableColumn fx:id="bookAvailableCopiesColumn" prefWidth="100.0" text="Available Copies" />
-                        <TableColumn fx:id="bookBorrowedCopiesColumn" prefWidth="100.0" text="Borrowed Copies" />
+                        <TableColumn fx:id="resourceIDColumn" prefWidth="50.0" text="ID" />
+                        <TableColumn fx:id="resourceTitleColumn" prefWidth="130.0" text="Title" />
+                        <TableColumn fx:id="resourceYearColumn" prefWidth="100.0" text="Year" />
+                        <TableColumn fx:id="resourceImageColumn" prefWidth="100.0" text="Image" />
+                        <TableColumn fx:id="resourceLoanDurationColumn" prefWidth="100.0" text="Loan Duration" />
+                        <TableColumn fx:id="resourceNumberOfCopies" prefWidth="100.0" text="No. Copies" />
+                        <TableColumn fx:id="resourceAvailableCopiesColumn" prefWidth="100.0" text="Available Copies" />
+                        <TableColumn fx:id="resourceBorrowedCopiesColumn" prefWidth="100.0" text="Borrowed Copies" />
                         <TableColumn fx:id="bookAuthorColumn" prefWidth="100.0" text="Author" />
                         <TableColumn fx:id="bookPublisherColumn" prefWidth="100.0" text="Publisher" />
                         <TableColumn fx:id="bookGenreColumn" prefWidth="100.0" text="Genre" />

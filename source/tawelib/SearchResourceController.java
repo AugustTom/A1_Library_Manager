@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -68,9 +69,11 @@ public class SearchResourceController implements Initializable {
     @FXML private TableColumn<Laptop, String> laptopModelColumn;
     @FXML private TableColumn<Laptop, String> laptopOperatingSystemColumn;
 
+    ObservableList<Book> bookObservableList = FXCollections.observableArrayList();
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        bookIDColumn.setCellValueFactory(new PropertyValueFactory<Resources, Integer>("ID"));
+    public void initialize(URL location, ResourceBundle resources) {}
+        /*bookIDColumn.setCellValueFactory(new PropertyValueFactory<Resources, Integer>("ID"));
         bookTitleColumn.setCellValueFactory(new PropertyValueFactory<Resources, String>("title"));
         bookYearColumn.setCellValueFactory(new PropertyValueFactory<Resources, Integer>("year"));
         bookImageColumn.setCellValueFactory(new PropertyValueFactory<Resources, String>("thumbnailImageID"));
@@ -102,9 +105,9 @@ public class SearchResourceController implements Initializable {
 
         /*bookTableView.setItems(getBook());
         dvdTableView.setItems(getDVD());
-        laptopTableView.setItems(getLaptop());*/
+        laptopTableView.setItems(getLaptop());*
     }
-/*
+
     public ObservableList<Book> getBook(){
         ObservableList<Book> book = FXCollections.observableArrayList();
         book.add(new Book(100231, "The Alchemist", 2012, "tawelib/images/TheAlchemist.png",
@@ -116,8 +119,6 @@ public class SearchResourceController implements Initializable {
         return book;
 >>>>>>> 80f9c78... i broke things, its fixed now
     }
-
-
 /*
     public ObservableList<DVD> getDVD() {
         ObservableList<DVD> dvd = FXCollections.observableArrayList();
