@@ -18,15 +18,15 @@ public class User {
 	protected Double balance;
 	protected String avatarID;
 	
- /**
- * This is a User constructor that initialises an instance of a user
- * @param userName - the username of a user
- * @param firstName - the first name of a user
- * @param lastName - the last name of a user
- * @param phoneNum - the phone number of a user
- * @param balance - the balance of a user
- * @param avatarID - the ID of the avatar of a user
- */
+ 	/**
+ 	* This is a User constructor that initialises an instance of a user
+ 	* @param userName - the username of a user
+ 	* @param firstName - the first name of a user
+ 	* @param lastName - the last name of a user
+ 	* @param phoneNum - the phone number of a user
+ 	* @param balance - the balance of a user
+ 	* @param avatarID - the ID of the avatar of a user
+ 	*/
 
 	public User(String userName, String firstName, String lastName, String phoneNum, Double balance, String avatarID) {
 
