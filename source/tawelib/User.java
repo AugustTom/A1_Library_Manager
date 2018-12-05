@@ -1,3 +1,14 @@
+/**
+ * This class is a superclass of the Librarian subclass
+ * <br>
+ * It stores information about a User
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 05/12/2018
+ */
+
 public class User {
 
 	protected String userName;
