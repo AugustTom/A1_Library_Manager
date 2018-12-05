@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * This class is a subclass of the Resources superclass
  * <br>
- * It stores stores information about a book
+ * It stores information about a book
  *
  *
  * @author Ronalyn Lilyanne
