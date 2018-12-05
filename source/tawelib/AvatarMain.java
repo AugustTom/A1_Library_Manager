@@ -22,6 +22,7 @@ public class AvatarMain extends Application {
     * This start method shows the stage and creates a new scene by loading the "Avatar.fxlml" file
     * @param stage
     */
+    
     public void start(Stage stage) throws Exception {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("tawelib/Avatar.fxml"))));
         stage.show();
