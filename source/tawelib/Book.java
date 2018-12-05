@@ -14,10 +14,10 @@ import java.util.ArrayList;
  */
 
 public class Book extends Resources {
-    protected String author;
-    protected String publisher;
-    protected String ISBN;
-    protected String language;
+    private String author;
+    private String publisher;
+    private String ISBN;
+    private String language;
     
     /**
      * This is a book constructor that initialises a book object
