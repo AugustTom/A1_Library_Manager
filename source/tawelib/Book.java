@@ -26,10 +26,10 @@ public class Book extends Resources {
      * @param year extends from Resources class - book year of publication
      * @param imageID extends from Resources class - ID of a book's image
      * @param copies extends from Resources class - amount of copies of a book
-     * @param - author the author of a book
-     * @param - publisher the publisher of a book
-     * @param - ISBN the International Standard Book Number of a book
-     * @param - language the language in which a book is written
+     * @param author - the author of a book
+     * @param publisher - the publisher of a book
+     * @param ISBN - the International Standard Book Number of a book
+     * @param language - the language in which a book is written
      */
 
     public Book (int id, String title, int year, String imageID, ArrayList<Integer> copies,
