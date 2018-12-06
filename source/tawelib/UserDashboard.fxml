@@ -16,7 +16,7 @@
       <VBox fx:id="librarianControls" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: #FF9626;" BorderPane.alignment="CENTER">
          <children>
             <Region prefHeight="75.0" prefWidth="210.0" VBox.vgrow="ALWAYS" />
-            <ImageView fx:id="avatar_img" fitHeight="120.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="120.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Tawe-LibLogo0.png" />
                </image>

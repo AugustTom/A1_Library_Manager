@@ -1,15 +1,26 @@
 package tawelib;
 
+import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
+
+    @FXML
+    private Pane createAccount;
 
     @FXML
     private TextField newUser_username;
@@ -36,26 +47,42 @@ public class CreateAccountController implements Initializable {
     private Button button_createAccount;
 
     @FXML
-    private RadioButton rb_sittingCat;
+    private RadioButton avatar_sittingCat;
 
     @FXML
-    private RadioButton rb_ghost;
+    private ToggleGroup selectAvatar;
 
     @FXML
-    private RadioButton rb_monster;
+    private RadioButton avatar_ghost;
 
     @FXML
-    private RadioButton rb_bird;
+    private RadioButton avatar_canvas;
 
     @FXML
-    private RadioButton rb_fish;
+    private RadioButton avatar_bird;
 
     @FXML
-    private RadioButton rb_canvas;
+    private RadioButton avatar_fish;
+
+    @FXML
+    private RadioButton avatar_monster;
+
+    @FXML
+    void createAvatar(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 }

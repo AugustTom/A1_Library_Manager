@@ -1,46 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tawelib.AvatarController"
-            prefHeight="600.0" prefWidth="800.0">
+
+<BorderPane fx:id="drawAvatar" prefHeight="313.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.AvatarController">
 
     <top>
-        <VBox>
-            <MenuBar>
-                <Menu text="File">
-                    <MenuItem text="Save" onAction="#save"/>
-                    <MenuItem text="Exit" onAction="#exit"/>
-                </Menu>
-            </MenuBar>
+        <VBox prefHeight="36.0" prefWidth="400.0">
+            <MenuBar />
 
             <ToolBar>
                 <HBox alignment="CENTER" spacing="5">
-                    <Label text="Brush size:"/>
-                    <TextField fx:id = "brushSize" text="10"/>
-                    <ColorPicker fx:id = "colourPicker"/>
+                    <Label text="Brush size:" />
+                    <TextField fx:id="brushSize" prefHeight="25.0" prefWidth="48.0" text="10" />
+                    <ColorPicker fx:id="colourPicker" prefHeight="25.0" prefWidth="90.0" />
                     <MenuBar>
                         <Menu text="Tool">
-                            <MenuItem text="Eraser" onAction="#eraser"/>
-                            <MenuItem text="Particle trace" onAction="#particleTrace"/>
-                            <MenuItem text="Line" onAction="#line"/>
+                            <MenuItem onAction="#eraser" text="Eraser" />
+                            <MenuItem onAction="#particleTrace" text="Particle trace" />
+                            <MenuItem onAction="#line" text="Line" />
                         </Menu>
                     </MenuBar>
-                    <Label text="Selected tool:"/>
-                    <Text fx:id = "selectedTool" text="None"/>
+                    <Label text="Selected tool:" />
+                    <Text fx:id="selectedTool" text="None" />
                 </HBox>
             </ToolBar>
         </VBox>
     </top>
 
     <center>
-        <Canvas fx:id = "canvas" width = "800" height = "600"/>
+        <Canvas fx:id="canvas" height="317.0" width="400.0" />
     </center>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #DCDCDC;" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button fx:id="saveDrawButton" mnemonicParsing="false" onAction="#saveDrawing" text="Save" />
+        </buttons>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </ButtonBar>
+   </bottom>
 
 </BorderPane>

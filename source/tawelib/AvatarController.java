@@ -2,15 +2,21 @@ package tawelib;
 
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class AvatarController {
@@ -23,6 +29,12 @@ public class AvatarController {
     private TextField brushSize;
     @FXML
     private Text selectedTool;
+
+    @FXML
+    private Button saveDrawButton;
+
+    @FXML
+    private Button cancelDrawButton;
 
     private double lineX1;
     private double lineY1;
@@ -82,13 +94,19 @@ public class AvatarController {
         Platform.exit();
     }
 
-    public void save() {
-
-        try {
-            Image avatar = canvas.snapshot(null, null);
-            ImageIO.write(SwingFXUtils.fromFXImage(avatar, null), "png", new File("avatar.png"));
-        } catch (Exception e) {
-            System.out.println("Failed to save: " + e);
+    @FXML
+    void saveDrawing(ActionEvent event) {
+        try{
+            //FileChooser fileChooser = new FileChooser();
+            //fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)","*.png"));
+            //File file = fileChooser.showSaveDialog(null);
+            //File outputFile = new File("...tawelib/images/");
+            Image snapshot = canvas.snapshot(null,null);
+            ImageIO.write(SwingFXUtils.fromFXImage(snapshot,null), "png", new File("newAvatar.png"));
+        } catch (Exception e){
+            System.out.println("Failed to save image" + e);
         }
     }
+
+
 }
