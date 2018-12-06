@@ -12,6 +12,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This LoginController Class works with the "LibrarianDashboard.fxml" and "UserDashboard.fxml" files
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class LoginController implements Initializable {
 
     @FXML
