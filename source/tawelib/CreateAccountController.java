@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file
+ * This CreateAccountController Class pairs with the "CreateAccount.fxml" file
  *
  *
  * @author Auguste Tomaseviciute
