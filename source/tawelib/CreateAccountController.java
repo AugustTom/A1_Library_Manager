@@ -17,6 +17,15 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file
+ *
+ *
+ * @author Auguste Tomaseviciute
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class CreateAccountController implements Initializable {
 
     @FXML
