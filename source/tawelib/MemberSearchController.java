@@ -7,6 +7,15 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This MemberSearchController Class pairs with the "MemberSearch.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class MemberSearchController implements Initializable {
 
     @FXML
