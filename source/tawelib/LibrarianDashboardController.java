@@ -16,6 +16,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This LibrarianDashboardController Class pairs with the "LibrarianDashboard.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class LibrarianDashboardController implements Initializable {
     @FXML
     private BorderPane librarianDashboard;
