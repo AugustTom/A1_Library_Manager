@@ -11,6 +11,15 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This ViewResourcesController Class pairs with the "ViewResources.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class ViewResourcesController implements Initializable {
 
     @FXML
