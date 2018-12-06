@@ -9,6 +9,15 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This AddNewDVDController Class pairs with the "AddNewDVD.fxml" file
+ *
+ *
+ *@author Auguste Tomaseviciute
+ *@version 1.0
+ *@since 04/12/2018
+ */
+
 public class AddNewDVDController implements Initializable {
 
     @FXML
