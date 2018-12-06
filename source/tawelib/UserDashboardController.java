@@ -16,6 +16,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This UserDashboardController Class pairs with the "UserDashboard.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class UserDashboardController implements Initializable {
 
     @FXML
