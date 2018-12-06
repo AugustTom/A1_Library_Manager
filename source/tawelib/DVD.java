@@ -15,10 +15,10 @@ import java.util.ArrayList;
  */
 
 public class DVD extends Resources {
-    protected String director;
-    protected int runtime;
-    protected String language;
-    protected String[] subtitleLanguages;
+    private String director;
+    private int runtime;
+    private String language;
+    privtae String[] subtitleLanguages;
     //ArrayList<String> subtitleLanguages = new ArrayList<String>();
 
     //TODO write function for array to string conversion
