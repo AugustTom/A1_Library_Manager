@@ -14,6 +14,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This NewResourcePanelController Class pairs with the "NewResourcePanel.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class NewResourcePanelController implements Initializable {
 
     @FXML
