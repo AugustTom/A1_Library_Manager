@@ -91,7 +91,7 @@ public class SearchResourceController implements Initializable {
                 });
 
     }
-
+    
     @FXML
     void searchResourcesQuery(ActionEvent event) {
 
