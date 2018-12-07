@@ -1,6 +1,5 @@
 package tawelib;
 
-import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,20 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-/**
- * This CreateAccountController Class pairs with the "CreateAccount.fxml" file
- *
- *
- * @author Auguste Tomaseviciute
- * @version 1.0
- * @since 04/12/2018
- */
 
 public class CreateAccountController implements Initializable {
 
@@ -32,62 +25,85 @@ public class CreateAccountController implements Initializable {
     private Pane createAccount;
 
     @FXML
-    private TextField newUser_username;
+    private TextField newUserUsername;
 
     @FXML
-    private TextField newUser_firstName;
+    private TextField newUserFirstName;
 
     @FXML
-    private TextField newUser_astName;
+    private TextField newUserLastName;
 
     @FXML
-    private TextField newUser_ContactNumber;
+    private TextField newUserContactNo;
 
     @FXML
-    private TextField newUser_Address;
+    private TextField newUserAddress;
 
     @FXML
-    private TextField newUser_employmentDate;
+    private TextField newUserEmployDate;
 
     @FXML
-    private TextField newUser_staffNumber;
+    private TextField newUserStaffNumber;
 
     @FXML
-    private Button button_createAccount;
+    private Button createNewAccountButton;
 
     @FXML
-    private RadioButton avatar_sittingCat;
+    private RadioButton avatarCat;
 
     @FXML
     private ToggleGroup selectAvatar;
 
     @FXML
-    private RadioButton avatar_ghost;
+    private RadioButton avatarGhost;
 
     @FXML
-    private RadioButton avatar_canvas;
+    private RadioButton avatarCanvas;
 
     @FXML
-    private RadioButton avatar_bird;
+    private ImageView avatarDraw;
 
     @FXML
-    private RadioButton avatar_fish;
+    private RadioButton avatarBird;
 
     @FXML
-    private RadioButton avatar_monster;
+    private RadioButton avatarFish;
 
     @FXML
-    void createAvatar(ActionEvent event) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    private RadioButton avatarMonster;
 
+    @FXML
+    void setBirdAvatar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setCatAvatar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setFishAvatar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setGhostAvatar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setMonsterAvatar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setCustomAvatar(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
 
     @Override

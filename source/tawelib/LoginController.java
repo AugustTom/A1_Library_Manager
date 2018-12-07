@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * This LoginController Class works with the "LibrarianDashboard.fxml" and "UserDashboard.fxml" files
+ * This LoginController Class works with the "LibrarianDashboard.fxml" and "MembersDashboard.fxml" files
  *
  *
  * @author Ronalyn Lilyanne
@@ -40,8 +40,8 @@ public class LoginController implements Initializable {
             Pane librarianDashboard = FXMLLoader.load(getClass().getResource("LibrarianDashboard.fxml"));
             loginPage.getChildren().setAll(librarianDashboard);
         } else {
-            Pane userDashboard = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
-            loginPage.getChildren().setAll(userDashboard);
+            Pane memberDashboard = FXMLLoader.load(getClass().getResource("MembersDashboard.fxml"));
+            loginPage.getChildren().setAll(memberDashboard);
         }
 
 
