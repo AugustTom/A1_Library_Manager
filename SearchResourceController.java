@@ -1,21 +1,22 @@
 package tawelib;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
  * This SearchResourceController Class pairs with the "SearchResource.fxml" file
- *
  *
  * @author Ronalyn Lilyanne
  * @version 1.0
@@ -40,19 +41,19 @@ public class SearchResourceController implements Initializable {
     private Tab bookTab;
 
     @FXML
-    private ListView<?> bookResults;
+    private ListView<String> bookResults;
 
     @FXML
     private Tab dvdTab;
 
     @FXML
-    private ListView<?> dvdResults;
+    private ListView<String> dvdResults;
 
     @FXML
     private Tab laptopTab;
 
     @FXML
-    private ListView<?> laptopResults;
+    private ListView<String> laptopResults;
 
     @FXML
     void searchResourceButton(ActionEvent event) {
@@ -61,8 +62,37 @@ public class SearchResourceController implements Initializable {
 
     @FXML
     void searchResourcesQuery(ActionEvent event) {
+        //        ObservableList<String> data = FXCollections.observableArrayList(
+//                "chocolate", "salmon", "gold", "coral", "darkorchid",
+//                "darkgoldenrod", "lightsalmon", "black", "rosybrown", "blue",
+//                "blueviolet", "brown");
 
+
+        ArrayList<Book> books;
+        books = Conn.searchResource(resourceSearchBar.getText());
+        ArrayList<String> bookTitles = new ArrayList<>();
+
+        for (Book b : books) {
+            bookTitles.add(b.getTitle());
+        }
+
+        ObservableList data = FXCollections.observableArrayList(bookTitles);
+
+        final Label label = new Label();
+        bookResults.setItems(data);
+
+
+        bookResults.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<String>() {
+                    public void changed(ObservableValue<? extends String> ov,
+                                        String old_val, String new_val) {
+                        label.setText(new_val);
+                        label.setTextFill(Color.web(new_val));
+                    }
+                });
     }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
