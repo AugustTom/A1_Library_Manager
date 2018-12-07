@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="updateMembersInfoPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.UpdateMemberInfoController">
+   <children>
+      <Pane layoutX="10.0" layoutY="14.0" prefHeight="387.0" prefWidth="370.0">
+         <children>
+            <TextField fx:id="memberFirstNameUpdate" layoutX="18.0" layoutY="34.0" prefHeight="27.0" prefWidth="176.0" />
+            <Text layoutX="18.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="62.96484857797623" />
+            <Text layoutX="19.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="62.96484857797623" />
+            <TextField fx:id="memberLastNameUpdate" layoutX="18.0" layoutY="87.0" prefHeight="27.0" prefWidth="176.0" />
+            <Text layoutX="24.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+            <TextArea fx:id="memberAddressUpdate" layoutX="18.0" layoutY="140.0" prefHeight="92.0" prefWidth="176.0" />
+            <Text layoutX="204.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number" />
+            <TextField fx:id="memberContactNoUpdate" layoutX="204.0" layoutY="204.0" prefHeight="25.0" prefWidth="156.0" />
+            <Text layoutX="19.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="62.96484375" />
+            <TextField fx:id="memberUsernameUpdate" layoutX="18.0" layoutY="260.0" prefHeight="25.0" prefWidth="162.0" />
+            <Button fx:id="saveMemberInfoButton" layoutX="319.0" layoutY="360.0" mnemonicParsing="false" onAction="#saveMemberInfoUpdates" text="Save" />
+            <ImageView fx:id="avatarSelection" fitHeight="125.0" fitWidth="143.0" layoutX="212.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Bird.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="19.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fines" />
+            <TextField fx:id="memberFine" disable="true" layoutX="50.0" layoutY="296.0" prefHeight="25.0" prefWidth="70.0" />
+            <Text layoutX="130.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Fine" />
+            <TextField fx:id="fineUpdate" layoutX="197.0" layoutY="296.0" prefHeight="25.0" prefWidth="70.0" />
+            <Button fx:id="updateFineButton" layoutX="275.0" layoutY="296.0" mnemonicParsing="false" onAction="#updateFine" text="Update" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

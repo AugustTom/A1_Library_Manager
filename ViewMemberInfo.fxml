@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="viewMemberInfoPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.ViewMemberInfoController">
+   <children>
+      <TabPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="370.0">
+         <tabs>
+            <Tab text="Member">
+               <content>
+                  <Pane prefHeight="480.0" prefWidth="370.0">
+                     <children>
+                        <TextField fx:id="memberFirstName" disable="true" layoutX="18.0" layoutY="34.0" prefHeight="27.0" prefWidth="176.0" />
+                        <Text layoutX="18.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="62.96484857797623" />
+                        <Text layoutX="19.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="62.96484857797623" />
+                        <TextField fx:id="memberLastName" disable="true" layoutX="18.0" layoutY="87.0" prefHeight="27.0" prefWidth="176.0" />
+                        <Text layoutX="24.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+                        <TextArea fx:id="memberAddress" disable="true" layoutX="18.0" layoutY="140.0" prefHeight="92.0" prefWidth="176.0" />
+                        <Text layoutX="204.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number" />
+                        <TextField fx:id="memberContactNumber" disable="true" layoutX="204.0" layoutY="204.0" prefHeight="25.0" prefWidth="156.0" />
+                        <Text layoutX="19.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="62.96484375" />
+                        <TextField fx:id="memberUsername" disable="true" layoutX="18.0" layoutY="260.0" prefHeight="25.0" prefWidth="162.0" />
+                        <Button fx:id="editMemberInfoButton" layoutX="319.0" layoutY="335.0" mnemonicParsing="false" onAction="#editMemberInfo" text="Edit" />
+                        <ImageView fx:id="avatarSelection" fitHeight="125.0" fitWidth="143.0" layoutX="212.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/Bird.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="19.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fines" />
+                        <TextField fx:id="memberFine" disable="true" layoutX="50.0" layoutY="296.0" prefHeight="25.0" prefWidth="70.0" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="Borrowed">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="memberBorrowedResources" prefHeight="370.0" prefWidth="370.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Resquested">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="memberRequestedResources" prefHeight="370.0" prefWidth="370.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</Pane>

@@ -56,7 +56,7 @@ public class MemberSearchController implements Initializable {
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MembersMyAccount.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewMemberInfo.fxml"));
                         Parent root1 = null;
                         try {
                             root1 = (Parent) fxmlLoader.load();
