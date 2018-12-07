@@ -1,4 +1,4 @@
-package tawelib;
+package tawelib2;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +43,8 @@ public class LoginController implements Initializable {
             Pane memberDashboard = FXMLLoader.load(getClass().getResource("MembersDashboard.fxml"));
             loginPage.getChildren().setAll(memberDashboard);
         }
+
+
     }
 
     @Override

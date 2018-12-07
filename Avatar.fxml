@@ -13,12 +13,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="avatarCanvasWindow" prefHeight="450" prefWidth="450" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.AvatarController">
+<BorderPane fx:id="avatarCanvasWindow" prefHeight="460.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.AvatarController">
 
     <top>
-        <VBox prefWidth="450">
+        <VBox prefWidth="500.0">
             <MenuBar>
-                <Menu onAction="#save" text="Save"></Menu>
+                <Menu text="File">
+                    <MenuItem onAction="#save" text="Save" />
+                </Menu>
             </MenuBar>
 
             <ToolBar>
@@ -41,7 +43,7 @@
     </top>
 
     <center>
-        <Canvas fx:id="canvas" height="450.0" width="450" />
+        <Canvas fx:id="canvas" height="400.0" width="455.0" />
     </center>
 
 </BorderPane>

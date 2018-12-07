@@ -57,4 +57,5 @@ public class MembersMyAccountUpdateController implements Initializable {
         Pane membersMyAccountPage = FXMLLoader.load(getClass().getResource("MembersMyAccount.fxml"));
         updateMembersMyAccountPage.getChildren().setAll(membersMyAccountPage);
     }
+
 }

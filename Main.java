@@ -1,15 +1,13 @@
-package tawelib;
+package tawelib2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Main extends Application {
     public static Stage parentStage;
-    public TextField statusText;
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -18,7 +16,6 @@ public class Main extends Application {
         stage.setTitle("Tawe-Lib");
         stage.setScene(new Scene(root));
         stage.show();
-
     }
 
 

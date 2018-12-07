@@ -4,8 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static java.lang.Class.*;
-
 public class Conn {
 
     /**
@@ -47,27 +45,19 @@ public class Conn {
     private static ResultSet runQuery(String sql,ArrayList<Object> binds) {
 
         try {
-            Connection con = null;
-           //Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/cs230library";
 
-            try {
-               con = DriverManager
-                        .getConnection("jdbc:mysql://localhost:8080/cs230library","root", "");
+            Connection con = DriverManager.getConnection(url, "root", "");
 
-            } catch (SQLException e) {
-                System.out.println("Connection Failed! Check output console");
-                e.printStackTrace();
-            }
-
-            System.out.println("Con is" + con);
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt = bindPreparedStatement(prepStmt,binds);
 
             return prepStmt.executeQuery();
 
         } catch ( SQLException err ) {
-            System.out.println(err.getMessage() + "Error executing query");
+            System.out.println( err.getMessage() + "Error executing query");
         }
+
         return null;
 
     }
@@ -211,7 +201,7 @@ public class Conn {
     private static int runUpdate(String sql,ArrayList<Object> binds) {
 
         try {
-            String url = "jdbc:mysql://localhost:8080/cs230library";
+            String url = "jdbc:mysql://localhost:3306/cs230library";
 
             Connection con = DriverManager.getConnection(url, "root", "");
 

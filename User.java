@@ -1,3 +1,5 @@
+package tawelib;
+
 public class User {
 
 	protected String userName;
@@ -6,8 +8,10 @@ public class User {
 	protected String phoneNum;
 	protected Double balance;
 	protected String avatarID;
+	protected Address address;
 
-	public User(String userName, String firstName, String lastName, String phoneNum, Double balance, String avatarID) {
+	public User(String userName, String firstName, String lastName, String phoneNum, Double balance,
+				Address address, String avatarID) {
 
 		this.userName = userName;
 		this.firstName = firstName;
@@ -15,6 +19,15 @@ public class User {
 		this.phoneNum = phoneNum;
 		this.balance = balance;
 		this.avatarID = avatarID;
+		this.address = address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Address getAddress() {
+		return this.address;
 	}
 
 	public void setUserName(String userName) {

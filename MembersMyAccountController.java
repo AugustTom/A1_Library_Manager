@@ -11,6 +11,16 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
+/**
+ * This UserMyAccountController Class pairs with the "UserAccount.fxml" file
+ *
+ *
+ * @author Ronalyn Nanong
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
+
 public class MembersMyAccountController {
 
     @FXML

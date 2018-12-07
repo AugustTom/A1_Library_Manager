@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -18,6 +17,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+/**
+ * This CreateAccountController Class pairs with the "CreateAccount.fxml" file
+ *
+ *
+ * @author Ronalyn Nanong
+ * @version 1.0
+ * @since 04/12/2018
+ */
 
 public class CreateAccountController implements Initializable {
 
@@ -97,14 +105,17 @@ public class CreateAccountController implements Initializable {
 
     }
 
+    /**
+     * Opens Avatar.fxml for users to draw their own avatar.
+     * @param event - when 'createNewAccountButton' is pushed this event happens.
+     * @throws IOException
+     */
     @FXML
     void setCustomAvatar(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
-        Parent rootPopUp = (Parent) fxmlLoader.load();
+        Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.setWidth(500);
-        stage.setHeight(500);
-        stage.setScene(new Scene(rootPopUp));
+        stage.setScene(new Scene(root1));
         stage.show();
     }
 

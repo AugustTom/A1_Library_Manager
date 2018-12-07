@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -16,6 +15,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+/**
+ * This UserDashboardController Class pairs with the "UserDashboard.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
 
 public class MemberDashboardController implements Initializable {
 
@@ -43,8 +51,6 @@ public class MemberDashboardController implements Initializable {
     @FXML
     private Button logOutButton;
 
-    public static String searchTerm;
-
     @FXML
     void myAccount(MouseEvent event) {
         loadUI("MembersMyAccount");
@@ -58,13 +64,11 @@ public class MemberDashboardController implements Initializable {
     @FXML
     void viewRequested(MouseEvent event) {
         loadUI("ViewResources");
-        searchTerm = "REQUESTED";
     }
 
     @FXML
     void viewResources(MouseEvent event) {
         loadUI("ViewResources");
-        searchTerm = "BORROWED";
     }
 
     @FXML
@@ -77,7 +81,6 @@ public class MemberDashboardController implements Initializable {
         Parent root = null;
         try{
             root = FXMLLoader.load(getClass().getResource(path + ".fxml"));
-            memberDashboard.setCenter(root);
             memberDashboard.setCenter(root);
         } catch (IOException ex){
             Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);

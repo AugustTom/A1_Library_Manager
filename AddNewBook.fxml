@@ -59,7 +59,7 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button fx:id="addNewBookButton" onMouseClicked="#addNewBook" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" mnemonicParsing="false" prefHeight="25.0" text="Add Book">
+            <Button fx:id="addNewBookButton" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" onAction="#addNewBook" mnemonicParsing="false" prefHeight="25.0" text="Add Book">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

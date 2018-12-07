@@ -1,12 +1,15 @@
 package tawelib;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -18,49 +21,78 @@ import java.util.ResourceBundle;
  * @since 04/12/2018
  */
 
-public class AddNewDVDController implements Initializable {
+public class AddNewDVDController implements Initializable{
 
     @FXML
-    private Pane addNewDVD;
+    private Pane addNewDVDPage;
 
     @FXML
-    private TextField newResource_id;
+    private TextField newDVDID;
 
     @FXML
-    private TextField newResource_title;
+    private TextField newDVDTitle;
 
     @FXML
-    private TextField newResource_year;
+    private TextField newDVDYear;
 
     @FXML
-    private TextField newResource_numberOfCopies;
+    private TextField newDVDCopies;
 
     @FXML
-    private TextField newResource_loanDuration;
+    private TextField newDVDLoanDuration;
 
     @FXML
-    private Button button_browseImage;
+    private TextField newDVDDirector;
 
     @FXML
-    private TextField newResource_image;
+    private TextField newDVDRunTime;
 
     @FXML
-    private TextField newResource_director;
+    private TextField newDVDLanguage;
 
     @FXML
-    private TextField newResource_runtime;
+    private TextField newDVDSubtitleLanguages;
 
     @FXML
-    private TextField newResource_language;
+    private Button addNewDVDButton;
 
     @FXML
-    private TextField newResource_subtitleLanguages;
+    private Button browseImageButton;
 
     @FXML
-    private Button button_addNewDVD;
+    private ImageView newDVDImage;
+
+    @FXML
+    void addNewDVD(ActionEvent event) {
+        ArrayList IDsOfCopies = new ArrayList<>();
+        IDsOfCopies.add(1);
+
+        System.out.println("adding new dvd");
+        int dvdID = Integer.parseInt(newDVDID.getText());
+        String dvdTitle = newDVDTitle.getText();
+        int dvdYear = Integer.parseInt(newDVDYear.getText());
+        int dvdNumOfCopies = Integer.parseInt(newDVDCopies.getText());
+        int dvdDuration = Integer.parseInt(newDVDLoanDuration.getText());
+
+        String dvdDirector  = newDVDDirector.getText();
+        int dvdRuntime = Integer.parseInt(newDVDRunTime.getText());
+        String[] dvdSubtitleLanguages = newDVDSubtitleLanguages.getText().split(",");
+        String dvdLanguage = newDVDLanguage.getText();
+
+        for (int idcount = 0; idcount < dvdNumOfCopies; idcount++) {
+            IDsOfCopies.add(idcount);
+        }
+
+
+        DVD dvd = new DVD (dvdID, dvdTitle, dvdYear, "1nsn", IDsOfCopies, dvdDirector, dvdRuntime,
+                 dvdSubtitleLanguages, dvdLanguage);
+        Conn.writeObject(dvd);
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 }
+

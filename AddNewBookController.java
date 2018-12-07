@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
  * This AddNewBookController Class pairs with the "AddNewBook.fxml" file
  *
  *
+ * @author Auguste Tomaseviciute
  * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
@@ -62,17 +63,11 @@ public class AddNewBookController implements Initializable {
     @FXML
     private Button browseImageButton;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
     @FXML
     void addNewBook(MouseEvent event) {
 
         ArrayList IDsOfCopies = new ArrayList<>();
         IDsOfCopies.add(1);
-        Book newbook = new Book (12, "helo", 1198, "img",IDsOfCopies, "her",
-                "gew", " 13445", "lahn") ;
 
         System.out.println("adding new book");
         int bookID = Integer.parseInt(newBookID.getText());
@@ -93,5 +88,10 @@ public class AddNewBookController implements Initializable {
         Book book = new Book (bookID, bookTitle, bookYear, "1nsn", IDsOfCopies, bookAuthor, bookPublisher,
                 bookISBN, bookLanguage);
         Conn.writeObject(book);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
