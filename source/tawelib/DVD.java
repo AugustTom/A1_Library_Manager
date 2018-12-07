@@ -18,8 +18,7 @@ public class DVD extends Resources {
     private String director;
     private int runtime;
     private String language;
-    privtae String[] subtitleLanguages;
-    //ArrayList<String> subtitleLanguages = new ArrayList<String>();
+    private String[] subtitleLanguages;
 
     //TODO write function for array to string conversion
     

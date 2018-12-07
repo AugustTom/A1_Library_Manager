@@ -3,6 +3,7 @@ package tawelib;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,34 +20,34 @@ import java.util.ResourceBundle;
 public class MemberSearchController implements Initializable {
 
     @FXML
-    private Button button_memberSearch;
+    private Pane memberSearchPage;
 
     @FXML
-    private TableView<?> memberSearch_result;
+    private ListView<?> booksBorrowedResult;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_usernameResult;
+    private ListView<?> dvdsBorrowedResult;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_firstNameResult;
+    private ListView<?> laptopsBorrowedResult;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_lastNameResult;
+    private TextField fineBalance;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_addressResult;
+    private TextField finePayment;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_contactNumberResult;
+    private Button fineUpdateButton;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_employmentDateResult;
+    private Button memberSearchButton;
 
     @FXML
-    private TableColumn<?, ?> memberSearch_staffNumberResult;
+    private TextField memberSearchQuery;
 
     @FXML
-    private TextField memberSearch_search;
+    private ListView<?> memberDetailsResults;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

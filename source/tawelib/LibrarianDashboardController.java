@@ -56,7 +56,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     public void myAccount(MouseEvent event) {
-        loadUI("MyAccount");
+        loadUI("LibrariansMyAccount");
     }
 
     @FXML

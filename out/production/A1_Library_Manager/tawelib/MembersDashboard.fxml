@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="userDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.UserDashboardController">
+<BorderPane fx:id="memberDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MemberDashboardController">
    <left>
       <VBox fx:id="librarianControls" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: #FF9626;" BorderPane.alignment="CENTER">
          <children>

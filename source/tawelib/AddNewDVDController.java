@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
  * This AddNewDVDController Class pairs with the "AddNewDVD.fxml" file
  *
  *
- * @author Auguste Tomaseviciute
+ * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
  */

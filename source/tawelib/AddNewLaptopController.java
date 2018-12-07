@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file
  *
  *
- * @author Auguste Tomaseviciute
+ * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
  */

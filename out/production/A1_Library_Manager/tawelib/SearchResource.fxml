@@ -1,80 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="searchResource" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.SearchResourceController">
+<Pane fx:id="searchResourcePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.SearchResourceController">
    <children>
-      <TextField fx:id="resourceSearchBar" layoutX="13.0" layoutY="15.0" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
-      <Button fx:id="resourceSearchButton" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" text="Go" />
-      <TabPane fx:id="resourcesTable" layoutX="14.0" layoutY="41.0" prefHeight="434.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
+      <TextField fx:id="resourceSearchBar" layoutX="13.0" layoutY="15.0" onAction="#searchResourcesQuery" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
+      <Button fx:id="resourceSearchButton" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchResourceButton" text="Go" />
+      <TabPane fx:id="resourcesTable" layoutX="14.0" layoutY="41.0" prefHeight="443.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
          <tabs>
             <Tab fx:id="bookTab" text="Book">
                <content>
-                  <TableView fx:id="bookTableView" prefHeight="200.0" prefWidth="200.0">
-                     <columns>
-                        <TableColumn fx:id="resourceIDColumn" prefWidth="50.0" text="ID" />
-                        <TableColumn fx:id="resourceTitleColumn" prefWidth="130.0" text="Title" />
-                        <TableColumn fx:id="resourceYearColumn" prefWidth="100.0" text="Year" />
-                        <TableColumn fx:id="resourceImageColumn" prefWidth="100.0" text="Image" />
-                        <TableColumn fx:id="resourceLoanDurationColumn" prefWidth="100.0" text="Loan Duration" />
-                        <TableColumn fx:id="resourceNumberOfCopies" prefWidth="100.0" text="No. Copies" />
-                        <TableColumn fx:id="resourceAvailableCopiesColumn" prefWidth="100.0" text="Available Copies" />
-                        <TableColumn fx:id="resourceBorrowedCopiesColumn" prefWidth="100.0" text="Borrowed Copies" />
-                        <TableColumn fx:id="bookAuthorColumn" prefWidth="100.0" text="Author" />
-                        <TableColumn fx:id="bookPublisherColumn" prefWidth="100.0" text="Publisher" />
-                        <TableColumn fx:id="bookGenreColumn" prefWidth="100.0" text="Genre" />
-                        <TableColumn fx:id="bookISBNColumn" prefWidth="100.0" text="ISBN" />
-                        <TableColumn fx:id="bookLanguageColumn" prefWidth="100.0" text="Language" />
-                     </columns>
-                  </TableView>
+                  <ListView fx:id="bookResults" prefHeight="308.0" prefWidth="362.0" />
                </content>
             </Tab>
             <Tab fx:id="dvdTab" text="DVD">
                <content>
-                  <TableView fx:id="dvdTableView" prefHeight="200.0" prefWidth="200.0">
-                     <columns>
-                        <TableColumn fx:id="dvdIDColumn" prefWidth="50.0" text="ID" />
-                        <TableColumn fx:id="dvdTitleColumn" prefWidth="130.0" text="Title" />
-                        <TableColumn fx:id="dvdYearColumn" prefWidth="100.0" text="Year" />
-                        <TableColumn fx:id="dvdImageColumn" prefWidth="100.0" text="Image" />
-                        <TableColumn fx:id="dvdLoanDurationColumn" prefWidth="100.0" text="Loan Duration" />
-                        <TableColumn fx:id="dvdNumberOfCopies" prefWidth="100.0" text="No. Copies" />
-                        <TableColumn fx:id="dvdAvailableCopiesColumn" prefWidth="100.0" text="Available Copies" />
-                        <TableColumn fx:id="dvdBorrowedCopiesColumn" prefWidth="100.0" text="Borrowed Copies" />
-                        <TableColumn fx:id="dvdDirectorColumn" prefWidth="100.0" text="Director" />
-                        <TableColumn fx:id="dvdRuntimeColumn" prefWidth="100.0" text="Runtime" />
-                        <TableColumn fx:id="dvdLanguageColumn" prefWidth="100.0" text="Language" />
-                        <TableColumn fx:id="dvdSubtitlesColumn" prefWidth="100.0" text="Subtitle" />
-                     </columns>
-                  </TableView>
+                  <ListView fx:id="dvdResults" prefHeight="200.0" prefWidth="200.0" />
                </content>
             </Tab>
             <Tab fx:id="laptopTab" text="Laptop">
                <content>
-                  <TableView fx:id="laptopTableView" prefHeight="405.0" prefWidth="504.0">
-                     <columns>
-                        <TableColumn fx:id="laptopIDColumn" prefWidth="50.0" text="ID" />
-                        <TableColumn fx:id="laptopTitleColumn" prefWidth="130.0" text="Title" />
-                        <TableColumn fx:id="laptopYearColumn" prefWidth="100.0" text="Year" />
-                        <TableColumn fx:id="laptopImageColumn" prefWidth="100.0" text="Image" />
-                        <TableColumn fx:id="laptopLoanDurationColumn" prefWidth="100.0" text="Loan Duration" />
-                        <TableColumn fx:id="laptopNumberOfCopies" prefWidth="100.0" text="No. Copies" />
-                        <TableColumn fx:id="laptopAvailableCopiesColumn" prefWidth="100.0" text="Available Copies" />
-                        <TableColumn fx:id="laptopBorrowedCopiesColumn" prefWidth="100.0" text="Borrowed Copies" />
-                        <TableColumn fx:id="laptopManufacturerColumn" prefWidth="100.0" text="Manufacturer" />
-                        <TableColumn fx:id="laptopModelColumn" prefWidth="100.0" text="Model" />
-                        <TableColumn fx:id="laptopOperatingSystemColumn" prefWidth="100.0" text="Operating System" />
-                     </columns>
-                  </TableView>
+                  <ListView fx:id="laptopResults" prefHeight="200.0" prefWidth="200.0" />
                </content>
             </Tab>
          </tabs>
+         <effect>
+            <DropShadow />
+         </effect>
       </TabPane>
    </children>
 </Pane>

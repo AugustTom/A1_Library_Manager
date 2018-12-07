@@ -3,8 +3,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 
-<ScrollPane fx:id="viewResources" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="390.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+<ScrollPane fx:id="viewResourcesPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <content>
-      <ListView fx:id="list_view" prefHeight="400.0" prefWidth="390.0" />
+      <ListView fx:id="resourcesResults" prefHeight="400.0" prefWidth="390.0" />
    </content>
 </ScrollPane>

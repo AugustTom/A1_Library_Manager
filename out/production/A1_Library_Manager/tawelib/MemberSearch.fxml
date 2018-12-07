@@ -1,113 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="memberSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MemberSearchController">
+<Pane fx:id="memberSearchPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MemberSearchController">
    <children>
-      <Text layoutX="16.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrowed GUI.Resources">
+      <Text layoutX="16.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrowed Resources">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
       <TabPane layoutX="16.0" layoutY="175.0" prefHeight="141.0" prefWidth="359.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
         <tabs>
-          <Tab text="GUI.Book">
+          <Tab text="Book">
                <content>
-                  <TableView prefHeight="127.0" prefWidth="359.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
-                        <TableColumn prefWidth="75.0" text="Title" />
-                        <TableColumn prefWidth="75.0" text="Year" />
-                        <TableColumn prefWidth="75.0" text="Image" />
-                        <TableColumn prefWidth="75.0" text="Loan Duration" />
-                        <TableColumn prefWidth="75.0" text="No. Copies" />
-                        <TableColumn prefWidth="75.0" text="Author" />
-                        <TableColumn prefWidth="75.0" text="Publisher" />
-                        <TableColumn prefWidth="75.0" text="ISBN" />
-                        <TableColumn prefWidth="75.0" text="Language" />
-                     </columns>
-                  </TableView>
+                  <ListView fx:id="booksBorrowedResult" prefHeight="200.0" prefWidth="200.0" />
                </content>
             </Tab>
-          <Tab text="GUI.DVD">
+          <Tab text="DVD">
                <content>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
-                        <TableColumn prefWidth="75.0" text="Title" />
-                        <TableColumn prefWidth="75.0" text="Year" />
-                        <TableColumn prefWidth="75.0" text="Image" />
-                        <TableColumn prefWidth="75.0" text="Loan Duration" />
-                        <TableColumn prefWidth="75.0" text="No. Copies" />
-                        <TableColumn prefWidth="75.0" text="Runtime" />
-                        <TableColumn prefWidth="75.0" text="Language" />
-                        <TableColumn prefWidth="75.0" text="Subtitle Languages" />
-                    </columns>
-                  </TableView>
+                  <ListView fx:id="dvdsBorrowedResult" prefHeight="200.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="GUI.Laptop">
+            <Tab text="Laptop">
                <content>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
-                        <TableColumn prefWidth="75.0" text="Title" />
-                        <TableColumn prefWidth="75.0" text="Year" />
-                        <TableColumn prefWidth="75.0" text="Image" />
-                        <TableColumn prefWidth="75.0" text="Loan Duration" />
-                        <TableColumn prefWidth="75.0" text="No. Copies" />
-                        <TableColumn prefWidth="75.0" text="Manufacturer" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
                </content>
                <content>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
-                        <TableColumn prefWidth="75.0" text="Title" />
-                        <TableColumn prefWidth="75.0" text="Year" />
-                        <TableColumn prefWidth="75.0" text="Image" />
-                        <TableColumn prefWidth="75.0" text="Loan Duration" />
-                        <TableColumn prefWidth="75.0" text="No. Copies" />
-                      <TableColumn prefWidth="75.0" text="Manufacturer" />
-                      <TableColumn prefWidth="75.0" text="Model" />
-                        <TableColumn prefWidth="75.0" text="Operating System" />
-                    </columns>
-                  </TableView>
+                  <ListView fx:id="laptopsBorrowedResult" prefHeight="200.0" prefWidth="200.0" />
                </content></Tab>
         </tabs>
       </TabPane>
-      <TextField layoutX="90.0" layoutY="319.0" prefHeight="25.0" prefWidth="57.0" text="0.00" />
-      <Text layoutX="19.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fine Balance:" />
-      <TextField layoutX="90.0" layoutY="347.0" prefHeight="25.0" prefWidth="57.0" text="0.00" />
-      <Text layoutX="40.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Fine:" />
-      <Button layoutX="148.0" layoutY="347.0" mnemonicParsing="false" text="Pay" />
-      <Button fx:id="button_memberSearch" layoutX="342.0" layoutY="21.0" mnemonicParsing="false" text="Go" />
-      <TableView fx:id="memberSearch_result" layoutX="15.0" layoutY="78.0" prefHeight="65.0" prefWidth="359.0">
-        <columns>
-          <TableColumn fx:id="memberSearch_usernameResult" prefWidth="75.0" text="Username" />
-          <TableColumn fx:id="memberSearch_firstNameResult" prefWidth="75.0" text="First Name" />
-            <TableColumn fx:id="memberSearch_lastNameResult" prefWidth="75.0" text="Last Name" />
-            <TableColumn fx:id="memberSearch_addressResult" prefWidth="75.0" text="Address" />
-            <TableColumn fx:id="memberSearch_contactNumberResult" prefWidth="75.0" text="Contact Number" />
-            <TableColumn fx:id="memberSearch_employmentDateResult" prefWidth="75.0" text="Date of Employment" />
-            <TableColumn fx:id="memberSearch_staffNumberResult" prefWidth="75.0" text="Staff Number" />
-        </columns>
-      </TableView>
+      <TextField fx:id="fineBalance" layoutX="90.0" layoutY="330.0" prefHeight="25.0" prefWidth="57.0" text="0.00" />
+      <Text layoutX="19.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fine Balance:" />
+      <TextField fx:id="finePayment" layoutX="90.0" layoutY="358.0" prefHeight="25.0" prefWidth="57.0" text="0.00" />
+      <Text layoutX="40.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Fine:" />
+      <Button fx:id="fineUpdateButton" layoutX="148.0" layoutY="358.0" mnemonicParsing="false" text="Pay" />
+      <Button fx:id="memberSearchButton" layoutX="342.0" layoutY="21.0" mnemonicParsing="false" text="Go" />
       <Text layoutX="16.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member's Details">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="memberSearch_search" layoutX="16.0" layoutY="21.0" prefHeight="25.0" prefWidth="328.0" promptText="Search..." />
+      <TextField fx:id="memberSearchQuery" layoutX="16.0" layoutY="21.0" prefHeight="25.0" prefWidth="328.0" promptText="Search..." />
+      <ListView fx:id="memberDetailsResults" layoutX="16.0" layoutY="75.0" prefHeight="65.0" prefWidth="359.0" />
    </children>
 </Pane>

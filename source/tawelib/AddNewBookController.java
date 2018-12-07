@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
@@ -13,7 +14,7 @@ import java.util.ResourceBundle;
  * This AddNewBookController Class pairs with the "AddNewBook.fxml" file
  *
  *
- * @author Auguste Tomaseviciute
+ * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
  */
@@ -21,43 +22,43 @@ import java.util.ResourceBundle;
 public class AddNewBookController implements Initializable {
 
     @FXML
-    private Pane addNewBook;
+    private Pane addNewBookPage;
 
     @FXML
-    private TextField newResource_id;
+    private TextField newBookID;
 
     @FXML
-    private TextField newResource_title;
+    private TextField newBookTitle;
 
     @FXML
-    private TextField newResource_year;
+    private TextField newBookYear;
 
     @FXML
-    private TextField newResource_numberOfCopies;
+    private TextField newBookCopies;
 
     @FXML
-    private TextField newResource_loanDuration;
+    private TextField newBookLoanDuration;
 
     @FXML
-    private Button button_browseImage;
+    private TextField newBookPublisher;
 
     @FXML
-    private TextField newResource_image;
+    private TextField newBookISBN;
 
     @FXML
-    private TextField newResource_publisher;
+    private TextField newBookAuthor;
 
     @FXML
-    private TextField newResource_isbnNumber;
+    private TextField newBookLanguage;
 
     @FXML
-    private TextField newResource_author;
+    private Button addNewBookButton;
 
     @FXML
-    private TextField newResource_language;
+    private ImageView newBookImage;
 
     @FXML
-    private Button button_AddBook;
+    private Button browseImageButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

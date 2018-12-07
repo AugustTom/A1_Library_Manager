@@ -26,16 +26,17 @@ import java.util.logging.Logger;
 public class NewResourcePanelController implements Initializable {
 
     @FXML
-    private BorderPane newResourcePanel;
+    private BorderPane addNewResourcePanel;
 
     @FXML
-    private Button button_book;
+    private Button newBookButton;
 
     @FXML
-    private Button button_DVD;
+    private Button newDVDButton;
 
     @FXML
-    private Button button_laptop;
+    private Button newLaptopButton;
+
 
     @FXML
     void addNewBook(MouseEvent event) {
@@ -56,7 +57,7 @@ public class NewResourcePanelController implements Initializable {
         Parent root = null;
         try{
             root = FXMLLoader.load(getClass().getResource(path + ".fxml"));
-            newResourcePanel.setCenter(root);
+            addNewResourcePanel.setCenter(root);
         } catch (IOException ex){
             Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
