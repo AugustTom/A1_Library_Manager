@@ -13,6 +13,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This MyAccountUpdatedController Class pairs with the "MyAccount.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class MyAccountUpdateController implements Initializable {
     @FXML
     private Pane myAccountUpdate;

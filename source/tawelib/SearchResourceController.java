@@ -13,6 +13,15 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This SearchResourceController Class pairs with the "SearchResource.fxml" file
+ *
+ *
+ * @author Ronalyn Lilyanne
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class SearchResourceController implements Initializable {
 
     @FXML
