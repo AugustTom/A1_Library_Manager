@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  * This AddNewBookController Class pairs with the "AddNewBook.fxml" file
  *
  *
- * @author Ronalyn Nanong
+ * @author Auguste Tomaseviciute
  * @version 1.0
  * @since 04/12/2018
  */
