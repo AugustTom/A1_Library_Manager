@@ -12,23 +12,23 @@
    <children>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="480.0" prefWidth="370.0">
          <children>
-            <TextField fx:id="userFirstName" disable="true" layoutX="18.0" layoutY="34.0" prefHeight="27.0" prefWidth="176.0" />
+            <TextField fx:id="memberFirstName" disable="true" layoutX="18.0" layoutY="34.0" prefHeight="27.0" prefWidth="176.0" />
             <Text layoutX="18.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="62.96484857797623" />
             <Text layoutX="19.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" wrappingWidth="62.96484857797623" />
-            <TextField fx:id="userLastName" disable="true" layoutX="18.0" layoutY="87.0" prefHeight="27.0" prefWidth="176.0" />
+            <TextField fx:id="memberLastName" disable="true" layoutX="18.0" layoutY="87.0" prefHeight="27.0" prefWidth="176.0" />
             <Text layoutX="24.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
-            <TextArea fx:id="userAddress" disable="true" layoutX="18.0" layoutY="140.0" prefHeight="92.0" prefWidth="176.0" />
+            <TextArea fx:id="memberAddress" disable="true" layoutX="18.0" layoutY="140.0" prefHeight="92.0" prefWidth="176.0" />
             <Text layoutX="204.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number" />
-            <TextField fx:id="userContactNumber" disable="true" layoutX="204.0" layoutY="204.0" prefHeight="25.0" prefWidth="156.0" />
+            <TextField fx:id="memberContactNumber" disable="true" layoutX="204.0" layoutY="204.0" prefHeight="25.0" prefWidth="156.0" />
             <Text layoutX="19.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="62.96484375" />
-            <TextField fx:id="userUsername" disable="true" layoutX="18.0" layoutY="260.0" prefHeight="25.0" prefWidth="162.0" />
+            <TextField fx:id="memberUsername" disable="true" layoutX="18.0" layoutY="260.0" prefHeight="25.0" prefWidth="162.0" />
             <Button fx:id="editMyAccountButton" layoutX="319.0" layoutY="441.0" mnemonicParsing="false" onAction="#editAccount" text="Edit" />
             <ImageView fx:id="avatarSelection" fitHeight="125.0" fitWidth="143.0" layoutX="212.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Bird.png" />
                </image></ImageView>
             <Text layoutX="19.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fines" />
-            <TextField fx:id="userUsername1" disable="true" layoutX="50.0" layoutY="296.0" prefHeight="25.0" prefWidth="70.0" />
+            <TextField fx:id="memberFine" disable="true" layoutX="50.0" layoutY="296.0" prefHeight="25.0" prefWidth="70.0" />
          </children>
       </Pane>
    </children>
