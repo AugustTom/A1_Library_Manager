@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="viewMemberInfoPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.ViewMemberInfoController">
+<Pane fx:id="viewMemberInfoPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MembersMyAccountController">
    <children>
       <TabPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="370.0">
          <tabs>
             <Tab text="Member">
                <content>
-                  <Pane prefHeight="480.0" prefWidth="370.0">
+                  <Pane prefHeight="360.0" prefWidth="370.0">
                      <children>
                         <TextField fx:id="memberFirstName" disable="true" layoutX="18.0" layoutY="34.0" prefHeight="27.0" prefWidth="176.0" />
                         <Text layoutX="18.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="62.96484857797623" />
