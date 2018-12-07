@@ -57,11 +57,6 @@ public class SearchResourceController implements Initializable {
 
     @FXML
     void searchResourceButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void searchResourcesQuery(ActionEvent event) {
         //        ObservableList<String> data = FXCollections.observableArrayList(
 //                "chocolate", "salmon", "gold", "coral", "darkorchid",
 //                "darkgoldenrod", "lightsalmon", "black", "rosybrown", "blue",
@@ -90,6 +85,12 @@ public class SearchResourceController implements Initializable {
                         label.setTextFill(Color.web(new_val));
                     }
                 });
+
+    }
+
+    @FXML
+    void searchResourcesQuery(ActionEvent event) {
+
     }
 
 
