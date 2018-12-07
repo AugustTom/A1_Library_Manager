@@ -73,7 +73,7 @@ public class MemberDashboardController implements Initializable {
 
     @FXML
     void loginPage (MouseEvent event) throws IOException {
-        Parent loginPage = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
         memberDashboard.getChildren().setAll(loginPage);
     }
 

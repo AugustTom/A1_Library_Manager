@@ -83,7 +83,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     void loginPage (MouseEvent event) throws IOException {
-        Parent loginPage = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
         librarianDashboard.getChildren().setAll(loginPage);
     }
 
