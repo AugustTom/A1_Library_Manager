@@ -69,7 +69,7 @@ public class CreateAccountController implements Initializable {
     private RadioButton avatarCanvas;
 
     @FXML
-    private ImageView avatarDraw;
+    private Button avatarDraw;
 
     @FXML
     private RadioButton avatarBird;
@@ -113,10 +113,19 @@ public class CreateAccountController implements Initializable {
     @FXML
     void setCustomAvatar(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
+        Parent rootAvatar = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.setScene(new Scene(root1));
+        stage.setScene(new Scene(rootAvatar, 500, 500));
         stage.show();
+    }
+    @FXML
+    void createNewAccount(ActionEvent event) {
+        String userName = newUserUsername.getText();
+        String userFirstName = newUserFirstName.getText();
+        String userLastName = newUserLastName.getText();
+        String userNumber = newUserContactNo.getText();
+       //address
+        
     }
 
     @Override

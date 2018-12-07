@@ -57,27 +57,31 @@ public class SearchResourceController implements Initializable {
 
     @FXML
     void searchResourceButton(ActionEvent event) {
-        //        ObservableList<String> data = FXCollections.observableArrayList(
-//                "chocolate", "salmon", "gold", "coral", "darkorchid",
-//                "darkgoldenrod", "lightsalmon", "black", "rosybrown", "blue",
-//                "blueviolet", "brown");
+        Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
+            ListView activeView;
+        ArrayList<Resources> resources = Conn.searchResource(resourceSearchBar.getText());
+        ArrayList<String> resourceTitles = new ArrayList<>();
 
-
-        ArrayList<Book> books;
-        books = Conn.searchResource(resourceSearchBar.getText());
-        ArrayList<String> bookTitles = new ArrayList<>();
-
-        for (Book b : books) {
-            bookTitles.add(b.getTitle());
+        for (Resources b : resources) {
+            resourceTitles.add(b.getTitle());
         }
 
-        ObservableList data = FXCollections.observableArrayList(bookTitles);
+        ObservableList data = FXCollections.observableArrayList(resourceTitles);
 
         final Label label = new Label();
-        bookResults.setItems(data);
+        if (selectedTab == bookTab) {
+            activeView = bookResults;
+        } else if (selectedTab == dvdTab) {
+            activeView = dvdResults;
+        } else {
+            activeView = laptopResults;
+        }
 
 
-        bookResults.getSelectionModel().selectedItemProperty().addListener(
+        activeView.setItems(data);
+
+
+        activeView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
