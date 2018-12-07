@@ -1,3 +1,5 @@
+package tawelib;
+
 import java.util.Date;
 
 public class Librarian extends User {
@@ -8,7 +10,7 @@ public class Librarian extends User {
     public Librarian(String userName, String firstName, String lastName, String phoneNum, double balance,
                      String avatarID, Address address, String employDate, int staffNum) {
 
-        super(userName, firstName, lastName, phoneNum, balance, avatarID, address);
+        super(userName, firstName, lastName, phoneNum, balance, address, avatarID);
 
         this.employDate = employDate;
         this.staffNum = staffNum;
