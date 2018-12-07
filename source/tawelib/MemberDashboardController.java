@@ -16,19 +16,10 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * This UserDashboardController Class pairs with the "UserDashboard.fxml" file
- *
- *
- * @author Ronalyn Lilyanne
- * @version 1.0
- * @since 04/12/2018
- */
-
-public class UserDashboardController implements Initializable {
+public class MemberDashboardController implements Initializable {
 
     @FXML
-    private BorderPane userDashboard;
+    private BorderPane memberDashboard;
 
     @FXML
     private VBox librarianControls;
@@ -53,7 +44,7 @@ public class UserDashboardController implements Initializable {
 
     @FXML
     void myAccount(MouseEvent event) {
-        loadUI("MyAccount");
+        loadUI("MembersMyAccount");
     }
 
     @FXML
@@ -74,16 +65,16 @@ public class UserDashboardController implements Initializable {
     @FXML
     void loginPage (MouseEvent event) throws IOException {
         Parent loginPage = FXMLLoader.load(getClass().getResource("login.fxml"));
-        userDashboard.getChildren().setAll(loginPage);
+        memberDashboard.getChildren().setAll(loginPage);
     }
 
     private void loadUI (String path){
         Parent root = null;
         try{
             root = FXMLLoader.load(getClass().getResource(path + ".fxml"));
-            userDashboard.setCenter(root);
+            memberDashboard.setCenter(root);
         } catch (IOException ex){
-            Logger.getLogger(UserDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @Override
