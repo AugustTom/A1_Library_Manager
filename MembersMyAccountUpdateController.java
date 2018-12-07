@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -21,30 +20,28 @@ public class MembersMyAccountUpdateController implements Initializable {
     private Pane updateMembersMyAccountPage;
 
     @FXML
-    private Button saveAccountUpdatesButton;
+    private TextField memberFirstNameUpdate;
 
     @FXML
-    private ImageView userAvatar;
+    private TextField memberLastNameUpdate;
 
     @FXML
-    private TextField userUsername;
+    private TextArea memberAddressUpdate;
 
     @FXML
-    private TextArea userAddress;
+    private TextField memberContactNoUpdate;
 
     @FXML
-    private TextField userContactNumber;
+    private TextField memberUsernameUpdate;
 
     @FXML
-    private TextField userLastName;
+    private Button saveMyAccountButton;
 
     @FXML
-    private TextField userFirstName;
+    private ImageView avatarSelection;
 
     @FXML
-    void myAccount(MouseEvent event) {
-
-    }
+    private TextField memberFine;
 
 
 

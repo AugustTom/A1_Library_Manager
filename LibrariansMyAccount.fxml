@@ -14,10 +14,10 @@
          <children>
             <Button fx:id="editMyAccountButton" layoutX="315.0" layoutY="441.0" mnemonicParsing="false" onAction="#editAccount" onMouseClicked="#myAccount" text="Edit" />
             <Text layoutX="15.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Image:" wrappingWidth="87.92578250169754" />
-            <TextField fx:id="user_staffNumber" disable="true" layoutX="88.0" layoutY="290.0" prefHeight="25.0" prefWidth="123.0" />
+            <TextField fx:id="librarianNumber" disable="true" layoutX="88.0" layoutY="290.0" prefHeight="25.0" prefWidth="123.0" />
             <Text layoutX="15.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Number" />
             <Text layoutX="14.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employment Date" />
-            <TextField fx:id="user_staffNumber1" disable="true" layoutX="111.0" layoutY="254.0" prefHeight="25.0" prefWidth="123.0" />
+            <TextField fx:id="librarianNumber1" disable="true" layoutX="111.0" layoutY="254.0" prefHeight="25.0" prefWidth="123.0" />
             <ImageView fitHeight="121.0" fitWidth="123.0" layoutX="88.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Bird.png" />

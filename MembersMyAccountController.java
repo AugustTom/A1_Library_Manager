@@ -27,25 +27,28 @@ public class MembersMyAccountController {
     private Pane membersMyAccountPage;
 
     @FXML
-    private TextField userFirstName;
+    private TextField memberFirstName;
 
     @FXML
-    private TextField userLastName;
+    private TextField memberLastName;
 
     @FXML
-    private TextArea userAddress;
+    private TextArea memberAddress;
 
     @FXML
-    private TextField userContactNumber;
+    private TextField memberContactNumber;
 
     @FXML
-    private TextField userUsername;
+    private TextField memberUsername;
 
     @FXML
     private Button editMyAccountButton;
 
     @FXML
     private ImageView avatarSelection;
+
+    @FXML
+    private TextField memberFine;
 
     @FXML
     void editAccount(ActionEvent event) throws IOException {

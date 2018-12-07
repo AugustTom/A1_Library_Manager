@@ -1,4 +1,4 @@
-package tawelib2;
+package tawelib;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
