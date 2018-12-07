@@ -105,7 +105,7 @@ public class Book extends Resources {
     }
     /**
     * set method for language
-    * @param language
+    * @param languages
     */
 
     public void setLanguage(String languages) {

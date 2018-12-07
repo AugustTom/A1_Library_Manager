@@ -106,6 +106,11 @@ public class CreateAccountController implements Initializable {
 
     }
 
+    /**
+     * Opens Avatar.fxml for users to draw their own avatar.
+     * @param event - when 'createNewAccountButton' is pushed this event happens.
+     * @throws IOException
+     */
     @FXML
     void setCustomAvatar(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
