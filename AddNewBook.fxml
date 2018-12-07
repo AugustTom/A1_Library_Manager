@@ -59,7 +59,7 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button fx:id="addNewBookButton" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" onAction="#addNewBook" mnemonicParsing="false" prefHeight="25.0" text="Add Book">
+            <Button fx:id="addNewBookButton" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="25.0" text="Add Book">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -67,7 +67,7 @@
             <ImageView fx:id="newBookImage" fitHeight="129.0" fitWidth="153.0" layoutX="64.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Button fx:id="browseImageButton" alignment="CENTER_RIGHT" layoutX="19.0" layoutY="116.0" mnemonicParsing="false" prefHeight="25.0" text="Browse Images">
+      <Button fx:id="browseImageButton" alignment="CENTER_RIGHT" layoutX="19.0" layoutY="116.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" text="Browse Images">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
