@@ -68,4 +68,5 @@ public class SearchResourceController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 }
