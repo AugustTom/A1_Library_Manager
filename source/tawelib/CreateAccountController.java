@@ -19,6 +19,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This CreateAccountController Class pairs with the "CreateAccount.fxml" file
+ *
+ *
+ * @author Ronalyn Nanong
+ * @version 1.0
+ * @since 04/12/2018
+ */
+
 public class CreateAccountController implements Initializable {
 
     @FXML
