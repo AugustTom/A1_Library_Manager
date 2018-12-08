@@ -57,6 +57,7 @@ public class LoginController implements Initializable {
             System.out.println("loading user " + ((User)activeUser).getUserName());
 
             if (Conn.isLibrarian(username)) {
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("LibrarianDashboard.fxml"));
                 Pane librarianDashboard = loader.load();
                 loginPage.getChildren().setAll(librarianDashboard);
@@ -69,7 +70,6 @@ public class LoginController implements Initializable {
                 Pane memberDashboard = loader.load();
                 loginPage.getChildren().setAll(memberDashboard);
                 MemberDashboardController controller = loader.getController();
-
                 controller.setActiveUser((User) activeUser);
 
             }

@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -28,7 +30,6 @@ import java.util.ResourceBundle;
  */
 
 public class MemberSearchController implements Initializable {
-    private User activeUser;
 
     @FXML
     private Pane memberSearchPage;
@@ -45,10 +46,17 @@ public class MemberSearchController implements Initializable {
     @FXML
     void selectMemberResult(ActionEvent event) {
 
-        ObservableList<String> data = FXCollections.observableArrayList(
-                "chocolate", "salmon", "gold", "coral", "darkorchid",
-                "darkgoldenrod", "lightsalmon", "black", "rosybrown", "blue",
-                "blueviolet", "brown");
+        ArrayList searchMemberResult = Conn.searchUsers(memberSearchQuery.getText());
+
+
+        ObservableList<String> data = FXCollections.observableArrayList();
+
+        //Get names of users
+        for(Object obj: searchMemberResult)
+        {
+            data.add(((User)obj).userName);
+        }
+
 
         final Label label = new Label();
         memberDetailsResults.setItems(data);
@@ -57,16 +65,25 @@ public class MemberSearchController implements Initializable {
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewMemberInfo.fxml"));
+
+                        FXMLLoader loader = new FXMLLoader( getClass().getResource("ViewMemberInfo.fxml"));
                         Parent rootMemberInfo = null;
                         try {
-                            rootMemberInfo = fxmlLoader.load();
+                            Librarian selectedUser = (Librarian) Objects.requireNonNull(Conn.searchUsers(ov.getValue())).get(0);
+                            if (selectedUser != null) {
+
+                                System.out.println("Loaded");
+                                rootMemberInfo = loader.load();
+                                ViewMemberInfoController controller = loader.getController();
+                                controller.setActiveUser(selectedUser);
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(rootMemberInfo));
+                                stage.show();
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(rootMemberInfo));
-                        stage.show();
+
                     }
                 });
 
@@ -75,9 +92,5 @@ public class MemberSearchController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    public void setActiveUser(User activeUser) {
-        this.activeUser = activeUser;
     }
 }
