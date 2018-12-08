@@ -107,6 +107,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+         loadUI("LibrariansMyAccount");
     }
 
 
