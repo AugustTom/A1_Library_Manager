@@ -92,6 +92,11 @@ public class AddNewDVDController implements Initializable{
         DVD dvd = new DVD (dvdID, dvdTitle, dvdYear, "1nsn", IDsOfCopies, dvdDirector, dvdRuntime,
                  dvdSubtitleLanguages, dvdLanguage);
         Conn.writeObject(dvd);
+        
+        //Alert Window
+        Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
+        alert.setWidth(100);
+        alert.showAndWait();
 
     }
     
