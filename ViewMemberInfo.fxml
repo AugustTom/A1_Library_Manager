@@ -15,11 +15,11 @@
 
 <Pane fx:id="viewMemberInfoPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.ViewMemberInfoController">
    <children>
-      <TabPane prefHeight="448.0" prefWidth="375.0">
+      <TabPane prefHeight="470.0" prefWidth="375.0">
          <tabs>
             <Tab text="Member">
                <content>
-                  <Pane prefHeight="414.0" prefWidth="372.0">
+                  <Pane prefHeight="433.0" prefWidth="375.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="130.0" layoutX="214.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="137.0" />
                         <ImageView fx:id="avatarSelection" fitHeight="114.0" fitWidth="113.0" layoutX="226.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
@@ -70,7 +70,14 @@
                            </font>
                         </Text>
                         <TextField fx:id="memberFine" disable="true" layoutX="18.0" layoutY="340.0" prefHeight="25.0" prefWidth="93.0" />
-                        <Button fx:id="saveEditMyAccountButton" layoutX="321.0" layoutY="380.0" mnemonicParsing="false" onAction="#editMemberInfo" text="Edit" />
+                        <Button fx:id="saveEditInfoButton" layoutX="321.0" layoutY="393.0" mnemonicParsing="false" onAction="#saveEditInfo" text="Edit" />
+                        <Text layoutX="18.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Fine" wrappingWidth="100.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="memberFine1" layoutX="18.0" layoutY="393.0" prefHeight="25.0" prefWidth="93.0" />
+                        <Button fx:id="updateFineButton" layoutX="117.0" layoutY="393.0" mnemonicParsing="false" onAction="#calculateFine" text="Update" />
                      </children>
                   </Pane>
                </content>

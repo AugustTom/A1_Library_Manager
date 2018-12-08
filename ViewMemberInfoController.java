@@ -51,7 +51,13 @@ public class ViewMemberInfoController implements Initializable {
     private TextField memberFine;
 
     @FXML
-    private Button saveEditMyAccountButton;
+    private TextField updateFine;
+
+    @FXML
+    private Button saveEditInfoButton;
+
+    @FXML
+    private Button updateFineButton;
 
     @FXML
     private ListView<?> memberBorrowedResources;
@@ -59,12 +65,47 @@ public class ViewMemberInfoController implements Initializable {
     @FXML
     private ListView<?> memberRequestedResources;
 
+    @FXML
+    void calculateFine(ActionEvent event) {
+
+    }
 
     @FXML
-    void editMemberInfo(ActionEvent event) throws IOException {
-        Pane updateMembersInfoPage = FXMLLoader.load(getClass().getResource("UpdateMemberInfo.fxml"));
-        viewMemberInfoPage.getChildren().setAll(updateMembersInfoPage);
+    void saveEditInfo(ActionEvent event) {
+        if (saveEditInfoButton.getText().equals("Edit")){
+            editAccountInfo();
+        } else {
+            showAccountInfo();
+        }
+    }
 
+    void editAccountInfo(){
+        memberFirstName.setDisable(false);
+        memberLastName.setDisable(false);
+        houseNumber.setDisable(false);
+        streetName.setDisable(false);
+        cityName.setDisable(false);
+        postCode.setDisable(false);
+        memberContactNumber.setDisable(false);
+        updateFine.setDisable(false);
+        memberUsername.setDisable(false);
+        saveEditInfoButton.setText("Save");
+    }
+
+    void showAccountInfo(){
+        memberFirstName.setDisable(true);
+        //memberFirstName.setText(activeUser.getFirstName());
+        memberLastName.setDisable(true);
+        //memberLastName.setText(activeUser.getFirstName());
+        houseNumber.setDisable(true);
+        streetName.setDisable(true);
+        cityName.setDisable(true);
+        postCode.setDisable(true);
+        memberContactNumber.setDisable(true);
+        //memberContactNumber.setText(activeUser.getFirstName());
+        updateFine.setDisable(true);
+        //memberFine.setText(activeUser.getFirstName());
+        saveEditInfoButton.setText("Edit");
     }
 
     @Override

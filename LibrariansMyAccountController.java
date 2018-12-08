@@ -83,7 +83,8 @@ public class LibrariansMyAccountController {
                 showAccountInfo();
             }
 
-}
+    }
+    
     /**
      * Enables the text fields to allow the user to edit their information.
      * The button text is set to "Edit".
