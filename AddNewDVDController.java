@@ -70,6 +70,9 @@ public class AddNewDVDController implements Initializable{
 
     @FXML
     private ImageView newDVDImage;
+    
+    
+    private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
 
     @FXML
     void addNewDVD(ActionEvent event) {
