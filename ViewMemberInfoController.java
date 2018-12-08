@@ -48,16 +48,16 @@ public class ViewMemberInfoController implements Initializable {
     private TextField memberUsername;
 
     @FXML
-    private TextField memberFine;
+    private TextField memberBalance;
 
     @FXML
-    private TextField updateFine;
+    private TextField updateBalance;
 
     @FXML
     private Button saveEditInfoButton;
 
     @FXML
-    private Button updateFineButton;
+    private Button updateBalanceButton;
 
     @FXML
     private ListView<?> memberBorrowedResources;
@@ -66,7 +66,7 @@ public class ViewMemberInfoController implements Initializable {
     private ListView<?> memberRequestedResources;
 
     @FXML
-    void calculateFine(ActionEvent event) {
+    void calculateBalance(ActionEvent event) {
 
     }
 
@@ -91,7 +91,7 @@ public class ViewMemberInfoController implements Initializable {
         cityName.setDisable(false);
         postCode.setDisable(false);
         memberContactNumber.setDisable(false);
-        updateFine.setDisable(false);
+        updateBalance.setDisable(false);
         saveEditInfoButton.setText("Save");
     }
 
@@ -106,8 +106,8 @@ public class ViewMemberInfoController implements Initializable {
         postCode.setDisable(true);
         memberContactNumber.setDisable(true);
         //memberContactNumber.setText(activeUser.getFirstName());
-        updateFine.setDisable(true);
-        //memberFine.setText(activeUser.getFirstName());
+        updateBalance.setDisable(true);
+        //memberBalance.setText(activeUser.getFirstName());
         saveEditInfoButton.setText("Edit Info");
     }
 
