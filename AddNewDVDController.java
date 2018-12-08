@@ -94,6 +94,17 @@ public class AddNewDVDController implements Initializable{
         Conn.writeObject(dvd);
 
     }
+    
+    public void inputCheck(){
+               addNewDVDButton.disableProperty().bind(Bindings.createBooleanBinding(
+                       () -> {
+                           boolean check = true;
+                           for (TextField textField: textFieldArrayList){
+                               check = check && textField.getText().isEmpty();
+                           }
+                           return check;
+                       }));
+    }
 
     @FXML
     void chooseFile(ActionEvent event) {
