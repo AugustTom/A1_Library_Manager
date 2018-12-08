@@ -18,6 +18,11 @@ import java.util.ResourceBundle;
  */
 
 public class ViewResourcesController implements Initializable {
+    private User activeUser;
+
+    //"Borrowed for borrowed view
+    //"Requested for requested view
+    private String viewType;
 
     @FXML
     private Pane viewResources;
@@ -31,6 +36,14 @@ public class ViewResourcesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setActiveUser(User user) {
+        this.activeUser = user;
+    }
+
+    public void setViewType(String requested) {
+        this.viewType = requested;
     }
 }
 

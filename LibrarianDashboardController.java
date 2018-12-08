@@ -1,10 +1,14 @@
 package tawelib;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -26,9 +30,10 @@ import java.util.logging.Logger;
  */
 
 public class LibrarianDashboardController implements Initializable {
+
+    private User currentUser;
     @FXML
     private BorderPane librarianDashboard;
-
 
     @FXML
     private VBox librarianControls;
@@ -73,7 +78,6 @@ public class LibrarianDashboardController implements Initializable {
     @FXML
     void memberSearch(MouseEvent event) {
         loadUI("MemberSearch");
-
     }
 
     @FXML
@@ -97,8 +101,13 @@ public class LibrarianDashboardController implements Initializable {
         }
     }
 
+    public void loadUser(User user) {
+        currentUser = user;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
+
+
 }

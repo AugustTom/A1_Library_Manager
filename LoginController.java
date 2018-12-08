@@ -1,6 +1,7 @@
 package tawelib;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,35 +41,26 @@ public class LoginController implements Initializable {
      * @throws IOException
      */
     @FXML
-    void librarianDashboard(MouseEvent event) throws IOException {
+    void enterDashboard(Event event) throws IOException {
         final String username =  loginUsername.getText();
+        User activeUser = null;
 
         if( username.equals("lib")) {
-            Pane librarianDashboard = FXMLLoader.load(getClass().getResource("LibrarianDashboard.fxml"));
+
+            FXMLLoader loader = new FXMLLoader (getClass().getResource("LibrarianDashboard.fxml"));
+            Pane librarianDashboard = loader.load();
             loginPage.getChildren().setAll(librarianDashboard);
+            LibrarianDashboardController controller = loader.getController();
+            controller.loadUser(activeUser);
+
         } else {
-            Pane memberDashboard = FXMLLoader.load(getClass().getResource("MembersDashboard.fxml"));
+
+            FXMLLoader loader = new FXMLLoader (getClass().getResource("MembersDashboard.fxml"));
+            Pane memberDashboard = loader.load();
             loginPage.getChildren().setAll(memberDashboard);
-        }
+            MemberDashboardController controller = loader.getController();
+            controller.setActiveUser(activeUser);
 
-    }
-
-
-    /**
-     * Logs user in after enter key is pressed.
-     * @param enterkey
-     * @throws IOException
-     */
-    @FXML
-    void onEnter(ActionEvent enterkey) throws IOException {
-        final String username =  loginUsername.getText();
-
-        if( username.equals("lib")) {
-            Pane librarianDashboard = FXMLLoader.load(getClass().getResource("LibrarianDashboard.fxml"));
-            loginPage.getChildren().setAll(librarianDashboard);
-        } else {
-            Pane memberDashboard = FXMLLoader.load(getClass().getResource("MembersDashboard.fxml"));
-            loginPage.getChildren().setAll(memberDashboard);
         }
 
     }

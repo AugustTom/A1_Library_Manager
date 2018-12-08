@@ -1,17 +1,27 @@
 package tawelib;
 
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -69,6 +79,9 @@ public class AddNewBookController implements Initializable {
     @FXML
     private Button browseImageButton;
 
+
+    private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
+
     @FXML
     void chooseFile(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -92,13 +105,15 @@ public class AddNewBookController implements Initializable {
 
     }
 
-    @FXML
-    void addNewBook(MouseEvent event) {
 
-        ArrayList IDsOfCopies = new ArrayList<>();
+
+    @FXML
+    void addNewBook(ActionEvent event) throws IOException {
+
+
+        ArrayList<Integer> IDsOfCopies = new ArrayList<>();
         IDsOfCopies.add(1);
 
-        System.out.println("adding new book");
         int bookID = Integer.parseInt(newBookID.getText());
         String bookTitle = newBookTitle.getText();
         int bookYear = Integer.parseInt(newBookYear.getText());
@@ -114,13 +129,49 @@ public class AddNewBookController implements Initializable {
         }
 
 
-        Book book = new Book (bookID, bookTitle, bookYear, "1nsn", IDsOfCopies, bookAuthor, bookPublisher,
+        Book book = new Book(bookID, bookTitle, bookYear, "1nsn", IDsOfCopies, bookAuthor, bookPublisher,
                 bookISBN, bookLanguage);
-        Conn.writeObject(book);
+        System.out.println(Conn.writeObject(book));
+
+
+        //Alert Window
+        Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
+        alert.setWidth(100);
+        alert.showAndWait();
     }
+
+    public void inputCheck(){
+               addNewBookButton.disableProperty().bind(Bindings.createBooleanBinding(
+                       () -> {
+                           boolean check = true;
+                           for (TextField textField: textFieldArrayList){
+                               check = check && textField.getText().isEmpty();
+                           }
+                           return check;
+                       }));
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        inputCheck();
+        textFieldArrayList.add(newBookLanguage);
+        textFieldArrayList.add(newBookTitle);
+        textFieldArrayList.add(newBookAuthor);
+        textFieldArrayList.add(newBookCopies);
+        textFieldArrayList.add(newBookID);
+        textFieldArrayList.add(newBookISBN);
+        textFieldArrayList.add(newBookLoanDuration);
+        textFieldArrayList.add(newBookPublisher);
+        textFieldArrayList.add(newBookYear);
+
+
+        for(TextField textField:textFieldArrayList)
+        {
+            textField.textProperty().addListener((observable) -> {
+                inputCheck();
+            });
+        }
     }
 }

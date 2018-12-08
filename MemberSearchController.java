@@ -28,6 +28,7 @@ import java.util.ResourceBundle;
  */
 
 public class MemberSearchController implements Initializable {
+    private User activeUser;
 
     @FXML
     private Pane memberSearchPage;
@@ -57,14 +58,14 @@ public class MemberSearchController implements Initializable {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewMemberInfo.fxml"));
-                        Parent root1 = null;
+                        Parent rootMemberInfo = null;
                         try {
-                            root1 = (Parent) fxmlLoader.load();
+                            rootMemberInfo = fxmlLoader.load();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         Stage stage = new Stage();
-                        stage.setScene(new Scene(root1));
+                        stage.setScene(new Scene(rootMemberInfo));
                         stage.show();
                     }
                 });
@@ -74,5 +75,9 @@ public class MemberSearchController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setActiveUser(User activeUser) {
+        this.activeUser = activeUser;
     }
 }

@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="memberDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MemberDashboardController">
    <left>
@@ -27,6 +28,11 @@
                   <Insets left="30.0" />
                </VBox.margin>
             </ImageView>
+            <Text fx:id="username" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World" textAlignment="CENTER" wrappingWidth="208.2060546875">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Text>
             <Button fx:id="myAccountButton" mnemonicParsing="false" onMouseClicked="#myAccount" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="My Account" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="10.0" />
@@ -43,7 +49,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="addNewResourcesButton" mnemonicParsing="false" onMouseClicked="#viewResources" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Borrowed">
+            <Button fx:id="addNewResourcesButton" mnemonicParsing="false" onMouseClicked="#viewBorrowed" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Borrowed">
                <padding>
                   <Insets bottom="5.0" top="10.0" />
                </padding>
