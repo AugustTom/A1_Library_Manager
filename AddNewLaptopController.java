@@ -119,6 +119,17 @@ public class AddNewLaptopController implements Initializable {
         alert.showAndWait();
 
     }
+    
+    public void inputCheck(){
+               addNewLaptopButton.disableProperty().bind(Bindings.createBooleanBinding(
+                       () -> {
+                           boolean check = true;
+                           for (TextField textField: textFieldArrayList){
+                               check = check && textField.getText().isEmpty();
+                           }
+                           return check;
+                       }));
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
