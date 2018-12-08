@@ -22,7 +22,7 @@
             <TextField fx:id="memberContactNumber" disable="true" layoutX="204.0" layoutY="204.0" prefHeight="25.0" prefWidth="156.0" />
             <Text layoutX="19.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="62.96484375" />
             <TextField fx:id="memberUsername" disable="true" layoutX="18.0" layoutY="260.0" prefHeight="25.0" prefWidth="162.0" />
-            <Button fx:id="editMyAccountButton" layoutX="319.0" layoutY="441.0" mnemonicParsing="false" onAction="#editAccount" text="Edit" />
+            <Button fx:id="saveEditMyAccountButton" layoutX="319.0" layoutY="441.0" mnemonicParsing="false" onAction="#editAccount" text="Edit" />
             <ImageView fx:id="avatarSelection" fitHeight="125.0" fitWidth="143.0" layoutX="212.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Bird.png" />

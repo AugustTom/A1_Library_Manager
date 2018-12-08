@@ -6,11 +6,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -55,6 +60,8 @@ public class SearchResourceController implements Initializable {
     @FXML
     private ListView<String> laptopResults;
 
+    private User activeUser;
+
     @FXML
     void searchResourceButton(ActionEvent event) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
@@ -69,6 +76,7 @@ public class SearchResourceController implements Initializable {
         ObservableList data = FXCollections.observableArrayList(resourceTitles);
 
         final Label label = new Label();
+
         if (selectedTab == bookTab) {
             activeView = bookResults;
         } else if (selectedTab == dvdTab) {
@@ -85,9 +93,22 @@ public class SearchResourceController implements Initializable {
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
-                        label.setText(new_val);
                         label.setTextFill(Color.web(new_val));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewResourceInfo.fxml"));
+                        Parent resourceRoot = null;
+                        try {
+                            resourceRoot = (Parent) fxmlLoader.load();
+                            //ViewResourceInfoController controller = fxmlLoader.getController();
+                            //controller.getResource();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(resourceRoot));
+                        stage.show();
+
                     }
+
                 });
 
     }
@@ -104,4 +125,7 @@ public class SearchResourceController implements Initializable {
 
     }
 
+    public void setActiveUser(User user) {
+        this.activeUser = user;
+    }
 }

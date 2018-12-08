@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="librarianDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.LibrarianDashboardController">
    <left>
@@ -27,6 +28,7 @@
                   <Insets left="30.0" />
                </VBox.margin>
             </ImageView>
+            <Text fx:id="userUsername" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World" textAlignment="CENTER" wrappingWidth="207.2060546875" />
             <Button fx:id="myAccountButton" mnemonicParsing="false" onMouseClicked="#myAccount" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="My Account" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="10.0" />

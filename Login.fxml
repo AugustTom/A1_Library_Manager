@@ -15,8 +15,8 @@
             <Image url="@images/Tawe-LibLogo0.png" />
          </image>
       </ImageView>
-      <TextField fx:id="loginUsername" layoutX="186.0" layoutY="263.0" onAction="#onEnter" prefHeight="25.0" prefWidth="228.0" promptText="Username" />
-      <Button fx:id="loginButton" layoutX="274.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#librarianDashboard" text="Log In" />
+      <TextField fx:id="loginUsername"  onAction="#enterDashboard" layoutX="186.0" layoutY="263.0" prefHeight="25.0" prefWidth="228.0" promptText="Username" />
+      <Button fx:id="loginButton" layoutX="274.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#enterDashboard" defaultButton="true" text="Log In" />
       <Text layoutX="256.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
          <font>
             <Font name="Century Gothic" size="17.0" />
