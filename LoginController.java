@@ -10,8 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
+import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -32,6 +34,9 @@ public class LoginController implements Initializable {
     private TextField loginUsername;
 
     @FXML
+    private Text welcomeMessage;
+
+    @FXML
     private Button loginButton;
 
 
@@ -44,10 +49,13 @@ public class LoginController implements Initializable {
     void enterDashboard(Event event) throws IOException {
         final String username =  loginUsername.getText();
 
-        Object activeUser = Conn.searchUsers(username).get(0);
+        ArrayList userReturn= Conn.searchUsers(username);
 
-        System.out.println(((User)activeUser).getUserName());
-        if (activeUser != null) {
+        if (!userReturn.isEmpty()) {
+            Object activeUser = userReturn.get(0);
+            System.out.println(activeUser);
+            System.out.println("loading user " + ((User)activeUser).getUserName());
+
             if (Conn.isLibrarian(username)) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("LibrarianDashboard.fxml"));
                 Pane librarianDashboard = loader.load();
@@ -65,9 +73,9 @@ public class LoginController implements Initializable {
                 controller.setActiveUser((User) activeUser);
 
             }
-        } else
-        {
+        } else {
             System.out.println("Invalid Login");
+            welcomeMessage.setText("Invalid Login");
         }
 
     }
