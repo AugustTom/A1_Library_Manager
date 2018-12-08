@@ -77,6 +77,7 @@ public class SearchResourceController implements Initializable {
 
         if (selectedTab == bookTab) {
             activeView = bookResults;
+
         } else if (selectedTab == dvdTab) {
             activeView = dvdResults;
         } else {
@@ -94,9 +95,9 @@ public class SearchResourceController implements Initializable {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResourceInfo.fxml"));
                         Parent resourceRoot = null;
                         try {
-                            resourceRoot = (Parent) fxmlLoader.load();
-                            //ViewResourceInfoController controller = fxmlLoader.getController();
-                            //controller.getResource();
+                            resourceRoot = fxmlLoader.load();
+                            ResourceInfoController controller = fxmlLoader.getController();
+                            controller.setResources(ov.getValue());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

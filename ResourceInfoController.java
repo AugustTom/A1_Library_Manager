@@ -9,9 +9,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ResourceInfoController implements Initializable {
+
+    private Resources activeResource;
 
     @FXML
     private Pane resourceInfoPage;
@@ -78,5 +81,10 @@ public class ResourceInfoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setResources(String resourceTitle) {
+        //pass the same array
+       //this.activeResource = Conn.searchResource(resourceTitle);
     }
 }
