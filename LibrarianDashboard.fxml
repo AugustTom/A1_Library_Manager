@@ -17,7 +17,7 @@
       <VBox fx:id="librarianControls" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: #FF9626;" BorderPane.alignment="CENTER">
          <children>
             <Region prefHeight="75.0" prefWidth="210.0" VBox.vgrow="ALWAYS" />
-            <ImageView fx:id="avatar_img" fitHeight="120.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="avatarImg" fitHeight="120.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Tawe-LibLogo0.png" />
                </image>
@@ -28,7 +28,11 @@
                   <Insets left="30.0" />
                </VBox.margin>
             </ImageView>
-            <Text fx:id="userUsername" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World" textAlignment="CENTER" wrappingWidth="207.2060546875" />
+            <Text fx:id="username" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello!" textAlignment="CENTER" wrappingWidth="207.2060546875">
+               <font>
+               <Font name="System Italic" size="13.0" />
+               </font>
+            </Text>
             <Button fx:id="myAccountButton" mnemonicParsing="false" onMouseClicked="#myAccount" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="My Account" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="10.0" />

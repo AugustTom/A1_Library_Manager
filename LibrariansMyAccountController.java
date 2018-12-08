@@ -23,9 +23,9 @@ import java.util.ResourceBundle;
  * @since 04/12/2018
  */
 
-public class LibrariansMyAccountController {
+public class LibrariansMyAccountController implements Initializable{
 
-    Librarian activeUser;
+    private Librarian activeUser;
 
     @FXML
     private Pane librarianMyAccountPage;
@@ -75,6 +75,9 @@ public class LibrariansMyAccountController {
      */
     @FXML
     void editAccount(Event event) throws IOException {
+        System.out.println("Heloo");
+        System.out.println(activeUser.getFirstName());
+
         if (saveEditMyAccountButton.getText().equals("Edit")){
                 editAccountInfo();
         } else {
@@ -108,6 +111,7 @@ public class LibrariansMyAccountController {
      * The button text is set to "Edit".
      */
     void showAccountInfo(){
+
         librarianFirstName.setDisable(true);
         librarianFirstName.setText(activeUser.getFirstName());
         librarianLastName.setDisable(true);
@@ -129,12 +133,31 @@ public class LibrariansMyAccountController {
         librarianEmploymentDate.setText(activeUser.getEmployDate());
         librarianEmploymentDate.setDisable(true);
         librarianStaffNumber.setDisable(true);
+        librarianStaffNumber.setText(String.valueOf(activeUser.getStaffNum()));
         saveEditMyAccountButton.setText("Edit");
-
     }
 
     public void setActiveUser(Librarian activeUser) {
         this.activeUser = activeUser;
+        System.out.println(librarianUsername);
+        librarianFirstName.setText(activeUser.getFirstName());
+        librarianLastName.setText(activeUser.getLastName());
+
+        houseNumber.setText(activeUser.getAddress().getHouseName());
+        streetName.setText(activeUser.getAddress().getStreetName());
+        cityName.setText(activeUser.getAddress().getCity());
+        postCode.setText(activeUser.getAddress().getPostCode());
+
+        librarianContactNumber.setText(activeUser.getPhone());
+        librarianUsername.setText(activeUser.getUserName());
+
+        librarianEmploymentDate.setText(activeUser.getEmployDate());
+        librarianStaffNumber.setText(String.valueOf(activeUser.getStaffNum()));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 
 }

@@ -2,7 +2,6 @@ package tawelib;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -49,16 +48,16 @@ public class ViewMemberInfoController implements Initializable {
     private TextField memberUsername;
 
     @FXML
-    private TextField memberFine;
+    private TextField memberBalance;
 
     @FXML
-    private TextField updateFine;
+    private TextField updateBalance;
 
     @FXML
     private Button saveEditInfoButton;
 
     @FXML
-    private Button updateFineButton;
+    private Button updateBalanceButton;
 
     @FXML
     private ListView<?> memberBorrowedResources;
@@ -67,7 +66,7 @@ public class ViewMemberInfoController implements Initializable {
     private ListView<?> memberRequestedResources;
 
     @FXML
-    void calculateFine(ActionEvent event) {
+    void calculateBalance(ActionEvent event) {
 
     }
 

@@ -3,6 +3,7 @@ package tawelib;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -10,7 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * This MembersMyAccountController allows library members to view and edit their information.
@@ -21,8 +24,8 @@ import java.util.ArrayList;
  */
 
 
-public class MembersMyAccountController {
-    User activeUser;
+public class MembersMyAccountController implements Initializable {
+    private User activeUser;
 
     @FXML
     private Pane membersMyAccountPage;
@@ -69,7 +72,7 @@ public class MembersMyAccountController {
      */
     @FXML
     void editAccount(ActionEvent event) throws IOException {
-        //System.out.println(saveEditMyAccountButton.getText());
+        System.out.println(activeUser.getFirstName());
 
         if (saveEditMyAccountButton.getText().equals("Edit")){
             editAccountInfo();
@@ -106,6 +109,7 @@ public class MembersMyAccountController {
         memberFirstName.setText(activeUser.getFirstName());
         memberLastName.setDisable(true);
         memberLastName.setText(activeUser.getLastName());
+
         houseNumber.setDisable(true);
         houseNumber.setText(activeUser.getAddress().getHouseName());
         streetName.setDisable(true);
@@ -114,6 +118,7 @@ public class MembersMyAccountController {
         cityName.setText(activeUser.getAddress().getCity());
         postCode.setDisable(true);
         postCode.setText(activeUser.getAddress().getPostCode());
+
         memberContactNumber.setDisable(true);
         memberContactNumber.setText(activeUser.getPhone());
         memberUsername.setDisable(true);
@@ -123,8 +128,23 @@ public class MembersMyAccountController {
 
     }
 
-    void setActiveUser(User user){
-        this.activeUser = user;
+    public void setActiveUser(User activeUser){
+        this.activeUser = activeUser;
+        System.out.println(memberUsername);
+        memberFirstName.setText(activeUser.getFirstName());
+        memberLastName.setText(activeUser.getLastName());
+
+        houseNumber.setText(activeUser.getAddress().getHouseName());
+        streetName.setText(activeUser.getAddress().getStreetName());
+        cityName.setText(activeUser.getAddress().getCity());
+        postCode.setText(activeUser.getAddress().getPostCode());
+
+        memberContactNumber.setText(activeUser.getPhone());
+        memberUsername.setText(activeUser.getUserName());
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

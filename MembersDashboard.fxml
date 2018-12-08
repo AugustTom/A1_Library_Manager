@@ -28,7 +28,7 @@
                   <Insets left="30.0" />
                </VBox.margin>
             </ImageView>
-            <Text fx:id="username" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World" textAlignment="CENTER" wrappingWidth="208.2060546875">
+            <Text fx:id="username" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello!" textAlignment="CENTER" wrappingWidth="208.2060546875">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
