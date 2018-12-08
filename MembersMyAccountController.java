@@ -91,7 +91,8 @@ public class MembersMyAccountController {
         cityName.setDisable(false);
         postCode.setDisable(false);
         memberContactNumber.setDisable(false);
-        memberUsername.setDisable(false);
+        memberUsername.setDisable(true);
+        memberFine.setDisable(true);
         saveEditMyAccountButton.setText("Save");
     }
 
@@ -106,18 +107,18 @@ public class MembersMyAccountController {
         memberLastName.setDisable(true);
         memberLastName.setText(activeUser.getLastName());
         houseNumber.setDisable(true);
-        //houseNumber.setText(activeUser.getHouseName());
+        houseNumber.setText(activeUser.getAddress().getHouseName());
         streetName.setDisable(true);
-        //streetName.setText(activeUser.getStreetName());
+        streetName.setText(activeUser.getAddress().getStreetName());
         cityName.setDisable(true);
-        //cityName.setText(activeUser.getCity());
+        cityName.setText(activeUser.getAddress().getCity());
         postCode.setDisable(true);
-        //postCode.setText(activeUser.getPostCode());
-        //memberAddress.setText(activeUser.getAddress().toString());
+        postCode.setText(activeUser.getAddress().getPostCode());
         memberContactNumber.setDisable(true);
         memberContactNumber.setText(activeUser.getPhone());
         memberUsername.setDisable(true);
         memberUsername.setText(activeUser.getUserName());
+        memberFine.setDisable(true);
         saveEditMyAccountButton.setText("Edit");
 
     }

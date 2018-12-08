@@ -114,14 +114,13 @@ public class LibrariansMyAccountController {
         librarianLastName.setText(activeUser.getLastName());
 
         houseNumber.setDisable(true);
-        //houseNumber.setText(activeUser.getHouseName());
+        houseNumber.setText(activeUser.getAddress().getHouseName());
         streetName.setDisable(true);
-        //streetName.setText(activeUser.getStreetName());
+        streetName.setText(activeUser.getAddress().getStreetName());
         cityName.setDisable(true);
-        //cityName.setText(activeUser.getCityName());
+        cityName.setText(activeUser.getAddress().getCity());
         postCode.setDisable(true);
-        //postCode.setText(activeUser.getPostCode());
-        //userAddress.setText(activeUser.getAddress().toString());
+        postCode.setText(activeUser.getAddress().getPostCode());
 
         librarianContactNumber.setDisable(true);
         librarianContactNumber.setText(activeUser.getPhone());
