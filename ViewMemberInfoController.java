@@ -2,7 +2,6 @@ package tawelib;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -113,6 +112,6 @@ public class ViewMemberInfoController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        memberFirstName.getText();
     }
 }

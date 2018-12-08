@@ -1,18 +1,15 @@
 package tawelib;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,14 +29,18 @@ import java.util.logging.Logger;
 public class LibrarianDashboardController implements Initializable {
 
     private Librarian activeUser;
+
     @FXML
     private BorderPane librarianDashboard;
+
+    @FXML
+    private Text username;
 
     @FXML
     private VBox librarianControls;
 
     @FXML
-    private ImageView avatar_img;
+    private ImageView avatarImg;
 
     @FXML
     private Button myAccountButton;
@@ -61,7 +62,6 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     public void myAccount(MouseEvent event) {
-
         Parent root = null;
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LibrariansMyAccount.fxml"));
@@ -69,6 +69,8 @@ public class LibrarianDashboardController implements Initializable {
             librarianDashboard.setCenter(root);
             LibrariansMyAccountController  controller = loader.getController();
             controller.setActiveUser(activeUser);
+            System.out.println("active user passed");
+
         } catch (IOException ex){
             Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -113,12 +115,10 @@ public class LibrarianDashboardController implements Initializable {
 
     public void loadUser(Librarian user) {
         this.activeUser = user;
+        username.setText("Hello, " + user.getFirstName());
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-         loadUI("LibrariansMyAccount");
     }
-
-
 }

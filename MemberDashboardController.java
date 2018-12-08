@@ -60,7 +60,18 @@ public class MemberDashboardController implements Initializable {
 
     @FXML
     void myAccount(MouseEvent event) {
-        loadUI("MembersMyAccount");
+        Parent root = null;
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MembersMyAccount.fxml"));
+            root = loader.load();
+            memberDashboard.setCenter(root);
+            MemberDashboardController  controller = loader.getController();
+            controller.setActiveUser(activeUser);
+            System.out.println("active user passed");
+
+        } catch (IOException ex){
+            Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -119,20 +130,15 @@ public class MemberDashboardController implements Initializable {
         } catch (IOException ex){
             Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
 
     public void setActiveUser(User user) {
-
         this.activeUser = user;
         username.setText("Hello, " + user.getFirstName());
     }
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-         loadUI("MembersMyAccount");
-
+    public void initialize(URL location, ResourceBundle resources){
     }
 }
