@@ -65,7 +65,7 @@ public class SearchResourceController implements Initializable {
     @FXML
     void searchResourceButton(ActionEvent event) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
-            ListView activeView;
+        ListView activeView;
         ArrayList<Resources> resources = Conn.searchResource(resourceSearchBar.getText());
         ArrayList<String> resourceTitles = new ArrayList<>();
 
@@ -74,8 +74,6 @@ public class SearchResourceController implements Initializable {
         }
 
         ObservableList data = FXCollections.observableArrayList(resourceTitles);
-
-        final Label label = new Label();
 
         if (selectedTab == bookTab) {
             activeView = bookResults;
@@ -93,8 +91,7 @@ public class SearchResourceController implements Initializable {
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
-                        label.setTextFill(Color.web(new_val));
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewResourceInfo.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResourceInfo.fxml"));
                         Parent resourceRoot = null;
                         try {
                             resourceRoot = (Parent) fxmlLoader.load();
@@ -112,7 +109,7 @@ public class SearchResourceController implements Initializable {
                 });
 
     }
-    
+
     @FXML
     void searchResourcesQuery(ActionEvent event) {
 

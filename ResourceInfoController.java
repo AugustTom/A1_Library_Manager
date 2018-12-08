@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class ResourceInfoController implements Initializable {
 
     @FXML
-    private Pane ResourceInfoPage;
+    private Pane resourceInfoPage;
 
     @FXML
     private Text id;
