@@ -21,13 +21,25 @@ public class ViewMemberInfoController implements Initializable {
     private Pane viewMemberInfoPage;
 
     @FXML
+    private ImageView avatarSelection;
+
+    @FXML
     private TextField memberFirstName;
 
     @FXML
     private TextField memberLastName;
 
     @FXML
-    private TextArea memberAddress;
+    private TextField houseNumber;
+
+    @FXML
+    private TextField streetName;
+
+    @FXML
+    private TextField cityName;
+
+    @FXML
+    private TextField postCode;
 
     @FXML
     private TextField memberContactNumber;
@@ -36,19 +48,17 @@ public class ViewMemberInfoController implements Initializable {
     private TextField memberUsername;
 
     @FXML
-    private Button editMemberInfoButton;
-
-    @FXML
-    private ImageView avatarSelection;
-
-    @FXML
     private TextField memberFine;
+
+    @FXML
+    private Button saveEditMyAccountButton;
 
     @FXML
     private ListView<?> memberBorrowedResources;
 
     @FXML
     private ListView<?> memberRequestedResources;
+
 
     @FXML
     void editMemberInfo(ActionEvent event) throws IOException {
