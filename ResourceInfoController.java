@@ -83,8 +83,7 @@ public class ResourceInfoController implements Initializable {
 
     }
 
-    public void setResources(String resourceTitle) {
-        //pass the same array
-       //this.activeResource = Conn.searchResource(resourceTitle);
+    public void setResources(ArrayList<Resources> resource) {
+        this.activeResource = resource.get(0);
     }
 }

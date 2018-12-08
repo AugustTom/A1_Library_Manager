@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +33,9 @@ public class MemberDashboardController implements Initializable {
 
     @FXML
     private BorderPane memberDashboard;
+
+    @FXML
+    private Text username;
 
     @FXML
     private VBox librarianControls;
@@ -94,14 +98,19 @@ public class MemberDashboardController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path + ".fxml"));
             root = loader.load();
             memberDashboard.setCenter(root);
+
             if (path.equals("ViewResources")){
+                ViewResourcesController controller = loader.getController();
+                controller.setActiveUser(activeUser);
 
             } else if (path.equals("SearchResources")){
                 SearchResourceController controller = loader.getController();
                 controller.setActiveUser(activeUser);
+
             } else if(path.equals("MyAccount")){
                 MembersMyAccountController controller = loader.getController();
                 controller.setActiveUser(activeUser);
+
             } else {
                 MembersMyAccountController controller = loader.getController();
                 controller.setActiveUser(activeUser);
@@ -116,7 +125,8 @@ public class MemberDashboardController implements Initializable {
 
     public void setActiveUser(User user) {
 
-        activeUser = user;
+        this.activeUser = user;
+        username.setText("Hello, " + user.getFirstName());
     }
 
 

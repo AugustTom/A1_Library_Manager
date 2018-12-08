@@ -43,24 +43,31 @@ public class LoginController implements Initializable {
     @FXML
     void enterDashboard(Event event) throws IOException {
         final String username =  loginUsername.getText();
-        User activeUser = null;
 
-        if( username.equals("lib")) {
+        Object activeUser = Conn.searchUsers(username).get(0);
 
-            FXMLLoader loader = new FXMLLoader (getClass().getResource("LibrarianDashboard.fxml"));
-            Pane librarianDashboard = loader.load();
-            loginPage.getChildren().setAll(librarianDashboard);
-            LibrarianDashboardController controller = loader.getController();
-            controller.loadUser(activeUser);
+        System.out.println(((User)activeUser).getUserName());
+        if (activeUser != null) {
+            if (Conn.isLibrarian(username)) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("LibrarianDashboard.fxml"));
+                Pane librarianDashboard = loader.load();
+                loginPage.getChildren().setAll(librarianDashboard);
+                LibrarianDashboardController controller = loader.getController();
+                controller.loadUser((Librarian) activeUser);
 
-        } else {
+            } else {
 
-            FXMLLoader loader = new FXMLLoader (getClass().getResource("MembersDashboard.fxml"));
-            Pane memberDashboard = loader.load();
-            loginPage.getChildren().setAll(memberDashboard);
-            MemberDashboardController controller = loader.getController();
-            controller.setActiveUser(activeUser);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MembersDashboard.fxml"));
+                Pane memberDashboard = loader.load();
+                loginPage.getChildren().setAll(memberDashboard);
+                MemberDashboardController controller = loader.getController();
 
+                controller.setActiveUser((User) activeUser);
+
+            }
+        } else
+        {
+            System.out.println("Invalid Login");
         }
 
     }

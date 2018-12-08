@@ -32,15 +32,135 @@ public class Conn {
 
             return prepStmt;
 
-        } catch ( SQLException err ) {
-            System.out.println( err.getMessage() + "Error preparing statement");
-        }
+            } catch ( SQLException err ) {
+                System.out.println( err.getMessage() + "Error preparing statement");
+            }
 
-        return null;
+            return null;
 
     }
 
     //Reading
+
+    private static Address getAddress(int id) throws SQLException {
+
+        final String sql = "SELECT * FROM address WHERE address_ID = ?";
+
+        ArrayList binds = new ArrayList();
+        binds.add(id);
+
+        ResultSet rs = runQuery(sql,binds);
+
+        rs.next();
+
+        return new Address(rs.getInt("address_ID"),rs.getString("house_name"),
+                rs.getString("street_name"),rs.getString("city"),
+                rs.getString("post_code"));
+
+    }
+
+    private static Librarian getLibrarian(String username,Address address) throws SQLException {
+
+        final String sql = "SELECT * FROM users INNER JOIN librarian ON users.username=librarian.username WHERE " +
+                "users.username = librarian.username AND users.username = ?";
+
+        ArrayList binds = new ArrayList();
+        binds.add(username);
+
+        ResultSet rs = runQuery(sql,binds);
+
+        rs.next();
+
+        return new Librarian(username,rs.getString("fname"),rs.getString("sname"),
+                rs.getString("phone_number"),rs.getDouble("balance"),
+                rs.getString("avatar_id"),address,
+                rs.getString("employment_date"),rs.getInt("staff_id"));
+
+    }
+
+    public static boolean isLibrarian(String username) {
+
+        try {
+            final String sql = "SELECT username FROM librarian WHERE username = ?";
+
+            ArrayList binds = new ArrayList();
+            binds.add(username);
+
+            ResultSet rs = runQuery(sql, binds);
+
+            return rs.next();
+        } catch (SQLException err) {
+            System.out.println(err.getMessage() + "Error checking if librarian");
+        }
+
+        return false;
+
+    }
+
+    public static ArrayList searchUsers(String searchTerm) {
+
+        ArrayList users = new ArrayList();
+
+        try {
+            final String sql = "SELECT * FROM users WHERE username = ? OR CONCAT(fName,' ',sName) LIKE ?";
+
+            ArrayList binds = new ArrayList();
+            binds.add(searchTerm);
+            binds.add("%"+searchTerm.toString()+"%");
+
+
+            ResultSet rs = runQuery(sql,binds);
+
+            Address address;
+
+            while(rs.next()) {
+
+                address = getAddress(rs.getInt("address_id"));
+                String username = rs.getString("username");
+
+                if (!isLibrarian(username)) {
+                    users.add(new User(username,rs.getString("fname"),rs.getString("sname"),
+                            rs.getString("phone_number"),rs.getDouble("balance"),
+                            rs.getString("avatar_id"),address));
+                } else if (isLibrarian(username)){
+                    users.add(getLibrarian(username,address));
+                }
+
+            }
+
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error searching users");
+        }
+
+        return users;
+
+    }
+
+    public static ResultSet getActiveLoan(int id,String username) {
+
+        final String sql = "SELECT * FROM loan WHERE copy_id = ? AND username = ? AND active = 'onloan'";
+
+        ArrayList binds = new ArrayList();
+        binds.add(id);
+        binds.add(username);
+
+        return runQuery(sql,binds);
+
+    }
+
+    public static  ResultSet getLoanRequest(int id,String username) {
+
+        final String sql = "SELECT * FROM loan WHERE copy_id = ? AND username = ? AND active = 'requested'";
+
+        ArrayList binds = new ArrayList();
+        binds.add(id);
+        binds.add(username);
+
+        return runQuery(sql,binds);
+
+    }
+
+    //Loan and Borrow stuff
 
     private static ResultSet runQuery(String sql,ArrayList<Object> binds) {
 
@@ -96,7 +216,8 @@ public class Conn {
 
     private static Object readResource(int id,String type) throws SQLException {
 
-        final String sql = "SELECT * FROM resources INNER JOIN "+type+" ON resources.resource_id="+type+".resource_id WHERE resources.resource_id = ?";
+        final String sql = "SELECT * FROM resources INNER JOIN "+type+" ON resources.resource_id="+type+".resource_id " +
+                "WHERE resources.resource_id = ?";
 
         ArrayList binds = new ArrayList();
         binds.add(id);
@@ -133,7 +254,7 @@ public class Conn {
 
         try {
 
-            final String sql = "SELECT copy_ID FROM loan WHERE copy_id = ? AND active = 1";
+            final String sql = "SELECT copy_ID FROM loan WHERE copy_id = ?";
 
             ArrayList binds = new ArrayList();
             binds.add(id);
@@ -143,7 +264,7 @@ public class Conn {
             //Currently no loan = Available, 1 = borrowed, 0 = requested
             if (!rs.next()) {
                 return "Available";
-            } else if (rs.getInt("active") == 1) {
+            } else if (rs.getString("active") == "onloan") {
                 return "Borrowed";
             } else {
                 return "Requested";
@@ -175,8 +296,6 @@ public class Conn {
 
     }
 
-    //Try to do with associative arrays?
-    //
     public static ArrayList searchResource(Object searchTerm) {
 
         try {
@@ -205,6 +324,18 @@ public class Conn {
     }
 
     //Writing
+
+    public static int writeLoan(int id,String username,String datetime,String active) {
+
+        final String loanSQL = "INSERT INTO loan (copy_id,username,loan_datetime,active)" +
+                "VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE loan_datetime = ?,active = ?";
+
+        ArrayList binds = new ArrayList();
+        binds.addAll(Arrays.asList(id,username,datetime,active,datetime,active));
+
+        return runUpdate(loanSQL,binds);
+
+    }
 
     private static int runUpdate(String sql,ArrayList<Object> binds) {
 
@@ -235,10 +366,65 @@ public class Conn {
 
         if (object instanceof Resources) {
             return writeResource(object);
+        } else if (object instanceof User) {
+            return writeUser(object);
+        } else if (object instanceof Address) {
+            return writeAddress((Address) object);
         }
 
         return 0;
 
+    }
+
+    private static int writeUser(Object object) {
+
+        //General
+
+        final String userSQL = "INSERT INTO users (username,fname,sname,phone_number,address_id,balance,avatar_id) " +
+                "VALUES (?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE fname = ?,sname = ?,phone_number = ?,address_id = ?," +
+                "balance = ?,avatar_id = ?";
+
+        User user = (User) object;
+        int rows = 0;
+
+        ArrayList binds = new ArrayList();
+        binds.addAll(Arrays.asList(user.getUserName(), user.getFirstName(), user.getLastName(), user.getPhone(),
+                user.getAddress().getId(), user.getBalance(),user.getAvatarID(), user.getFirstName(), user.getLastName(), user.getPhone(),
+                user.getAddress().getId(), user.getBalance(),user.getAvatarID()));
+
+        rows += runUpdate(userSQL,binds);
+        binds.clear();
+
+        if (object instanceof Librarian) {
+            final String libSQL = "INSERT INTO librarian (staff_id,username,employment_date) " +
+                    "VALUES (?,?,?) ON DUPLICATE KEY UPDATE username = ?, employment_date = ?";
+
+            Librarian lib = (Librarian) object;
+            binds.addAll(Arrays.asList(lib.getStaffNum(),lib.getUserName(),lib.getEmployDate(),
+                    lib.getUserName(),lib.getEmployDate()));
+
+            rows += runUpdate(libSQL,binds);
+
+        }
+
+        rows += writeAddress(user.getAddress());
+
+        return rows;
+
+    }
+
+    private static int writeAddress(Address address) {
+
+        final String sql = "INSERT INTO address (address_id,post_code,house_name,street_name,city) " +
+                "VALUES (?,?,?,?,?) ON DUPLICATE KEY UPDATE post_code = ?,house_name = ?,street_name = ?," +
+                "city = ?";
+
+        ArrayList binds = new ArrayList();
+        binds.addAll(Arrays.asList(address.getId(),address.getPostCode(),address.getHouseName(),address.getStreetName(),
+                address.getCity(),address.getPostCode(),address.getHouseName(),address.getStreetName(),
+                address.getCity()));
+
+        return runUpdate(sql,binds);
     }
 
     /**

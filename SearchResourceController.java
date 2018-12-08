@@ -66,12 +66,22 @@ public class SearchResourceController implements Initializable {
     void searchResourceButton(ActionEvent event) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
         ListView activeView;
-        ArrayList<Resources> resources = Conn.searchResource(resourceSearchBar.getText());
+
+        ArrayList resources = Conn.searchResource(resourceSearchBar.getText());
         ArrayList<String> resourceTitles = new ArrayList<>();
 
-        for (Resources b : resources) {
-            resourceTitles.add(b.getTitle());
+        for (Object b : resources) {
+            resourceTitles.add(((Resources)b).getTitle());
+            if(b instanceof  Book)
+            {
+                Book found = (Book)b;
+            } else if(b instanceof Laptop) {
+                Laptop found = (Laptop)b;
+            } else{
+                DVD found = (DVD)b;
+            }
         }
+
 
         ObservableList data = FXCollections.observableArrayList(resourceTitles);
 
@@ -97,7 +107,7 @@ public class SearchResourceController implements Initializable {
                         try {
                             resourceRoot = fxmlLoader.load();
                             ResourceInfoController controller = fxmlLoader.getController();
-                            controller.setResources(ov.getValue());
+                            //controller.setResources(ov.getValue());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

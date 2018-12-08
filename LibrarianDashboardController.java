@@ -31,7 +31,7 @@ import java.util.logging.Logger;
 
 public class LibrarianDashboardController implements Initializable {
 
-    private User currentUser;
+    private Librarian activeUser;
     @FXML
     private BorderPane librarianDashboard;
 
@@ -61,7 +61,17 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     public void myAccount(MouseEvent event) {
-        loadUI("LibrariansMyAccount");
+
+        Parent root = null;
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LibrariansMyAccount.fxml"));
+            root = loader.load();
+            librarianDashboard.setCenter(root);
+            LibrariansMyAccountController  controller = loader.getController();
+            controller.setActiveUser(activeUser);
+        } catch (IOException ex){
+            Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -101,8 +111,8 @@ public class LibrarianDashboardController implements Initializable {
         }
     }
 
-    public void loadUser(User user) {
-        currentUser = user;
+    public void loadUser(Librarian user) {
+        this.activeUser = user;
     }
 
     @Override
