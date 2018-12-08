@@ -87,14 +87,13 @@ public class AvatarController {
         });
     }
 
-
     public void save() {
         // TO-DO Avatar id gen
-        String pathname = "images/";
+        File directory = new File("\\images");
         try {
             Image avatar = canvas.snapshot(null, null);
             ImageIO.write(SwingFXUtils.fromFXImage(avatar, null), "png",
-                    new File(pathname + "avatar.png"));
+                    File.createTempFile("avatar", ".png", directory));
 
         } catch (Exception e) {
             System.out.println("Failed to save: " + e);
