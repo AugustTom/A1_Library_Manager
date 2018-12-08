@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -67,6 +68,8 @@ public class AddNewLaptopController implements Initializable {
     @FXML
     void chooseFile(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
+        String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        fileChooser.setInitialDirectory(new File(currentPath));
 
         //Open directory from existing directory
         if(imageFile != null){
