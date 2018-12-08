@@ -67,6 +67,9 @@ public class AddNewLaptopController implements Initializable {
 
     @FXML
     private TextField newLaptopOS;
+    
+    
+    private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
 
     @FXML
     void chooseFile(ActionEvent event) {
