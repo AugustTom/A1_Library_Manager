@@ -116,7 +116,22 @@ public class AddNewLaptopController implements Initializable {
                 laptopBrand, laptopOperatingSystem);
         Conn.writeObject(laptop);
 
+         //Alert Window
+        Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
+        alert.setWidth(100);
+        alert.showAndWait();
 
+    }
+    
+    public void inputCheck(){
+               addNewLaptopButton.disableProperty().bind(Bindings.createBooleanBinding(
+                       () -> {
+                           boolean check = true;
+                           for (TextField textField: textFieldArrayList){
+                               check = check && textField.getText().isEmpty();
+                           }
+                           return check;
+                       }));
     }
 
     @Override

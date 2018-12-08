@@ -93,7 +93,23 @@ public class AddNewDVDController implements Initializable{
         DVD dvd = new DVD (dvdID, dvdTitle, dvdYear, "1nsn", IDsOfCopies, dvdDirector, dvdRuntime,
                  dvdSubtitleLanguages, dvdLanguage);
         Conn.writeObject(dvd);
+        
+        //Alert Window
+        Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
+        alert.setWidth(100);
+        alert.showAndWait();
 
+    }
+    
+    public void inputCheck(){
+               addNewDVDButton.disableProperty().bind(Bindings.createBooleanBinding(
+                       () -> {
+                           boolean check = true;
+                           for (TextField textField: textFieldArrayList){
+                               check = check && textField.getText().isEmpty();
+                           }
+                           return check;
+                       }));
     }
 
     @FXML

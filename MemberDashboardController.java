@@ -122,6 +122,7 @@ public class MemberDashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+         loadUI("MembersMyAccount");
 
     }
 }
