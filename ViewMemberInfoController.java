@@ -72,7 +72,7 @@ public class ViewMemberInfoController implements Initializable {
 
     @FXML
     void saveEditInfo(ActionEvent event) {
-        if (saveEditInfoButton.getText().equals("Edit")){
+        if (saveEditInfoButton.getText().equals("Edit Info")){
             editAccountInfo();
         } else {
             showAccountInfo();
@@ -88,7 +88,6 @@ public class ViewMemberInfoController implements Initializable {
         postCode.setDisable(false);
         memberContactNumber.setDisable(false);
         updateFine.setDisable(false);
-        memberUsername.setDisable(false);
         saveEditInfoButton.setText("Save");
     }
 
@@ -105,7 +104,7 @@ public class ViewMemberInfoController implements Initializable {
         //memberContactNumber.setText(activeUser.getFirstName());
         updateFine.setDisable(true);
         //memberFine.setText(activeUser.getFirstName());
-        saveEditInfoButton.setText("Edit");
+        saveEditInfoButton.setText("Edit Info");
     }
 
     @Override
