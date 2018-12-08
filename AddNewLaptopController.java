@@ -113,6 +113,10 @@ public class AddNewLaptopController implements Initializable {
                 laptopBrand, laptopOperatingSystem);
         Conn.writeObject(laptop);
 
+         //Alert Window
+        Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
+        alert.setWidth(100);
+        alert.showAndWait();
 
     }
 
