@@ -45,10 +45,16 @@ public class Conn {
     private static ResultSet runQuery(String sql,ArrayList<Object> binds) {
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
             String url = "jdbc:mysql://localhost:3306/cs230library";
 
             Connection con = DriverManager.getConnection(url, "root", "");
-
+            if (con == null)
+            {
+                System.out.println("Connection is" + con);
+                return null;
+            }
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt = bindPreparedStatement(prepStmt,binds);
 
@@ -56,6 +62,8 @@ public class Conn {
 
         } catch ( SQLException err ) {
             System.out.println( err.getMessage() + "Error executing query");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
         return null;
