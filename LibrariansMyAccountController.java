@@ -75,19 +75,16 @@ public class LibrariansMyAccountController {
      */
     @FXML
     void editAccount(Event event) throws IOException {
-        //System.out.println(saveEditMyAccountButton.getText());
-
         if (saveEditMyAccountButton.getText().equals("Edit")){
                 editAccountInfo();
-            } else {
-                showAccountInfo();
-            }
-
+        } else {
+            showAccountInfo();
+        }
     }
     
     /**
      * Enables the text fields to allow the user to edit their information.
-     * The button text is set to "Edit".
+     * The button text is set to "Save".
      */
     void editAccountInfo(){
         librarianStaffNumber.setDisable(false);
@@ -99,7 +96,9 @@ public class LibrariansMyAccountController {
         librarianContactNumber.setDisable(false);
         librarianFirstName.setDisable(false);
         librarianLastName.setDisable(false);
-        librarianUsername.setDisable(false);
+        librarianUsername.setDisable(true);
+        librarianEmploymentDate.setDisable(true);
+        librarianStaffNumber.setDisable(true);
         saveEditMyAccountButton.setText("Save");
     }
 
@@ -113,7 +112,7 @@ public class LibrariansMyAccountController {
         librarianFirstName.setText(activeUser.getFirstName());
         librarianLastName.setDisable(true);
         librarianLastName.setText(activeUser.getLastName());
-        //address
+
         houseNumber.setDisable(true);
         //houseNumber.setText(activeUser.getHouseName());
         streetName.setDisable(true);
@@ -123,12 +122,14 @@ public class LibrariansMyAccountController {
         postCode.setDisable(true);
         //postCode.setText(activeUser.getPostCode());
         //userAddress.setText(activeUser.getAddress().toString());
+
         librarianContactNumber.setDisable(true);
         librarianContactNumber.setText(activeUser.getPhone());
         librarianUsername.setDisable(true);
         librarianUsername.setText(activeUser.getUserName());
-//        librarianEmploymentDate.setText(activeUser.getEmployDate());
-//        librarianEmploymentDate.setDisable(true);
+        librarianEmploymentDate.setText(activeUser.getEmployDate());
+        librarianEmploymentDate.setDisable(true);
+        librarianStaffNumber.setDisable(true);
         saveEditMyAccountButton.setText("Edit");
 
     }

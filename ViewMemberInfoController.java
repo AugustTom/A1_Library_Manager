@@ -79,6 +79,10 @@ public class ViewMemberInfoController implements Initializable {
         }
     }
 
+    /**
+     * Enables the text fields to allow the user to edit their information.
+     * The button text is set to "Save".
+     */
     void editAccountInfo(){
         memberFirstName.setDisable(false);
         memberLastName.setDisable(false);
