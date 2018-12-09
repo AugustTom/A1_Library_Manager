@@ -45,7 +45,20 @@ public class AddNewDVDController extends AddNewSuperclassController{
 
     @FXML
     private TextField newDVDSubtitleLanguages;
-
+    
+    /**
+     * This method adds a new DVD to the database
+     * <br>
+     * It also has a contructor that initialises a DVD object
+     * @param dvdID - ID of a DVD
+     * @param dvdTitle - title of a DVD
+     * @param dvdYear - year in which the DVD was released
+     * @param IDsOfCopies - IDs of DVD copies
+     * @param dvdDirector - director of a DVD
+     * @param dvdRuntime - runtime of a DVD
+     * @param dvdSubtitleLanguages - languages of the subtitles of a DVD
+     * @param dvdLanguage - language of a DVD
+     */
 
     @FXML
     void addNewDVD(ActionEvent event) {
