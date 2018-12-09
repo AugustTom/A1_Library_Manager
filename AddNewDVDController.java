@@ -50,7 +50,7 @@ public class AddNewDVDController extends AddNewSuperclassController{
     /**
      * This method adds a new DVD to the database
      * <br>
-     * It contains a contructor that initialises a DVD object
+     * It contains a constructor that initialises a DVD object
      * @param event
      */
 
