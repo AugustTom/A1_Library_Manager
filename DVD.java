@@ -25,7 +25,7 @@ public class DVD extends Resources {
     //TODO write function for array to string conversion
     
     /**
-     * This is a DVD constructor and it is needed to initialize an object of DVD
+     * This is a DVD constructor and it is needed to initialize a DVD object
      * @param id extends from resources class - resource ID
      * @param title extends from resources class - resource title
      * @param year extends from resources class - year the resource was made
