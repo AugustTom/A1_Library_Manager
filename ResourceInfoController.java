@@ -12,6 +12,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * This class is paired with "ResourceInfo.fxml"
+ *
+ *
+ *@author Ronalyn Lilyanne
+ *@version 1.0
+ *@since 04/12/2018
+ */
+
 public class ResourceInfoController implements Initializable {
 
     private Resources activeResource;
