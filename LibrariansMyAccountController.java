@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
  * @since 04/12/2018
  */
 
-public class LibrariansMyAccountController implements Initializable{
+public class LibrariansMyAccountController{
 
     private Librarian activeUser;
 
@@ -145,10 +145,6 @@ public class LibrariansMyAccountController implements Initializable{
         this.activeUser = activeUser;
         loadInfo();
 
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
     }
 
     private void loadInfo(){

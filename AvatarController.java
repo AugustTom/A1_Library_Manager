@@ -8,6 +8,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -88,8 +89,8 @@ public class AvatarController {
     }
 
     public void save() {
-        // TO-DO Avatar id gen
-        File directory = new File("\\images");
+        // TODO Avatar id gen
+        File directory = new File("C:\\Users\\ronal\\OneDrive\\Documents\\Uni\\230\\A1_Library_Manager\\source\\tawelib\\images");
         try {
             Image avatar = canvas.snapshot(null, null);
             ImageIO.write(SwingFXUtils.fromFXImage(avatar, null), "png",
