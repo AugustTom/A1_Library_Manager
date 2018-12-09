@@ -48,13 +48,7 @@ public class AddNewLaptopController extends AddNewSuperclassController {
      * This method adds a new laptop to the database
      * <br>
      * It also has a constructor
-     * @param laptopID - ID of a laptop
-     * @param laptopTitle - title of a laptop
-     * @param laptopYear - year in which a laptop was released
-     * @param IDsOfCopies - IDs of laptop copies
-     * @param laptopModel - model of a laptop
-     * @param laptopBrand - brand of a laptop
-     * @param laptopOperatingSystem - operating system of a laptop
+     * @param event
      */
 
     @FXML
