@@ -134,6 +134,10 @@ public class ViewMemberInfoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    
+    /**
+     * This method loads the user attributes
+     */
     private void loadUserInfo() {
         memberFirstName.setText(activeUser.getFirstName());
         memberLastName.setText(activeUser.getFirstName());
