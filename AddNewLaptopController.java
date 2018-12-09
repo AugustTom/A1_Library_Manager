@@ -129,6 +129,7 @@ public class AddNewLaptopController implements Initializable {
 
     }
     
+    //Disable button when adding a new laptop
     public void inputCheck(){
                addNewLaptopButton.disableProperty().bind(Bindings.createBooleanBinding(
                        () -> {
