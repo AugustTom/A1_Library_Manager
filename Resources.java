@@ -45,7 +45,9 @@ public class Resources {
         this.copies = copies;
     }
 
-    public int getID() {
+    public int getResourceID() {
+        
+        Conn.getNextAvailableID(String Resource);
         return id;
     }
 
