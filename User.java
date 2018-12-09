@@ -1,6 +1,9 @@
 package tawelib;
 
-/* It stores information about a User
+/** 
+ * This class is a superclass of the Librarian subclass
+ * <br>
+ * It stores information about a User
  *
  * @author Sam Hurford
  * @author Kristofas Haroun
