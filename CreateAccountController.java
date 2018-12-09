@@ -107,26 +107,41 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button avatarDraw;
 
+    /**
+     * set method for the cat avatar
+     */
     @FXML
     void setCatAvatar(ActionEvent event) {
         imageID = avatarCat.getId();
     }
 
+    /**
+     * set method for the ghost avatar
+     */
     @FXML
     void setGhostAvatar(ActionEvent event) {
         imageID = avatarGhost.getId();
     }
-
+    
+    /**
+     * Set method for the bird avatar
+     */
     @FXML
     void setBirdAvatar(ActionEvent event) {
         imageID = avatarBird.getId();
     }
-
+    
+    /**
+     * Set method for fish avatar
+     */
     @FXML
     void setFishAvatar(ActionEvent event) {
         imageID = avatarFish.getId();
     }
-
+    
+    /**
+     * Set method for the monster avatar
+     */
     @FXML
     void setMonsterAvatar(ActionEvent event) {
         imageID = avatarMonster.getId();
@@ -150,7 +165,14 @@ public class CreateAccountController implements Initializable {
         stage.showAndWait();
         imageID = "avatar" + username;
     }
-
+    
+    /**
+     * This method creates a new account for either a user or a librarian
+     * <br>
+     * If the account has no staff number and no employment date this method creates a user account
+     * <br>
+     * Otherwise this method creates a librarian account
+     */
     @FXML
     void createNewAccount(ActionEvent event) {
 
