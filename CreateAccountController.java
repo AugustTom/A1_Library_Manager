@@ -66,28 +66,43 @@ public class CreateAccountController implements Initializable {
     private TextField newStaffNumber;
 
     @FXML
+    private Button createNewAccountButton;
+
+    @FXML
+    private RadioButton avatarCat;
+
+    @FXML
+    private ImageView avatarCatImage;
+
+    @FXML
     private ToggleGroup selectAvatar;
 
     @FXML
-    private ImageView avatarCat;
+    private RadioButton avatarGhost;
 
     @FXML
-    private ImageView avatarGhost;
+    private ImageView avatarGhostImage;
 
     @FXML
-    private ImageView avatarBird;
+    private RadioButton avatarBird;
 
     @FXML
-    private ImageView avatarFish;
+    private ImageView avatarBirdImage;
 
     @FXML
-    private ImageView avatarMonster;
+    private RadioButton avatarFish;
+
+    @FXML
+    private ImageView avatarFishImage;
+
+    @FXML
+    private RadioButton avatarMonster;
+
+    @FXML
+    private ImageView avatarMonsterImage;
 
     @FXML
     private Button avatarDraw;
-
-    @FXML
-    private Button createNewAccountButton;
 
     @FXML
     void setCatAvatar(ActionEvent event) {

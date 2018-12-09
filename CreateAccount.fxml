@@ -33,7 +33,7 @@
             
             <RadioButton fx:id="avatarCat" alignment="TOP_LEFT" layoutX="15.0" layoutY="258.0" mnemonicParsing="false" onAction="#setCatAvatar" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;">
                <graphic>
-                  <ImageView fx:id="avatarCat" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="avatarCatImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Sitting-Cat.png" />
                      </image>
@@ -47,7 +47,7 @@
                </toggleGroup></RadioButton>
             <RadioButton fx:id="avatarGhost" alignment="TOP_LEFT" layoutX="130.0" layoutY="258.0" mnemonicParsing="false" onAction="#setGhostAvatar" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <graphic>
-                  <ImageView fx:id="avatarGhost" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="avatarGhostImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Ghost.png" />
                      </image>
@@ -58,20 +58,20 @@
                </opaqueInsets>
             </RadioButton>
             <RadioButton fx:id="avatarBird" alignment="TOP_LEFT" layoutX="245.0" layoutY="258.0" mnemonicParsing="false" onAction="#setBirdAvatar" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <graphic>
-                  <ImageView fx:id="avatarBird" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="avatarBirdImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Bird.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
             </RadioButton>
             <RadioButton fx:id="avatarFish" alignment="TOP_LEFT" layoutX="15.0" layoutY="355.0" mnemonicParsing="false" onAction="#setFishAvatar" style="-fx-background-color: white; -fx-border-color: black; -fx-padding: 3;" toggleGroup="$selectAvatar">
                <graphic>
-                  <ImageView fx:id="avatarFish" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="avatarFishImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Fish.png" />
                      </image>
@@ -86,7 +86,7 @@
                   <Insets />
                </opaqueInsets>
                <graphic>
-                  <ImageView fx:id="avatarMonster" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="avatarMonsterImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Monster.png" />
                      </image>
