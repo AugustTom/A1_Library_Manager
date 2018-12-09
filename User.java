@@ -24,11 +24,11 @@ public class User {
 
 	public void setAddress(Address address) {
         this.address = address;
-    }
+    	}
 
-    public Address getAddress() {
+    	public Address getAddress() {
 	    return this.address;
-    }
+    	}
 	
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -62,15 +62,15 @@ public class User {
 		return phoneNum;
 	}
 
-    public Double getBalance() {
+   	public Double getBalance() {
         return balance;
-    }
+    	}
 
-    public void setBalance(Double balance) {
+    	public void setBalance(Double balance) {
         this.balance = balance;
-    }
+    	}
 
-    public void setAvatarID(String avatarID) {
+    	public void setAvatarID(String avatarID) {
 		this.avatarID = avatarID;
 	}
 	
