@@ -67,7 +67,7 @@ public class Laptop extends Resources {
     }
     
     /** 
-     * set method for manufacturer 
+     * set method for model 
      * @param manufacturer 
      */ 
 
@@ -85,7 +85,7 @@ public class Laptop extends Resources {
     }
     
     /** 
-     * set method for manufacturer 
+     * set method for operating system 
      * @param manufacturer 
      */ 
 
