@@ -64,19 +64,10 @@ public class MemberDashboardController implements Initializable {
     }
 
     @FXML
-    void searchResource(MouseEvent event) {
-        loadUI("SearchResource", 0);
-    }
+    void searchResource(MouseEvent event) { loadUI("SearchResource", 0); }
 
     @FXML
-    void viewRequested(MouseEvent event) {
-        loadUI("ViewResources",0);
-    }
-
-    @FXML
-    void viewBorrowed(MouseEvent event) {
-        loadUI("ViewResources",1);
-    }
+    void viewResource(MouseEvent event) { loadUI("ViewResource",0); }
 
 /**
  * @throws IOException
@@ -96,26 +87,10 @@ public class MemberDashboardController implements Initializable {
             root = loader.load();
             memberDashboard.setCenter(root);
             if (type == 0){
-                if (path.equals("ViewResources")){
-                    //Requested
-                    ViewResourcesController controller = loader.getController();
-                    controller.setActiveUser(activeUser);
-                    controller.setViewType("Requested");
-
-                } else if (path.equals("SearchResources")){
-                    SearchResourceController controller = loader.getController();
-                    controller.setActiveUser(activeUser);
-
-                } else if(path.equals("MembersMyAccount")){
+                if(path.equals("MembersMyAccount")) {
                     MembersMyAccountController controller = loader.getController();
                     controller.setActiveUser(activeUser);
-
                 }
-            } else {
-                //Borrowed
-                ViewResourcesController controller = loader.getController();
-                controller.setActiveUser(activeUser);
-                controller.setViewType("Borrowed");
             }
 
         } catch (IOException ex){

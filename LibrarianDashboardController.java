@@ -115,7 +115,6 @@ public class LibrarianDashboardController implements Initializable {
 
             } else if (path.equals("SearchResources")){
                 SearchResourceController controller = loader.getController();
-                controller.setActiveUser(activeUser);
 
             } else if(path.equals("NewResourcePanel")){
                 NewResourcePanelController controller = loader.getController();

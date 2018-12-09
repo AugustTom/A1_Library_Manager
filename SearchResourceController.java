@@ -14,7 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -63,8 +63,37 @@ public class SearchResourceController implements Initializable {
     private User activeUser;
 
     @FXML
+    public void initialize(URL location, ResourceBundle resource) {
+
+        Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
+        ListView activeView;
+
+        ArrayList resources = Conn.searchResource("");
+        ArrayList<String> resourceTitles = new ArrayList<>();
+
+        for (Object b : resources) {
+            resourceTitles.add(((Resources)b).getTitle());
+        }
+
+        ObservableList data = FXCollections.observableArrayList(resourceTitles);
+
+        if (selectedTab == bookTab) {
+            activeView = bookResults;
+
+        } else if (selectedTab == dvdTab) {
+            activeView = dvdResults;
+        } else {
+            activeView = laptopResults;
+        }
+
+        activeView.setItems(data);
+
+    }
+
+    @FXML
     void searchResourceButton(ActionEvent event) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
+
         ListView activeView;
 
         ArrayList resources = Conn.searchResource(resourceSearchBar.getText());
@@ -72,16 +101,7 @@ public class SearchResourceController implements Initializable {
 
         for (Object b : resources) {
             resourceTitles.add(((Resources)b).getTitle());
-            if(b instanceof  Book)
-            {
-                Book found = (Book)b;
-            } else if(b instanceof Laptop) {
-                Laptop found = (Laptop)b;
-            } else{
-                DVD found = (DVD)b;
-            }
         }
-
 
         ObservableList data = FXCollections.observableArrayList(resourceTitles);
 
@@ -96,7 +116,6 @@ public class SearchResourceController implements Initializable {
 
 
         activeView.setItems(data);
-
 
         activeView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
@@ -118,22 +137,10 @@ public class SearchResourceController implements Initializable {
                     }
 
                 });
-
     }
 
     @FXML
     void searchResourcesQuery(ActionEvent event) {
 
-    }
-
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    public void setActiveUser(User user) {
-        this.activeUser = user;
     }
 }

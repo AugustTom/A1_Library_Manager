@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="memberDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MemberDashboardController">
+<BorderPane fx:id="memberDashboard" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.MemberDashboardController">
    <left>
       <VBox fx:id="librarianControls" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: #FF9626;" BorderPane.alignment="CENTER">
          <children>
@@ -49,15 +49,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="addNewResourcesButton" mnemonicParsing="false" onMouseClicked="#viewBorrowed" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Borrowed">
-               <padding>
-                  <Insets bottom="5.0" top="10.0" />
-               </padding>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="searchMembersButton" mnemonicParsing="false" onMouseClicked="#viewRequested" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Requested">
+            <Button fx:id="searchMembersButton" mnemonicParsing="false" onMouseClicked="#viewResource" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: #000;" text="View Resources">
                <padding>
                   <Insets bottom="5.0" top="10.0" />
                </padding>

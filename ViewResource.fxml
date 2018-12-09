@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane fx:id="resourcesTable" layoutX="14.0" layoutY="8.0" prefHeight="478.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
+         <tabs>
+            <Tab fx:id="borrowedTab" text="Borrowed">
+               <content>
+                  <ListView fx:id="borrowedList" prefHeight="308.0" prefWidth="362.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="requestedTab" text="Requested">
+               <content>
+                  <ListView fx:id = "requestedList" prefHeight="441.0" prefWidth="362.0" />
+               </content>
+            </Tab>
+         </tabs>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TabPane>
+   </children>
+</Pane>

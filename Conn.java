@@ -1,5 +1,6 @@
 package tawelib;
 
+import javax.management.AttributeList;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -192,7 +193,7 @@ public class Conn {
         try {
             String url = "jdbc:mysql://localhost:3306/cs230library";
 
-            Connection con = DriverManager.getConnection(url, "root", "");
+            Connection con = DriverManager.getConnection(url, "root", "2Sg3zMab$66");
 
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt = bindPreparedStatement(prepStmt,binds);
@@ -359,7 +360,7 @@ public class Conn {
         try {
             String url = "jdbc:mysql://localhost:3306/cs230library";
 
-            Connection con = DriverManager.getConnection(url, "root", "");
+            Connection con = DriverManager.getConnection(url, "root", "2Sg3zMab$66");
 
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt = bindPreparedStatement(prepStmt,binds);
