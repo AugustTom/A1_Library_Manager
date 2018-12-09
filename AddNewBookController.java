@@ -54,8 +54,23 @@ public class AddNewBookController extends AddNewSuperclassController {
 
     @FXML
     private TextField newBookLanguage;
-
-
+    
+    /**
+     * This method adds a new book to the database
+     * <br>
+     * It contains a constructor to initialise a book object
+     * @param bookID - the ID of a book
+     * @param bookTitle - the title of a book
+     * @param bookYear - the year in which the book was released
+     * @param IDsOfCopies - the IDs of the copies of a book
+     * @param bookAuthor - the author of a book
+     * @param bookPublisher - the publisher of a book
+     * @param bookISBN - the ISBN of a book
+     * @param bookLanguage - the language of a book
+     * @param bookLoanDuration - the loan duration of a book
+     * @param bookNumOfCopies - the number of copies of a book
+     */
+    
     @FXML
     void addNewBook(ActionEvent event) throws IOException {
         ArrayList IDsOfCopies = new ArrayList<>();
@@ -91,8 +106,6 @@ public class AddNewBookController extends AddNewSuperclassController {
         alert.setWidth(100);
         alert.showAndWait();
     }
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
