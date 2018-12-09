@@ -19,9 +19,9 @@ import java.io.File;
  *
  * This class allows the user to draw their own avatar for their account.
  *
- *@author Seb Gappa
- *@version 1.0
- *@since 04/12/2018
+ * @author Seb Gappa
+ * @version 1.0
+ * @since 04/12/2018
  */
 
 public class AvatarController {
@@ -53,8 +53,7 @@ public class AvatarController {
      * it then fills an oval with the selected colour and draws it at the mouse position of size "double size".
      */
     private String username;
-
-
+    
     public void particleTrace() {
         selectedTool.setText("Particle Trace");
         canvas.setOnMouseReleased(null);
@@ -81,6 +80,7 @@ public class AvatarController {
      * <br>
      * and draws it at the mouse position of width "double size".
      */
+    
     public void line() {
         selectedTool.setText("Line");
         canvas.setOnMouseDragged(null);
@@ -113,8 +113,8 @@ public class AvatarController {
      * A ‘mousedragged’ event is created which reads the brush size and position of the mouse,
      * <br>
      * it then fills a clear rectangle and draws it at the mouse position of size "double size".
-
      */
+    
     public void eraser() {
         selectedTool.setText("Eraser");
         canvas.setOnMouseReleased(null);
