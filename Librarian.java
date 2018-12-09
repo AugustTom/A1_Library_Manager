@@ -27,36 +27,36 @@ public class Librarian extends User {
     }
     
     /**
-	* get method for employment date
-	* @return employDate
-	*/
+     * get method for employment date
+     * @return employDate
+     */
 
     public String getEmployDate() {
         return employDate;
     }
     
     /**
-	* set method for employment date
-	* @param employDate
-	*/
+     * set method for employment date
+     * @param employDate
+     */
 
     public void setEmployDate(String employDate) {
         this.employDate = employDate;
     }
     
     /**
-	* get method for staff number
-	* @return staffNum
-	*/
+     * get method for staff number
+     * @return staffNum
+     */
 
     public int getStaffNum() {
         return staffNum;
     }
     
     /**
-	* set method for staff number
-	* @param staffNum
-	*/
+     * set method for staff number
+     * @param staffNum
+     */
 
     public void setStaffNum(int staffNum) {
         this.staffNum = staffNum;
