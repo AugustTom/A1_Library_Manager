@@ -64,58 +64,64 @@ public class SearchResourceController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resource) {
-
-        Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
-        ListView activeView;
-
-        ArrayList resources = Conn.searchResource("");
-        ArrayList<String> resourceTitles = new ArrayList<>();
-
-        for (Object b : resources) {
-            resourceTitles.add(((Resources)b).getTitle());
-        }
-
-        ObservableList data = FXCollections.observableArrayList(resourceTitles);
-
-        if (selectedTab == bookTab) {
-            activeView = bookResults;
-
-        } else if (selectedTab == dvdTab) {
-            activeView = dvdResults;
-        } else {
-            activeView = laptopResults;
-        }
-
-        activeView.setItems(data);
-
     }
 
     @FXML
     void searchResourceButton(ActionEvent event) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
-
         ListView activeView;
 
-        ArrayList resources = Conn.searchResource(resourceSearchBar.getText());
-        ArrayList<String> resourceTitles = new ArrayList<>();
+        ArrayList filterResources = Conn.searchResource(resourceSearchBar.getText());
+        ArrayList allResources = Conn.searchResource("");
+        ArrayList<String> filterData = new ArrayList<>();
+        ArrayList<String> bookData = new ArrayList<>();
+        ArrayList<String> dvdData = new ArrayList<>();
+        ArrayList<String> laptopData = new ArrayList<>();
+        ObservableList data;
 
-        for (Object b : resources) {
-            resourceTitles.add(((Resources)b).getTitle());
+        for (Object b : filterResources) {
+            filterData.add(((Resources)b).getTitle());
         }
 
-        ObservableList data = FXCollections.observableArrayList(resourceTitles);
+        for (Object b : allResources) {
+            if(b instanceof Book) {
+                bookData.add(((Book)b).getTitle());
+            } else if (b instanceof  DVD) {
+                dvdData.add(((DVD)b).getTitle());
+            } else if (b instanceof Laptop) {
+                laptopData.add(((Laptop)b).getTitle());
+            }
+        }
 
-        if (selectedTab == bookTab) {
-            activeView = bookResults;
+        if(resourceSearchBar.getText().equals("")) {
+            if (selectedTab == bookTab) {
+                activeView = bookResults;
+                activeView.setItems(FXCollections.observableArrayList(bookData));
 
-        } else if (selectedTab == dvdTab) {
-            activeView = dvdResults;
+            } else if (selectedTab == dvdTab) {
+                activeView = dvdResults;
+                activeView.setItems(FXCollections.observableArrayList(dvdData));
+
+            } else {
+                activeView = laptopResults;
+                activeView.setItems(FXCollections.observableArrayList(laptopData));
+
+            }
         } else {
-            activeView = laptopResults;
+            data = FXCollections.observableArrayList(filterData);
+            if (selectedTab == bookTab) {
+                activeView = bookResults;
+                activeView.setItems(data);
+
+            } else if (selectedTab == dvdTab) {
+                activeView = dvdResults;
+                activeView.setItems(data);
+
+            } else {
+                activeView = laptopResults;
+                activeView.setItems(data);
+            }
         }
-
-
-        activeView.setItems(data);
 
         activeView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
