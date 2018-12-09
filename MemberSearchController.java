@@ -69,7 +69,7 @@ public class MemberSearchController implements Initializable {
                         FXMLLoader loader = new FXMLLoader( getClass().getResource("ViewMemberInfo.fxml"));
                         Parent rootMemberInfo = null;
                         try {
-                            Librarian selectedUser = (Librarian) Objects.requireNonNull(Conn.searchUsers(ov.getValue())).get(0);
+                            User selectedUser = (User) Objects.requireNonNull(Conn.searchUsers(ov.getValue())).get(0);
                             if (selectedUser != null) {
 
                                 System.out.println("Loaded");

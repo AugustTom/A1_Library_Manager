@@ -54,7 +54,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Text>
-            <TextField fx:id="memberFine" disable="true" layoutX="226.0" layoutY="343.0" prefHeight="25.0" prefWidth="93.0" />
+            <TextField fx:id="memberBalance" disable="true" layoutX="226.0" layoutY="343.0" prefHeight="25.0" prefWidth="93.0" />
             <Button fx:id="saveEditMyAccountButton" layoutX="319.0" layoutY="441.0" mnemonicParsing="false" onAction="#editAccount" text="Edit" />
          </children>
       </Pane>

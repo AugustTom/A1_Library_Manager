@@ -75,14 +75,14 @@ public class LibrariansMyAccountController implements Initializable{
      */
     @FXML
     void editAccount(Event event) throws IOException {
-        System.out.println("Heloo");
-        System.out.println(activeUser.getFirstName());
 
         if (saveEditMyAccountButton.getText().equals("Edit")){
                 editAccountInfo();
         } else {
             showAccountInfo();
         }
+
+        loadInfo();
     }
     
     /**
@@ -90,7 +90,6 @@ public class LibrariansMyAccountController implements Initializable{
      * The button text is set to "Save".
      */
     void editAccountInfo(){
-        librarianStaffNumber.setDisable(false);
         houseNumber.setDisable(false);
         streetName.setDisable(false);
         cityName.setDisable(false);
@@ -99,9 +98,6 @@ public class LibrariansMyAccountController implements Initializable{
         librarianContactNumber.setDisable(false);
         librarianFirstName.setDisable(false);
         librarianLastName.setDisable(false);
-        librarianUsername.setDisable(true);
-        librarianEmploymentDate.setDisable(true);
-        librarianStaffNumber.setDisable(true);
         saveEditMyAccountButton.setText("Save");
     }
 
@@ -113,51 +109,59 @@ public class LibrariansMyAccountController implements Initializable{
     void showAccountInfo(){
 
         librarianFirstName.setDisable(true);
-        librarianFirstName.setText(activeUser.getFirstName());
         librarianLastName.setDisable(true);
-        librarianLastName.setText(activeUser.getLastName());
-
         houseNumber.setDisable(true);
-        houseNumber.setText(activeUser.getAddress().getHouseName());
         streetName.setDisable(true);
-        streetName.setText(activeUser.getAddress().getStreetName());
         cityName.setDisable(true);
-        cityName.setText(activeUser.getAddress().getCity());
         postCode.setDisable(true);
-        postCode.setText(activeUser.getAddress().getPostCode());
-
         librarianContactNumber.setDisable(true);
-        librarianContactNumber.setText(activeUser.getPhone());
         librarianUsername.setDisable(true);
-        librarianUsername.setText(activeUser.getUserName());
-        librarianEmploymentDate.setText(activeUser.getEmployDate());
         librarianEmploymentDate.setDisable(true);
         librarianStaffNumber.setDisable(true);
-        librarianStaffNumber.setText(String.valueOf(activeUser.getStaffNum()));
+
+        Address address;
+        if(!(activeUser.getAddress().getHouseName().equals(houseNumber.getText()) &&
+                activeUser.getAddress().getStreetName().equals(streetName.getText()) &&
+                activeUser.getAddress().getCity().equals(cityName.getText()) &&
+                activeUser.getAddress().getPostCode().equals(postCode.getText()))){
+
+            address = new Address(Conn.getNextAvailableID("address"), houseNumber.getText(),
+                    streetName.getText(), cityName.getText(), postCode.getText());
+        }  else {
+            address = activeUser.getAddress();
+        }
+
+        //Resetting active User for this class
+        activeUser = new Librarian(activeUser.getUserName(), librarianFirstName.getText(),librarianLastName.getText(),
+                librarianContactNumber.getText(),0.0,  activeUser.avatarID, address, activeUser.getEmployDate(), activeUser.getStaffNum());
+
+        //TODO reset the active user for UserDashboard
+        Conn.writeObject(activeUser);
+
         saveEditMyAccountButton.setText("Edit");
     }
 
     public void setActiveUser(Librarian activeUser) {
         this.activeUser = activeUser;
-        System.out.println(librarianUsername);
-        librarianFirstName.setText(activeUser.getFirstName());
-        librarianLastName.setText(activeUser.getLastName());
+        loadInfo();
 
-        houseNumber.setText(activeUser.getAddress().getHouseName());
-        streetName.setText(activeUser.getAddress().getStreetName());
-        cityName.setText(activeUser.getAddress().getCity());
-        postCode.setText(activeUser.getAddress().getPostCode());
-
-        librarianContactNumber.setText(activeUser.getPhone());
-        librarianUsername.setText(activeUser.getUserName());
-
-        librarianEmploymentDate.setText(activeUser.getEmployDate());
-        librarianStaffNumber.setText(String.valueOf(activeUser.getStaffNum()));
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
 
+    private void loadInfo(){
+        librarianFirstName.setText(activeUser.getFirstName());
+        librarianLastName.setText(activeUser.getLastName());
+        houseNumber.setText(activeUser.getAddress().getHouseName());
+        streetName.setText(activeUser.getAddress().getStreetName());
+        cityName.setText(activeUser.getAddress().getCity());
+        postCode.setText(activeUser.getAddress().getPostCode());
+        librarianContactNumber.setText(activeUser.getPhone());
+        librarianUsername.setText(activeUser.getUserName());
+        librarianEmploymentDate.setText(activeUser.getEmployDate());
+        librarianStaffNumber.setText(String.valueOf(activeUser.getStaffNum()));
     }
 
 }

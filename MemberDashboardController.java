@@ -22,9 +22,9 @@ import java.util.logging.Logger;
  * This UserDashboardController Class pairs with the "UserDashboard.fxml" file
  *
  *
- * @author Ronalyn Lilyanne
- * @version 1.0
- * @since 04/12/2018
+ * @author Ronalyn Lilyanne, Auguste Tomaseviciute
+ * @version 2.0
+ * @since 09/12/2018
  */
 
 public class MemberDashboardController implements Initializable {
@@ -60,40 +60,22 @@ public class MemberDashboardController implements Initializable {
 
     @FXML
     void myAccount(MouseEvent event) {
-        Parent root = null;
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MembersMyAccount.fxml"));
-            root = loader.load();
-            memberDashboard.setCenter(root);
-            MemberDashboardController  controller = loader.getController();
-            controller.setActiveUser(activeUser);
-            System.out.println("active user passed");
-
-        } catch (IOException ex){
-            Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        loadUI("MembersMyAccount", 0);
     }
 
     @FXML
     void searchResource(MouseEvent event) {
-        loadUI("SearchResource");
+        loadUI("SearchResource", 0);
     }
 
     @FXML
     void viewRequested(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource( "ViewResources.fxml"));
-        ViewResourcesController controller = loader.getController();
-        controller.setActiveUser(activeUser);
-        controller.setViewType("Requested");
+        loadUI("ViewResources",0);
     }
 
     @FXML
     void viewBorrowed(MouseEvent event) {
-        loadUI("ViewResources");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource( "ViewResources.fxml"));
-        ViewResourcesController controller = loader.getController();
-        controller.setActiveUser(activeUser);
-        controller.setViewType("Borrowed");
+        loadUI("ViewResources",1);
     }
 
     @FXML
@@ -102,29 +84,35 @@ public class MemberDashboardController implements Initializable {
         memberDashboard.getChildren().setAll(loginPage);
     }
 
-    private void loadUI (String path){
+    //Type is for what kind of resource view to load
+    private void loadUI (String path, int type){
         Parent root = null;
 
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path + ".fxml"));
             root = loader.load();
             memberDashboard.setCenter(root);
+            if (type == 0){
+                if (path.equals("ViewResources")){
+                    //Requested
+                    ViewResourcesController controller = loader.getController();
+                    controller.setActiveUser(activeUser);
+                    controller.setViewType("Requested");
 
-            if (path.equals("ViewResources")){
+                } else if (path.equals("SearchResources")){
+                    SearchResourceController controller = loader.getController();
+                    controller.setActiveUser(activeUser);
+
+                } else if(path.equals("MembersMyAccount")){
+                    MembersMyAccountController controller = loader.getController();
+                    controller.setActiveUser(activeUser);
+
+                }
+            } else {
+                //Borrowed
                 ViewResourcesController controller = loader.getController();
                 controller.setActiveUser(activeUser);
-
-            } else if (path.equals("SearchResources")){
-                SearchResourceController controller = loader.getController();
-                controller.setActiveUser(activeUser);
-
-            } else if(path.equals("MyAccount")){
-                MembersMyAccountController controller = loader.getController();
-                controller.setActiveUser(activeUser);
-
-            } else {
-                MembersMyAccountController controller = loader.getController();
-                controller.setActiveUser(activeUser);
+                controller.setViewType("Borrowed");
             }
 
         } catch (IOException ex){
@@ -135,10 +123,12 @@ public class MemberDashboardController implements Initializable {
     public void setActiveUser(User user) {
         this.activeUser = user;
         username.setText("Hello, " + user.getFirstName());
+        loadUI("MembersMyAccount", 0);
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+
     }
 }

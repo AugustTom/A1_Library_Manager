@@ -27,6 +27,8 @@ import java.util.ResourceBundle;
 
 public class ViewMemberInfoController implements Initializable {
 
+    User activeUser;
+
     @FXML
     private Pane viewMemberInfoPage;
 
@@ -87,6 +89,7 @@ public class ViewMemberInfoController implements Initializable {
         } else {
             showAccountInfo();
         }
+
     }
 
     /**
@@ -115,14 +118,38 @@ public class ViewMemberInfoController implements Initializable {
         cityName.setDisable(true);
         postCode.setDisable(true);
         memberContactNumber.setDisable(true);
-        //memberContactNumber.setText(activeUser.getFirstName());
         updateBalance.setDisable(true);
-        //memberBalance.setText(activeUser.getFirstName());
+
+
+        // TODO : check for changes in each of the fields and only pass them to the writeObject
+        Conn.writeObject(new User(memberUsername.getText(), memberFirstName.getText(),memberLastName.getText(),
+                memberContactNumber.getText(), Double.parseDouble(updateBalance.getText()), activeUser.avatarID,
+                new Address(Conn.getNextAvailableID("address"),houseNumber.getText(),streetName.getText(), cityName.getText(), postCode.getText())));
+
+        System.out.println("User account updated");
         saveEditInfoButton.setText("Edit Info");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+    private void loadUserInfo() {
+        memberFirstName.setText(activeUser.getFirstName());
+        memberLastName.setText(activeUser.getFirstName());
+        houseNumber.setText(activeUser.getAddress().getHouseName());
+        streetName.setText(activeUser.getAddress().getStreetName());
+        cityName.setText(activeUser.getAddress().getCity());
+        postCode.setText(activeUser.getAddress().getPostCode());
+        memberContactNumber.setText(activeUser.getPhone());
+        memberUsername.setText(activeUser.getUserName());
+        memberUsername.setText(activeUser.getUserName());
+        memberBalance.setText(String.valueOf(activeUser.getBalance()));
+    }
+
+    public void setActiveUser(User selectedUser) {
+        System.out.println("Loading user into info class");
+        loadUserInfo();
 
     }
 }

@@ -58,7 +58,7 @@ public class MembersMyAccountController implements Initializable {
     private TextField memberUsername;
 
     @FXML
-    private TextField memberFine;
+    private TextField memberBalance;
 
     @FXML
     private Button saveEditMyAccountButton;
@@ -72,13 +72,13 @@ public class MembersMyAccountController implements Initializable {
      */
     @FXML
     void editAccount(ActionEvent event) throws IOException {
-        System.out.println(activeUser.getFirstName());
 
         if (saveEditMyAccountButton.getText().equals("Edit")){
             editAccountInfo();
         } else {
             showAccountInfo();
         }
+        loadInfo();
 
     }
 
@@ -94,9 +94,8 @@ public class MembersMyAccountController implements Initializable {
         cityName.setDisable(false);
         postCode.setDisable(false);
         memberContactNumber.setDisable(false);
-        memberUsername.setDisable(true);
-        memberFine.setDisable(true);
         saveEditMyAccountButton.setText("Save");
+
     }
 
     /**
@@ -106,41 +105,59 @@ public class MembersMyAccountController implements Initializable {
      */
     void showAccountInfo(){
         memberFirstName.setDisable(true);
-        memberFirstName.setText(activeUser.getFirstName());
         memberLastName.setDisable(true);
-        memberLastName.setText(activeUser.getLastName());
-
         houseNumber.setDisable(true);
-        houseNumber.setText(activeUser.getAddress().getHouseName());
         streetName.setDisable(true);
-        streetName.setText(activeUser.getAddress().getStreetName());
         cityName.setDisable(true);
-        cityName.setText(activeUser.getAddress().getCity());
         postCode.setDisable(true);
-        postCode.setText(activeUser.getAddress().getPostCode());
-
         memberContactNumber.setDisable(true);
-        memberContactNumber.setText(activeUser.getPhone());
         memberUsername.setDisable(true);
-        memberUsername.setText(activeUser.getUserName());
-        memberFine.setDisable(true);
+        memberBalance.setDisable(true);
+
+        Address address;
+        if(!(activeUser.getAddress().getHouseName().equals(houseNumber.getText()) &&
+                activeUser.getAddress().getStreetName().equals(streetName.getText()) &&
+                activeUser.getAddress().getCity().equals(cityName.getText()) &&
+                activeUser.getAddress().getPostCode().equals(postCode.getText()))){
+
+            address = new Address(Conn.getNextAvailableID("address"), houseNumber.getText(),
+                    streetName.getText(), cityName.getText(), postCode.getText());
+        }  else {
+            address = activeUser.getAddress();
+        }
+
+        //Resetting active User for this class
+        activeUser = new User(activeUser.getUserName(), memberFirstName.getText(),memberLastName.getText(),
+                memberContactNumber.getText(), Double.parseDouble(memberBalance.getText()), activeUser.avatarID,
+                address);
+
+        //TODO reset the active user for UserDashboard
+        Conn.writeObject(activeUser);
+
         saveEditMyAccountButton.setText("Edit");
 
     }
 
     public void setActiveUser(User activeUser){
+
         this.activeUser = activeUser;
-        System.out.println(memberUsername);
+        System.out.println( activeUser.getFirstName() + " account details were loaded");
+        loadInfo();
+
+    }
+    private void loadInfo(){
+
         memberFirstName.setText(activeUser.getFirstName());
         memberLastName.setText(activeUser.getLastName());
-
         houseNumber.setText(activeUser.getAddress().getHouseName());
         streetName.setText(activeUser.getAddress().getStreetName());
         cityName.setText(activeUser.getAddress().getCity());
         postCode.setText(activeUser.getAddress().getPostCode());
-
         memberContactNumber.setText(activeUser.getPhone());
         memberUsername.setText(activeUser.getUserName());
+        memberBalance.setText(String.valueOf(activeUser.getBalance()));
+
+
     }
 
     @Override

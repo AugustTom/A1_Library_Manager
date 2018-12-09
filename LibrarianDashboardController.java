@@ -62,18 +62,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     public void myAccount(MouseEvent event) {
-        Parent root = null;
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LibrariansMyAccount.fxml"));
-            root = loader.load();
-            librarianDashboard.setCenter(root);
-            LibrariansMyAccountController  controller = loader.getController();
-            controller.setActiveUser(activeUser);
-            System.out.println("active user passed");
-
-        } catch (IOException ex){
-            Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        loadMyAccount();
     }
 
     @FXML
@@ -97,19 +86,47 @@ public class LibrarianDashboardController implements Initializable {
         loadUI("CreateAccount");
     }
 
+    private void loadMyAccount(){
+        loadUI("LibrariansMyAccount");
+    }
+
     @FXML
     void loginPage (MouseEvent event) throws IOException {
         Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
         librarianDashboard.getChildren().setAll(loginPage);
     }
 
+
     private void loadUI (String path){
         Parent root = null;
+
         try{
-            root = FXMLLoader.load(getClass().getResource(path + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path + ".fxml"));
+            root = loader.load();
             librarianDashboard.setCenter(root);
+
+            if (path.equals("LibrariansMyAccount")){
+                //Requested
+                LibrariansMyAccountController  controller = loader.getController();
+                controller.setActiveUser(activeUser);
+
+            } else if (path.equals("SearchResources")){
+                SearchResourceController controller = loader.getController();
+                controller.setActiveUser(activeUser);
+
+            } else if(path.equals("NewResourcePanel")){
+                NewResourcePanelController controller = loader.getController();
+
+            } else if (path.equals("MemberSearch")){
+                MemberSearchController controller = loader.getController();
+
+            } else if (path.equals("CreateAccount")){
+                CreateAccountController controller = loader.getController();
+
+            }
+
         } catch (IOException ex){
-            Logger.getLogger(LibrarianDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -120,5 +137,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //TODO fix this initialize window problem
+        //loadMyAccount();
     }
 }
