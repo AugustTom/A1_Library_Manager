@@ -69,6 +69,7 @@ public class AddNewBookController extends AddNewSuperclassController {
      * @param bookLanguage - the language of a book
      * @param bookLoanDuration - the loan duration of a book
      * @param bookNumOfCopies - the number of copies of a book
+     * @throws IOException
      */
     
     @FXML
