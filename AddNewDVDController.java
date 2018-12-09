@@ -34,6 +34,7 @@ public class AddNewDVDController extends AddNewSuperclassController{
 
     @FXML
     private Pane addNewDVDPage;
+
     @FXML
     private TextField newDVDDirector;
 
@@ -69,6 +70,7 @@ public class AddNewDVDController extends AddNewSuperclassController{
         int dvdID = Conn.getNextAvailableID("dvd");
         String dvdTitle = titleField.getText();
         int dvdYear = Integer.parseInt(yearField.getText());
+        String imageID = "hello";
         int dvdNumOfCopies = Integer.parseInt(numOfCopiesField.getText());
         int dvdDuration = Integer.parseInt(loanDurationField.getText());
 

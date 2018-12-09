@@ -31,6 +31,8 @@ import java.util.ResourceBundle;
 
 public class AddNewLaptopController extends AddNewSuperclassController {
 
+    File imageFile;
+
 
     @FXML
     private TextField newLaptopModel;
@@ -65,6 +67,7 @@ public class AddNewLaptopController extends AddNewSuperclassController {
         int laptopID = Conn.getNextAvailableID("laptop");
         String laptopTitle = titleField.getText();
         int laptopYear = Integer.parseInt(yearField.getText());
+        String imageID = "hello";
         int laptopNumOfCopies = Integer.parseInt(numOfCopiesField.getText());
         int laptopDuration = Integer.parseInt(loanDurationField.getText());
 
@@ -77,7 +80,7 @@ public class AddNewLaptopController extends AddNewSuperclassController {
         }
 
 
-        Laptop laptop = new Laptop (laptopID, laptopTitle, laptopYear, "1nsn", IDsOfCopies, laptopModel,
+        Laptop laptop = new Laptop (laptopID, laptopTitle, laptopYear, imageID, IDsOfCopies, laptopModel,
                 laptopBrand, laptopOperatingSystem);
         Conn.writeObject(laptop);
         for(TextField field:textFieldArrayList){

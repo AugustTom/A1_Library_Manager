@@ -75,7 +75,7 @@ public class AddNewSuperclassController implements Initializable {
     
 
     @FXML
-    String chooseFile(ActionEvent event) {
+    void chooseFile(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
         fileChooser.setInitialDirectory(new File(currentPath));
@@ -96,14 +96,15 @@ public class AddNewSuperclassController implements Initializable {
         Image image = new Image(imageFile.toURI().toString());
         newImage.setImage(image);
 
-        return imageFile.getName();
-
+        pathToImage = imageFile.getName();
     }
     
     /**
      * set method for IDs of copies
      * @param IDsOfCopies
      */
+
+
 
     void setIDsOfCopies(int copies) {
         for (int i = 0; i < copies; i++){
@@ -143,7 +144,6 @@ public class AddNewSuperclassController implements Initializable {
         textFieldArrayList.add(yearField);
         inputCheck();
         addListeners();
-
     }
 
 

@@ -44,13 +44,13 @@ public class AddNewBookController extends AddNewSuperclassController {
     private Pane addNewBookPage;
 
     @FXML
+    private TextField newBookAuthor;
+
+    @FXML
     private TextField newBookPublisher;
 
     @FXML
     private TextField newBookISBN;
-
-    @FXML
-    private TextField newBookAuthor;
 
     @FXML
     private TextField newBookLanguage;
@@ -74,33 +74,27 @@ public class AddNewBookController extends AddNewSuperclassController {
     
     @FXML
     void addNewBook(ActionEvent event) throws IOException {
-        ArrayList IDsOfCopies = new ArrayList<>();
-        IDsOfCopies.add(1);
-
-
-        int bookID = Conn.getNextAvailableID("book");
+        
+        int bookID = Conn.getNextAvailableID("resource");
         String bookTitle = titleField.getText();
         int bookYear = Integer.parseInt(yearField.getText());
+        String imageID = pathToImage;
         int bookNumOfCopies = Integer.parseInt(numOfCopiesField.getText());
         int bookLoanDuration = Integer.parseInt(loanDurationField.getText());
+        setIDsOfCopies(bookNumOfCopies);
 
+        String bookAuthor = newBookAuthor.getText();
         String bookPublisher = newBookPublisher.getText();
         String bookISBN = newBookISBN.getText();
-        String bookAuthor = newBookAuthor.getText();
         String bookLanguage = newBookLanguage.getText();
 
-        for (int idcount = 0; idcount < bookNumOfCopies; idcount++) {
-            IDsOfCopies.add(idcount);
-        }
-
-
-        Book book = new Book(bookID, bookTitle, bookYear, "1nsn", IDsOfCopies, bookAuthor, bookPublisher,
+        Book book = new Book(bookID, bookTitle, bookYear, imageID , IDsOfCopies, bookAuthor, bookPublisher,
                 bookISBN, bookLanguage);
+
         Conn.writeObject(book);
         for(TextField field:textFieldArrayList){
             field.setText("");
         }
-
 
         //Alert Window
         Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
