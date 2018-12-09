@@ -142,7 +142,8 @@ public class AddNewBookController implements Initializable {
         alert.setWidth(100);
         alert.showAndWait();
     }
-
+    
+    //Disable button when adding a new book
     public void inputCheck(){
                addNewBookButton.disableProperty().bind(Bindings.createBooleanBinding(
                        () -> {
