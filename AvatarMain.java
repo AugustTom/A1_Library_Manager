@@ -5,6 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+   /* This start method shows the stage and creates a new scene by loading the "Avatar.fxlml" file
+    * @param stage
+    */
+
 public class AvatarMain extends Application {
 
     public void start(Stage stage) throws Exception {
