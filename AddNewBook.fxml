@@ -11,29 +11,24 @@
    <children>
       <Pane layoutX="16.0" layoutY="13.0" prefHeight="480.0" prefWidth="290.0">
          <children>
-            <TextField fx:id="newBookID" onInputMethodTextChanged="#inputCheck" prefHeight="25.0" prefWidth="114.0" promptText="ID Number">
+            <TextField fx:id="titleField" onInputMethodTextChanged="#inputCheck"  prefHeight="25.0" prefWidth="171.0" promptText="Title">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <TextField fx:id="newBookTitle" onInputMethodTextChanged="#inputCheck" layoutX="120.0" prefHeight="25.0" prefWidth="171.0" promptText="Title">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TextField>
-            <TextField fx:id="newBookYear" onInputMethodTextChanged="#inputCheck" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
+            <TextField fx:id="yearField" onInputMethodTextChanged="#inputCheck" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
             <Text layoutX="79.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Copies: " />
-            <TextField fx:id="newBookCopies" onInputMethodTextChanged="#inputCheck" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
+            <TextField fx:id="numOfCopiesField" onInputMethodTextChanged="#inputCheck" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
             <Text layoutX="5.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loan Duration: " />
-            <TextField fx:id="newBookLoanDuration" onInputMethodTextChanged="#inputCheck" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
+            <TextField fx:id="loanDurationField" onInputMethodTextChanged="#inputCheck" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -59,13 +54,13 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button fx:id="addNewBookButton" onInputMethodTextChanged="#inputCheck"  alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0"
+            <Button fx:id="addNewButton" onInputMethodTextChanged="#inputCheck"  alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0"
                     mnemonicParsing="false" onAction="#addNewBook" prefHeight="25.0" text="Add Book">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <ImageView fx:id="newBookImage" fitHeight="129.0" fitWidth="153.0" layoutX="64.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="newImage" fitHeight="129.0" fitWidth="153.0" layoutX="64.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Button fx:id="browseImageButton" alignment="CENTER_RIGHT" layoutX="19.0" layoutY="116.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="25.0" text="Browse Images">

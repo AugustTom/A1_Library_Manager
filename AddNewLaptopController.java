@@ -28,73 +28,18 @@ import java.util.ResourceBundle;
  * @since 04/12/2018
  */
 
-public class AddNewLaptopController implements Initializable {
+public class AddNewLaptopController extends AddNewSuperclassController {
 
-    File imageFile; //Stores path to resource image.
-
-    @FXML
-    private Pane addNewLaptopPage;
-
-    @FXML
-    private TextField newLaptopID;
-
-    @FXML
-    private TextField newLaptopTitle;
-
-    @FXML
-    private TextField newLaptopYear;
-
-    @FXML
-    private TextField newLaptopCopies;
-
-    @FXML
-    private TextField newLaptopLoanDuration;
-
-    @FXML
-    private Button browseImageButton;
 
     @FXML
     private TextField newLaptopModel;
 
-    @FXML
-    private Button addNewLaptopButton;
-
-    @FXML
-    private ImageView newLaptopImage;
 
     @FXML
     private TextField newLaptopBrand;
 
     @FXML
     private TextField newLaptopOS;
-    
-    
-    private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
-
-    @FXML
-    void chooseFile(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
-        fileChooser.setInitialDirectory(new File(currentPath));
-
-        //Open directory from existing directory
-        if(imageFile != null){
-            File existDirectory = imageFile.getParentFile();
-            fileChooser.setInitialDirectory(existDirectory);
-        }
-
-        //Set extension filter
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-        fileChooser.getExtensionFilters().add(extFilter);
-
-        //Show open file dialog
-        imageFile = fileChooser.showOpenDialog(null);
-
-        Image image = new Image(imageFile.toURI().toString());
-
-        newLaptopImage.setImage(image);
-
-    }
 
     @FXML
     void addNewLaptop(ActionEvent event) {
@@ -103,11 +48,11 @@ public class AddNewLaptopController implements Initializable {
 
 
         System.out.println("adding new dvd");
-        int laptopID = Integer.parseInt(newLaptopID.getText());
-        String laptopTitle = newLaptopTitle.getText();
-        int laptopYear = Integer.parseInt(newLaptopYear.getText());
-        int laptopNumOfCopies = Integer.parseInt(newLaptopCopies.getText());
-        int laptopDuration = Integer.parseInt(newLaptopLoanDuration.getText());
+        int laptopID = Conn.getNextAvailableID("laptop");
+        String laptopTitle = titleField.getText();
+        int laptopYear = Integer.parseInt(yearField.getText());
+        int laptopNumOfCopies = Integer.parseInt(numOfCopiesField.getText());
+        int laptopDuration = Integer.parseInt(loanDurationField.getText());
 
         String laptopModel  = newLaptopModel.getText();
         String laptopBrand = newLaptopBrand.getText();
@@ -121,7 +66,9 @@ public class AddNewLaptopController implements Initializable {
         Laptop laptop = new Laptop (laptopID, laptopTitle, laptopYear, "1nsn", IDsOfCopies, laptopModel,
                 laptopBrand, laptopOperatingSystem);
         Conn.writeObject(laptop);
-
+        for(TextField field:textFieldArrayList){
+            field.setText("");
+        }
          //Alert Window
         Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
         alert.setWidth(100);
@@ -129,20 +76,13 @@ public class AddNewLaptopController implements Initializable {
 
     }
     
-    //Disable button when adding a new laptop
-    public void inputCheck(){
-               addNewLaptopButton.disableProperty().bind(Bindings.createBooleanBinding(
-                       () -> {
-                           boolean check = true;
-                           for (TextField textField: textFieldArrayList){
-                               check = check && textField.getText().isEmpty();
-                           }
-                           return check;
-                       }));
-    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        textFieldArrayList.add(newLaptopModel);
+        textFieldArrayList.add(newLaptopBrand);
+        textFieldArrayList.add(newLaptopOS);
+        init();
     }
 }

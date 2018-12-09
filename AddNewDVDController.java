@@ -28,28 +28,12 @@ import java.util.ResourceBundle;
  * @since 04/12/2018
  */
 
-public class AddNewDVDController implements Initializable{
+public class AddNewDVDController extends AddNewSuperclassController{
 
     File imageFile; //Stores path to resource image.
 
     @FXML
     private Pane addNewDVDPage;
-
-    @FXML
-    private TextField newDVDID;
-
-    @FXML
-    private TextField newDVDTitle;
-
-    @FXML
-    private TextField newDVDYear;
-
-    @FXML
-    private TextField newDVDCopies;
-
-    @FXML
-    private TextField newDVDLoanDuration;
-
     @FXML
     private TextField newDVDDirector;
 
@@ -62,17 +46,6 @@ public class AddNewDVDController implements Initializable{
     @FXML
     private TextField newDVDSubtitleLanguages;
 
-    @FXML
-    private Button addNewDVDButton;
-
-    @FXML
-    private Button browseImageButton;
-
-    @FXML
-    private ImageView newDVDImage;
-    
-    
-    private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
 
     @FXML
     void addNewDVD(ActionEvent event) {
@@ -80,11 +53,11 @@ public class AddNewDVDController implements Initializable{
         IDsOfCopies.add(1);
 
         System.out.println("adding new dvd");
-        int dvdID = Integer.parseInt(newDVDID.getText());
-        String dvdTitle = newDVDTitle.getText();
-        int dvdYear = Integer.parseInt(newDVDYear.getText());
-        int dvdNumOfCopies = Integer.parseInt(newDVDCopies.getText());
-        int dvdDuration = Integer.parseInt(newDVDLoanDuration.getText());
+        int dvdID = Conn.getNextAvailableID("dvd");
+        String dvdTitle = titleField.getText();
+        int dvdYear = Integer.parseInt(yearField.getText());
+        int dvdNumOfCopies = Integer.parseInt(numOfCopiesField.getText());
+        int dvdDuration = Integer.parseInt(loanDurationField.getText());
 
         String dvdDirector  = newDVDDirector.getText();
         int dvdRuntime = Integer.parseInt(newDVDRunTime.getText());
@@ -106,47 +79,14 @@ public class AddNewDVDController implements Initializable{
         alert.showAndWait();
 
     }
-    
-    //Disable button when adding a new DVD
-    public void inputCheck(){
-               addNewDVDButton.disableProperty().bind(Bindings.createBooleanBinding(
-                       () -> {
-                           boolean check = true;
-                           for (TextField textField: textFieldArrayList){
-                               check = check && textField.getText().isEmpty();
-                           }
-                           return check;
-                       }));
-    }
-
-    @FXML
-    void chooseFile(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
-        fileChooser.setInitialDirectory(new File(currentPath));
-
-        //Open directory from existing directory
-        if(imageFile != null){
-            File existDirectory = imageFile.getParentFile();
-            fileChooser.setInitialDirectory(existDirectory);
-        }
-
-        //Set extension filter
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
-        fileChooser.getExtensionFilters().add(extFilter);
-
-        //Show open file dialog
-        imageFile = fileChooser.showOpenDialog(null);
-
-        Image image = new Image(imageFile.toURI().toString());
-
-        newDVDImage.setImage(image);
-
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        textFieldArrayList.add(newDVDLanguage);
+        textFieldArrayList.add(newDVDRunTime);
+        textFieldArrayList.add(newDVDDirector);
+        textFieldArrayList.add(newDVDSubtitleLanguages);
+        init();
     }
 }
 

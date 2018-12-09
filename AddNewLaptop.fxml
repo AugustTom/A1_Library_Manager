@@ -11,29 +11,24 @@
    <children>
       <Pane layoutX="16.0" layoutY="13.0" prefHeight="475.0" prefWidth="290.0">
          <children>
-            <TextField fx:id="newLaptopID" prefHeight="25.0" prefWidth="114.0" promptText="ID Number">
+            <TextField fx:id="titleField" prefHeight="25.0" prefWidth="171.0" promptText="Title">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <TextField fx:id="newLaptopTitle" layoutX="120.0" prefHeight="25.0" prefWidth="171.0" promptText="Title">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TextField>
-            <TextField fx:id="newLaptopYear" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
+            <TextField fx:id="yearField" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
             <Text layoutX="79.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Copies: " />
-            <TextField fx:id="newLaptopCopies" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
+            <TextField fx:id="numOfCopiesField" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
             <Text layoutX="5.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loan Duration: " />
-            <TextField fx:id="newLaptopLoanDuration" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
+            <TextField fx:id="loanDurationField" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -49,12 +44,12 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button fx:id="addNewLaptopButton" alignment="CENTER_RIGHT" layoutX="199.0" layoutY="441.0" mnemonicParsing="false" onAction="#addNewLaptop" prefHeight="25.0" text="Add Laptop">
+            <Button fx:id="addNewButton" alignment="CENTER_RIGHT" layoutX="199.0" layoutY="441.0" mnemonicParsing="false" onAction="#addNewLaptop" prefHeight="25.0" text="Add Laptop">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <ImageView fx:id="newLaptopImage" fitHeight="129.0" fitWidth="153.0" layoutX="63.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="newImage" fitHeight="129.0" fitWidth="153.0" layoutX="63.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
             <TextField fx:id="newLaptopBrand" layoutY="271.0" prefHeight="25.0" prefWidth="290.0" promptText="Brand">
                <opaqueInsets>
                   <Insets />

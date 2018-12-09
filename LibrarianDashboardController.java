@@ -62,7 +62,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     public void myAccount(MouseEvent event) {
-        loadMyAccount();
+        loadUI("LibrariansMyAccount");
     }
 
     @FXML
@@ -84,10 +84,6 @@ public class LibrarianDashboardController implements Initializable {
     @FXML
     void createNewAccount(MouseEvent event) {
         loadUI("CreateAccount");
-    }
-
-    private void loadMyAccount(){
-        loadUI("LibrariansMyAccount");
     }
 
     @FXML
@@ -132,12 +128,12 @@ public class LibrarianDashboardController implements Initializable {
 
     public void loadUser(Librarian user) {
         this.activeUser = user;
+        loadUI("LibrariansMyAccount");
         username.setText("Hello, " + user.getFirstName());
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //TODO fix this initialize window problem
-        //loadMyAccount();
+
     }
 }

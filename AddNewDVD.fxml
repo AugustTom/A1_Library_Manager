@@ -11,29 +11,24 @@
    <children>
       <Pane layoutX="15.0" layoutY="10.0" prefHeight="480.0" prefWidth="290.0">
          <children>
-            <TextField fx:id="newDVDID" prefHeight="25.0" prefWidth="114.0" promptText="ID Number">
+            <TextField fx:id="titleField" prefHeight="25.0" prefWidth="171.0" promptText="Title">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <TextField fx:id="newDVDTitle" layoutX="120.0" prefHeight="25.0" prefWidth="171.0" promptText="Title">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TextField>
-            <TextField fx:id="newDVDYear" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
+            <TextField fx:id="yearField" layoutY="34.0" prefHeight="25.0" prefWidth="70.0" promptText="Year">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
             <Text layoutX="79.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Copies: " />
-            <TextField fx:id="newDVDCopies" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
+            <TextField fx:id="numOfCopiesField" layoutX="182.0" layoutY="34.0" prefHeight="20.0" prefWidth="30.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
             <Text layoutX="5.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loan Duration: " />
-            <TextField fx:id="newDVDLoanDuration" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
+            <TextField fx:id="loanDurationField" layoutX="85.0" layoutY="68.0" prefHeight="20.0" prefWidth="30.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -59,7 +54,7 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button fx:id="addNewDVDButton" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" mnemonicParsing="false" onAction="#addNewDVD" prefHeight="25.0" text="Add DVD">
+            <Button fx:id="addNewButton" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="441.0" mnemonicParsing="false" onAction="#addNewDVD" prefHeight="25.0" text="Add DVD">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -73,6 +68,6 @@
             </Button>
          </children>
       </Pane>
-      <ImageView fx:id="newDVDImage" fitHeight="129.0" fitWidth="153.0" layoutX="73.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="newImage" fitHeight="129.0" fitWidth="153.0" layoutX="73.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
