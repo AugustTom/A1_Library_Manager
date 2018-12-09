@@ -86,6 +86,9 @@ public class LibrarianDashboardController implements Initializable {
         loadUI("CreateAccount");
     }
 
+    /**
+ * @throws IOException
+ */
     @FXML
     void loginPage (MouseEvent event) throws IOException {
         Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -93,6 +96,9 @@ public class LibrarianDashboardController implements Initializable {
     }
 
 
+      /**
+ * This method loads a UI depending on what part of the program is loaded
+ */
     private void loadUI (String path){
         Parent root = null;
 
