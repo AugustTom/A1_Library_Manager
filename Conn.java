@@ -4,6 +4,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This is the connection class that connects the source code to the database
+ *
+ *
+ * @author James Hinns
+ * @version 1.0
+ * @since 09/12/2018
+ */
+
 public class Conn {
 
     /**
@@ -40,7 +49,10 @@ public class Conn {
 
     }
 
-    //Reading
+    /**
+     * This method retrieves address data from the database via an SQL query and outputs the result set
+     * @return the full address
+     */
 
     private static Address getAddress(int id) throws SQLException {
 
@@ -58,6 +70,11 @@ public class Conn {
                 rs.getString("post_code"));
 
     }
+    
+    /**
+     * This method retrieves librarian data from the database via an SQL query and outputs the result set
+     * @return the librarian attributes
+     */
 
     private static Librarian getLibrarian(String username,Address address) throws SQLException {
 
@@ -77,6 +94,11 @@ public class Conn {
                 rs.getString("employment_date"),rs.getInt("staff_id"));
 
     }
+    
+    /**
+     * This method checks if the entered username is a librarian via an SQL query and outputs a boolean
+     * @return false if the username is not a librarian
+     */
 
     public static boolean isLibrarian(String username) {
 
@@ -96,7 +118,8 @@ public class Conn {
         return false;
 
     }
-
+    
+   
     public static ArrayList searchUsers(String searchTerm) {
 
         ArrayList users = new ArrayList();
@@ -135,6 +158,8 @@ public class Conn {
         return users;
 
     }
+    
+    
 
     public static ResultSet getActiveLoan(int id,String username) {
 
