@@ -71,7 +71,6 @@ public class LibrarianDashboardController implements Initializable {
         loadUI("searchResource");
     }
 
-
     @FXML
     private void addNewResource(MouseEvent event) {
         loadUI("NewResourcePanel");
@@ -95,7 +94,6 @@ public class LibrarianDashboardController implements Initializable {
         Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
         librarianDashboard.getChildren().setAll(loginPage);
     }
-
 
       /**
        * This method loads a UI depending on what part of the program is loaded
