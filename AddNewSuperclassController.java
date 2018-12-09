@@ -102,9 +102,11 @@ public class AddNewSuperclassController implements Initializable {
 
 
 
+ /**
+ * Disable button when adding a resource
+ */
 
-
-    //Disable button when adding a resource
+    
     public void inputCheck(){
         addNewButton.disableProperty().bind(Bindings.createBooleanBinding(
                 () -> {
