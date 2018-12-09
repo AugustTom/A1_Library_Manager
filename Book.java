@@ -19,7 +19,11 @@ public class Book extends Resources {
     protected String ISBN;
     protected String language;
     
-    /* @param year extends from Resources class - book year of publication 
+    /**
+     * This is a book constructor and it is needed to initialize a book object
+     * @param id extends from Resources class- id of a book
+     * @param title extends from Resources class - title of a book
+     * @param year extends from Resources class - book year of publication 
      * @param imageID extends from Resources class - ID of a book's image 
      * @param copies extends from Resources class - amount of copies of a book 
      * @param author - the author of a book 
