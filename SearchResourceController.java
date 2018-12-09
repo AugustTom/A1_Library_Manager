@@ -67,7 +67,7 @@ public class SearchResourceController implements Initializable {
     }
 
     @FXML
-    void searchResourceButton(ActionEvent event) {
+    public void searchResourceButton(ActionEvent event) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
         ListView activeView;
 
@@ -146,7 +146,7 @@ public class SearchResourceController implements Initializable {
     }
 
     @FXML
-    void searchResourcesQuery(ActionEvent event) {
+    public void searchResourcesQuery(ActionEvent event) {
 
     }
 }

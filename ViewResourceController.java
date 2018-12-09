@@ -7,11 +7,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 import java.net.URL;
 import java.util.ArrayList;
+import javafx.scene.control.*;
 
 public class ViewResourceController implements Initializable {
+
+    private User activeUser;
+
+    @FXML
+    private Button refresh;
+
+    @FXML
+    private Tab borrowedTab;
+
+    @FXML
+    private Tab requestedTab;
 
     @FXML
     private ListView<String> borrowedList;
@@ -22,20 +35,35 @@ public class ViewResourceController implements Initializable {
     @FXML
     private TabPane resourcesTable;
 
-
+    @FXML
     public void initialize(URL location, ResourceBundle resource) {
+    }
 
+    @FXML
+    public void searchLoans(javafx.event.ActionEvent actionEvent) {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
         ListView activeView;
 
-        ArrayList resources = Conn.searchResource("");
-        ArrayList<String> resourceTitles = new ArrayList<String>();
+        ArrayList actives = Conn.getActiveLoans(activeUser.getUserName());
+        ArrayList<String> titles = new ArrayList<String>();
 
-        for (Object b : resources) {
-
+        for (Object active: actives) {
+            titles.add(((Resources) active).getTitle());
         }
 
-        ObservableList data = FXCollections.observableArrayList(resourceTitles);
+        ObservableList data = FXCollections.observableArrayList(titles);
 
+        if (selectedTab == borrowedTab) {
+            activeView = borrowedList;
+            activeView.setItems(data);
+        } else if (selectedTab == requestedTab) {
+            activeView = requestedList;
+            activeView.setItems(data);
+        }
+
+    }
+
+    public void setActiveUser(User user) {
+        this.activeUser = user;
     }
 }

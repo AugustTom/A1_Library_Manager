@@ -101,6 +101,64 @@ public class Conn {
      * @return false if the username is not a librarian
      */
 
+    public static ArrayList getLoanRequests(String username) {
+
+        try {
+
+            final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
+                    "INNER JOIN resources ON resources.resource_id = copy.copy_ID " +
+                    "WHERE loan.username = ? AND active = 'requested'";
+
+            ArrayList binds = new ArrayList();
+            binds.add(username);
+
+            ResultSet rs = runQuery(sql,binds);
+
+            ArrayList requests = new ArrayList();
+
+            while (rs.next()) {
+                requests.add(readResource(rs.getInt("resource_id"),rs.getString("resource_type")));
+            }
+
+            return requests;
+
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error getting loan requests");
+        }
+
+        return null;
+
+    }
+
+    public static ArrayList getActiveLoans(String username) {
+
+        try {
+
+            final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
+                    "INNER JOIN resources ON resources.resource_id = copy.copy_ID " +
+                    "WHERE loan.username = ? AND active = 'onloan'";
+
+            ArrayList binds = new ArrayList();
+            binds.add(username);
+
+            ResultSet rs = runQuery(sql,binds);
+
+            ArrayList requests = new ArrayList();
+
+            while (rs.next()) {
+                requests.add(readResource(rs.getInt("resource_id"),rs.getString("resource_type")));
+            }
+
+            return requests;
+
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error getting loan requests");
+        }
+
+        return null;
+
+    }
+
     public static boolean isLibrarian(String username) {
 
         try {
