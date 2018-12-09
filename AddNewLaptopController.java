@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
  * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file
  *
  *
+ * @author Auguste Tomaseviciute
  * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
@@ -40,6 +41,19 @@ public class AddNewLaptopController extends AddNewSuperclassController {
 
     @FXML
     private TextField newLaptopOS;
+    
+    /**
+     * This method adds a new laptop to the database
+     * <br>
+     * It also has a constructor
+     * @param laptopID - ID of a laptop
+     * @param laptopTitle - title of a laptop
+     * @param laptopYear - year in which a laptop was released
+     * @param IDsOfCopies - IDs of laptop copies
+     * @param laptopModel - model of a laptop
+     * @param laptopBrand - brand of a laptop
+     * @param laptopOperatingSystem - operating system of a laptop
+     */
 
     @FXML
     void addNewLaptop(ActionEvent event) {
