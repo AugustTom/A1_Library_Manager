@@ -28,7 +28,7 @@ public class Laptop extends Resources {
      * @param copies  extends from Resouces class - the amount of copies of a laptop 
      * @param manufacturer - the manufacturer of a laptop 
      * @param model - the model of a laptop 
-     * @param opratingSystem - the operating system of a laptop 
+     * @param operatingSystem - the operating system of a laptop
      */ 
 
     public Laptop (int id, String title, int year, String imageID, ArrayList<Integer> copies,

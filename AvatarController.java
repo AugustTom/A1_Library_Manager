@@ -4,20 +4,20 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 
 /**
  * This AvatarController Class pairs with the AvatarMain Class.
- * <br>
- * This class allows the user to draw their own avatar for their account.
  *
+ * This class allows the user to draw their own avatar for their account.
  *
  *@author Seb Gappa
  *@version 1.0
@@ -25,6 +25,8 @@ import java.io.File;
  */
 
 public class AvatarController {
+
+    private Image avatar;
 
     @FXML
     private Canvas canvas;
@@ -34,6 +36,9 @@ public class AvatarController {
     private TextField brushSize;
     @FXML
     private Text selectedTool;
+
+    @FXML
+    MenuItem saveButton;
 
     private double lineX1;
     private double lineY1;
@@ -47,6 +52,9 @@ public class AvatarController {
      *<br>
      * it then fills an oval with the selected colour and draws it at the mouse position of size "double size".
      */
+    private String username;
+
+
     public void particleTrace() {
         selectedTool.setText("Particle Trace");
         canvas.setOnMouseReleased(null);
@@ -127,14 +135,21 @@ public class AvatarController {
      */
     public void save() {
         // TODO Avatar id gen
-        File directory = new File("C:\\Users\\ronal\\OneDrive\\Documents\\Uni\\230\\A1_Library_Manager\\source\\tawelib\\images");
+            this.avatar = canvas.snapshot(null, null);
+
+        File directory = new File("./src/tawelib/images/avatar" + this.username);
         try {
-            Image avatar = canvas.snapshot(null, null);
-            ImageIO.write(SwingFXUtils.fromFXImage(avatar, null), "png",
-                    File.createTempFile("avatar", ".png", directory));
+            this.avatar = canvas.snapshot(null, null);
+            ImageIO.write(SwingFXUtils.fromFXImage(this.avatar, null), "png",
+                    directory);
 
         } catch (Exception e) {
             System.out.println("Failed to save: " + e);
         }
+
+    }
+
+    public void setUsername(String username){
+        this.username =username;
     }
 }

@@ -403,7 +403,7 @@ public class Conn {
 
         User user = (User) object;
         int rows = 0;
-
+        rows += writeAddress(user.getAddress());
         ArrayList binds = new ArrayList();
         binds.addAll(Arrays.asList(user.getUserName(), user.getFirstName(), user.getLastName(), user.getPhone(),
                 user.getAddress().getId(), user.getBalance(),user.getAvatarID(), user.getFirstName(), user.getLastName(), user.getPhone(),

@@ -19,7 +19,7 @@
         <VBox prefWidth="500.0">
             <MenuBar>
                 <Menu text="File">
-                    <MenuItem onAction="#save" text="Save" />
+                    <MenuItem fx:id="saveButton" onAction="#save" text="Save" />
                 </Menu>
             </MenuBar>
 

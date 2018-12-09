@@ -1,5 +1,6 @@
 package tawelib;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -137,11 +140,15 @@ public class CreateAccountController implements Initializable {
     @FXML
     void setCustomAvatar(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
+
         Parent rootAvatar = (Parent) fxmlLoader.load();
+        AvatarController avatarController = fxmlLoader.getController();
+        String username = newUsername.getText();
+        avatarController.setUsername(username);
         Stage stage = new Stage();
         stage.setScene(new Scene(rootAvatar, 500, 500));
-        stage.show();
-        //imageID =
+        stage.showAndWait();
+        imageID = "avatar" + username;
     }
 
     @FXML
@@ -155,15 +162,21 @@ public class CreateAccountController implements Initializable {
         String streetName = newStreetName.getText();
         String city = newCity.getText();
         String postCode = newPostCode.getText();
-        String address = houseName + streetName + city + postCode;
-        String employDate = newEmployDate.getText();
-        int staffNum = Integer.parseInt(newStaffNumber.getText()) ;
 
-//        if (newStaffNumber != null && !newEmployDate.equals(null)){
-//            Librarian librarian = new Librarian(userName, userFirstName, userLastName, userPhoneNum, imageID, address,
-//                    employDate, staffNum);
-//            System.out.println(Conn.writeObject(librarian));
-//        }
+        Address address1 = new Address(Conn.getNextAvailableID("address"), houseName,streetName,city,postCode);
+
+
+        if (newStaffNumber.getText().isEmpty() && newEmployDate.getText().isEmpty()){
+            User user = new User(userName, userFirstName, userLastName, userPhoneNum, 0.0,imageID, address1);
+            System.out.println("new user created!");
+            Conn.writeObject(user);
+        }
+        else {
+            Librarian user = new Librarian(userName, userFirstName, userLastName, userPhoneNum, 0.0,imageID,
+                    address1,newEmployDate.getText(), Integer.parseInt(newStaffNumber.getText()));
+            System.out.println("new librarian created!");
+            Conn.writeObject(user);
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
