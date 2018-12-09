@@ -21,6 +21,7 @@ import java.util.logging.Logger;
  * This LibrarianDashboardController Class pairs with the "LibrarianDashboard.fxml" file
  *
  *
+ * @author Auguste Tomaseviciute
  * @author Ronalyn Lilyanne
  * @version 1.0
  * @since 04/12/2018
@@ -87,8 +88,8 @@ public class LibrarianDashboardController implements Initializable {
     }
 
     /**
- * @throws IOException
- */
+     * @throws IOException
+     */
     @FXML
     void loginPage (MouseEvent event) throws IOException {
         Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -97,8 +98,8 @@ public class LibrarianDashboardController implements Initializable {
 
 
       /**
- * This method loads a UI depending on what part of the program is loaded
- */
+       * This method loads a UI depending on what part of the program is loaded
+       */
     private void loadUI (String path){
         Parent root = null;
 
@@ -131,7 +132,10 @@ public class LibrarianDashboardController implements Initializable {
             Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    /**
+     * This method loads the UI for the librarian dashboard
+     */
     public void loadUser(Librarian user) {
         this.activeUser = user;
         loadUI("LibrariansMyAccount");
