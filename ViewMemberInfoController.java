@@ -2,21 +2,31 @@ package tawelib;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+/**
+ * This ViewMemberInfoController Class pairs with the "ViewMemberInfo.fxml" file
+ *
+ *
+ * @author Auguste Tomaseviciute
+ * @author Ronalyn Nanong
+ * @version 1.0
+ * @since 04/12/2018
+ */
 
 public class ViewMemberInfoController implements Initializable {
 
-
-    private User activeUser;
     @FXML
     private Pane viewMemberInfoPage;
 
@@ -83,8 +93,7 @@ public class ViewMemberInfoController implements Initializable {
      * Enables the text fields to allow the user to edit their information.
      * The button text is set to "Save".
      */
-    private void editAccountInfo(){
-        loadUserInfo();
+    void editAccountInfo(){
         memberFirstName.setDisable(false);
         memberLastName.setDisable(false);
         houseNumber.setDisable(false);
@@ -92,52 +101,28 @@ public class ViewMemberInfoController implements Initializable {
         cityName.setDisable(false);
         postCode.setDisable(false);
         memberContactNumber.setDisable(false);
-        updateFine.setDisable(false);
-
+        updateBalance.setDisable(false);
         saveEditInfoButton.setText("Save");
     }
 
-    private void showAccountInfo(){
-        loadUserInfo();
+    void showAccountInfo(){
         memberFirstName.setDisable(true);
+        //memberFirstName.setText(activeUser.getFirstName());
         memberLastName.setDisable(true);
+        //memberLastName.setText(activeUser.getFirstName());
         houseNumber.setDisable(true);
         streetName.setDisable(true);
         cityName.setDisable(true);
         postCode.setDisable(true);
         memberContactNumber.setDisable(true);
-        updateFine.setDisable(true);
-
-
-        // TODO : check for changes in each of the fields and only pass them to the writeObject
-        Conn.writeObject(new User(memberUsername.getText(), memberFirstName.getText(),memberLastName.getText(),
-                memberContactNumber.getText(), Double.parseDouble(memberFine.getText()), activeUser.avatarID,
-                new Address(Conn.getNextAvailableID("address"),houseNumber.getText(),streetName.getText(), cityName.getText(), postCode.getText())));
-
-        System.out.println("User account updated");
+        //memberContactNumber.setText(activeUser.getFirstName());
+        updateBalance.setDisable(true);
+        //memberBalance.setText(activeUser.getFirstName());
         saveEditInfoButton.setText("Edit Info");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
 
-    private void loadUserInfo() {
-        memberFirstName.setText(activeUser.getFirstName());
-        memberLastName.setText(activeUser.getFirstName());
-        houseNumber.setText(activeUser.getAddress().getHouseName());
-        streetName.setText(activeUser.getAddress().getStreetName());
-        cityName.setText(activeUser.getAddress().getCity());
-        postCode.setText(activeUser.getAddress().getPostCode());
-        memberContactNumber.setText(activeUser.getPhone());
-        memberUsername.setText(activeUser.getUserName());
-        memberUsername.setText(activeUser.getUserName());
-        memberFine.setText(String.valueOf(activeUser.getBalance()));
-    }
-
-
-    public void setActiveUser(User searchUsers) {
-        this.activeUser = searchUsers;
-        loadUserInfo();
     }
 }
