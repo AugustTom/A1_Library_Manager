@@ -11,7 +11,7 @@
    <children>
       <Pane layoutX="16.0" layoutY="13.0" prefHeight="480.0" prefWidth="290.0">
          <children>
-            <TextField fx:id="newBookID" onInputMethodTextChanged="#inputCheck" prefHeight="25.0" prefWidth="114.0" promptText=Conn.getNextAvailableID>
+            <TextField fx:id="newBookID" onInputMethodTextChanged="#inputCheck" prefHeight="25.0" prefWidth="114.0" promptText="ID Number">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
