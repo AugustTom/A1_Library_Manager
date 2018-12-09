@@ -22,7 +22,8 @@ import java.util.logging.Logger;
  * This UserDashboardController Class pairs with the "UserDashboard.fxml" file
  *
  *
- * @author Ronalyn Lilyanne, Auguste Tomaseviciute
+ * @author Auguste Tomaseviciute
+ * @author Ronalyn Lilyanne
  * @version 2.0
  * @since 09/12/2018
  */
