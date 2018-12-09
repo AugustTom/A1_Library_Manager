@@ -67,6 +67,12 @@ public class AddNewSuperclassController implements Initializable {
 
     ArrayList<TextField> textFieldArrayList = new ArrayList<>();
     ArrayList<Integer> IDsOfCopies = new ArrayList<>();
+    
+    /**
+     * This method gets a file image from the given directory if available
+     * @return the image file name
+     */
+    
 
     @FXML
     String chooseFile(ActionEvent event) {
@@ -93,6 +99,11 @@ public class AddNewSuperclassController implements Initializable {
         return imageFile.getName();
 
     }
+    
+    /**
+     * set method for IDs of copies
+     * @param IDsOfCopies
+     */
 
     void setIDsOfCopies(int copies) {
         for (int i = 0; i < copies; i++){
@@ -100,12 +111,9 @@ public class AddNewSuperclassController implements Initializable {
         }
     }
 
-
-
- /**
- * Disable button when adding a resource
- */
-
+    /**
+     * Disable button when adding a resource
+     */
     
     public void inputCheck(){
         addNewButton.disableProperty().bind(Bindings.createBooleanBinding(
@@ -127,6 +135,7 @@ public class AddNewSuperclassController implements Initializable {
             });
         }
     }
+    
     void init(){
         textFieldArrayList.add(titleField);
         textFieldArrayList.add(numOfCopiesField);
