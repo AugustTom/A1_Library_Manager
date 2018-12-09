@@ -15,6 +15,19 @@ public class Librarian extends User {
 
     private String employDate;
     private int staffNum;
+    
+    /**
+     * This is a Librarian constructor and it is needed to initialise a Librarian object
+     * @param userName extends from the superclass User - username of a librarian
+     * @param firstName extends from the superclass User - first name of a librarian
+     * @param lastName extends from the superclass User - last name of a librarian
+     * @param phoneNum extends from the superclass User - phone number of a librarian
+     * @param balance extends from the superclass User - balance of a librarian
+     * @param avatarID extends from the superclass User - avatar ID of a librarian
+     * @param address extends from the superclass User - address of a librarian
+     * @param employDate - employment date of a librarian
+     * @param staffNum - staff number of a librarian
+     */
 
     public Librarian(String userName, String firstName, String lastName, String phoneNum, double balance,
                      String avatarID, Address address, String employDate, int staffNum) {
