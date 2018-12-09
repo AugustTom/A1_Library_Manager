@@ -46,8 +46,6 @@ public class Resources {
     }
 
     public int getResourceID() {
-        
-        Conn.getNextAvailableID(String Resource);
         return id;
     }
 
