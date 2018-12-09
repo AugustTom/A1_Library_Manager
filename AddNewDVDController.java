@@ -107,6 +107,7 @@ public class AddNewDVDController implements Initializable{
 
     }
     
+    //Disable button when adding a new DVD
     public void inputCheck(){
                addNewDVDButton.disableProperty().bind(Bindings.createBooleanBinding(
                        () -> {
