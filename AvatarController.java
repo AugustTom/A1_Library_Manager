@@ -38,6 +38,15 @@ public class AvatarController {
     private double lineX1;
     private double lineY1;
 
+     /**
+     *The text field is assigned to a string "Particle trace" which describes which tool is currently selected.
+     * <br>
+     * All other mouse-event assignments are cleared to prevent multiple tools from running simultaneously.
+     * <br>
+     * A ‘mousedragged’ event is created which reads the brush size and position of the mouse,
+     *<br>
+     * it then fills an oval with the selected colour and draws it at the mouse position of size "double size".
+     */
     public void particleTrace() {
         selectedTool.setText("Particle Trace");
         canvas.setOnMouseReleased(null);
@@ -53,6 +62,17 @@ public class AvatarController {
 
     }
 
+    /**
+     * The text field is assigned to a string "Line" which describes which tool is currently selected.
+     * <br>
+     * All other mouse-event assignments are cleared to prevent multiple tools from running simultaneously.
+     *<br>
+     * 'Mouse click’ and ‘mouse released’ events are created, which read the brush size and position
+     * <br>
+     * of the mouse (on click and on release), it then strokes a line with the selected colour
+     * <br>
+     * and draws it at the mouse position of width "double size".
+     */
     public void line() {
         selectedTool.setText("Line");
         canvas.setOnMouseDragged(null);
@@ -75,6 +95,18 @@ public class AvatarController {
         });
     }
 
+    /**
+     *The text field is assigned to a string "Eraser" which describes which tool
+     * <br>
+     * is currently selected. All other mouse-event assignments are cleared to
+     * <br>
+     * prevent multiple tools from running simultaneously.
+     * <br>
+     * A ‘mousedragged’ event is created which reads the brush size and position of the mouse,
+     * <br>
+     * it then fills a clear rectangle and draws it at the mouse position of size "double size".
+
+     */
     public void eraser() {
         selectedTool.setText("Eraser");
         canvas.setOnMouseReleased(null);
@@ -88,6 +120,11 @@ public class AvatarController {
         });
     }
 
+    /**
+     * Uses the build in library "ImageIO" to write a snapshot of the canvas
+     * <br>
+     * to a ‘png’ file and saves it in the same file path as the source file.
+     */
     public void save() {
         // TODO Avatar id gen
         File directory = new File("C:\\Users\\ronal\\OneDrive\\Documents\\Uni\\230\\A1_Library_Manager\\source\\tawelib\\images");
