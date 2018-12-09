@@ -134,7 +134,7 @@ public class LibrarianDashboardController implements Initializable {
     }
     
     /**
-     * This method loads the UI for the librarian dashboard
+     * This method loads the UI for a specific librarian account
      */
     public void loadUser(Librarian user) {
         this.activeUser = user;
