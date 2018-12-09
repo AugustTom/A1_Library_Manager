@@ -70,10 +70,8 @@ public class AddNewSuperclassController implements Initializable {
     
     /**
      * This method gets a file image from the given directory if available
-     * @return the image file name
-     */
+     */ 
     
-
     @FXML
     void chooseFile(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -114,6 +112,7 @@ public class AddNewSuperclassController implements Initializable {
 
     /**
      * Disable button when adding a resource
+     * @return boolean check
      */
     
     public void inputCheck(){
