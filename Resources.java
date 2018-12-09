@@ -25,7 +25,7 @@ public class Resources {
     
     /**
      * This is the resources constructor and is needed to initialise an object of resource
-     * @param ID - the resource ID
+     * @param id - the resource ID
      * @param title - the title of the resource
      * @param year - the year the resource was made
      * @param imageID - the image ID of the resource
@@ -90,13 +90,13 @@ public class Resources {
      * @return resource ID
      */
 
-    public int getResourceID() {
+    public int getID() {
         return id;
     }
     
     /**
      * set method for the resource ID
-     * @param ID - resource ID
+     * @param id - resource ID
      */
      
     public void setID(int id) {
