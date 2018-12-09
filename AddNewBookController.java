@@ -58,6 +58,8 @@ public class AddNewBookController extends AddNewSuperclassController {
 
     @FXML
     void addNewBook(ActionEvent event) throws IOException {
+        ArrayList IDsOfCopies = new ArrayList<>();
+        IDsOfCopies.add(1);
 
 
         int bookID = Conn.getNextAvailableID("book");
@@ -70,12 +72,18 @@ public class AddNewBookController extends AddNewSuperclassController {
         String bookISBN = newBookISBN.getText();
         String bookAuthor = newBookAuthor.getText();
         String bookLanguage = newBookLanguage.getText();
-        setIDsOfCopies(Integer.parseInt(numOfCopiesField.getText()));
+
+        for (int idcount = 0; idcount < bookNumOfCopies; idcount++) {
+            IDsOfCopies.add(idcount);
+        }
 
 
         Book book = new Book(bookID, bookTitle, bookYear, "1nsn", IDsOfCopies, bookAuthor, bookPublisher,
                 bookISBN, bookLanguage);
-        System.out.println(Conn.writeObject(book));
+        Conn.writeObject(book);
+        for(TextField field:textFieldArrayList){
+            field.setText("");
+        }
 
 
         //Alert Window
