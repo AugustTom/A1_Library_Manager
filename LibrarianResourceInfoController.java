@@ -1,5 +1,6 @@
 package tawelib;
 
+import com.sun.xml.internal.xsom.impl.scd.Step;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +24,10 @@ import java.util.ResourceBundle;
 
 public class LibrarianResourceInfoController implements Initializable {
 
-    private Resources activeResource;
+    private Book resourceBook;
+    private Laptop resourceLaptop;
+    protected DVD resourceDVD;
+
 
     @FXML
     private Pane resourceInfoPage;
@@ -92,7 +96,26 @@ public class LibrarianResourceInfoController implements Initializable {
 
     }
 
-    public void setResources(ArrayList<Resources> resource) {
-        this.activeResource = resource.get(0);
+    public void setResources(Object resource) {
+        if (resource instanceof Book)
+        {
+            Book resourceBook = (Book) resource;
+            id.setText(String.valueOf(resourceBook.getID()));
+            Title.setText(resourceBook.getTitle());
+            year.setText(resourceBook.getTitle());
+            numberOfCopies.setText(String.valueOf(resourceBook.getCopies().size()));
+            //loanDuration.setText(resourceBook.ge);
+            author.setText(resourceBook.getAuthor());
+            publisher.setText(resourceBook.getPublisher());
+            isbn.setText(resourceBook.getISBN());
+            language.setText(resourceBook.getLanguage());
+
+        } else if (resource instanceof Laptop){
+            Laptop resourceLaptop = (Laptop)resource;
+
+        } else {
+            DVD resourceDVD = (DVD) resource;
+        }
+
     }
 }
