@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import jdk.management.resource.ResourceId;
 
 import java.io.IOException;
 import java.net.URL;
@@ -151,10 +152,14 @@ public class SearchResourceController implements Initializable {
                             stage.show();
                         } else {
                             FXMLLoader userFXMLLoader = new FXMLLoader(getClass().getResource("UserResourceInfo.fxml"));
+                            String resourceID = ov.getValue().split(" ")[1];
+                            Resources res = (Resources)Conn.searchResource(resourceID).get(0);
+                            System.out.println("Hello" + res);
                             Parent resourceRoot = null;
                             try {
                                 resourceRoot = userFXMLLoader.load();
                                 UserResourceInfoController controller = userFXMLLoader.getController();
+                                controller.setResources(res);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
