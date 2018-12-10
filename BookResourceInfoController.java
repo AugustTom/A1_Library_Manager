@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class LibrarianResourceInfoController {
+public class BookResourceInfoController {
 
     @FXML
     private Pane bookResourceInfo;

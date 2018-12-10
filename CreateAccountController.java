@@ -30,8 +30,11 @@ import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
 
+    //Stores all textfields for easy reset.
     private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
 
+
+    //The following attributes correspond to the fxml entry fields, they are what make up an account.
     private String imageID;
 
     @FXML
@@ -186,14 +189,14 @@ public class CreateAccountController implements Initializable {
 
         Address address1 = new Address(Conn.getNextAvailableID("address"), houseName,streetName,city,postCode);
 
-
+        //Validate that you are creating a user account.
         if (newStaffNumber.getText().isEmpty() && newEmployDate.getText().isEmpty()){
             User user = new User(userName, userFirstName, userLastName, userPhoneNum, 0.0,imageID, address1);
             System.out.println("new user created!");
             Conn.writeObject(user);
 
-        }
-        else {
+        // Otherwise you are creating a librarian.
+        } else {
             Librarian user = new Librarian(userName, userFirstName, userLastName, userPhoneNum, 0.0,imageID,
                     address1,newEmployDate.getText(), Integer.parseInt(newStaffNumber.getText()));
             System.out.println("new librarian created!");
@@ -213,6 +216,7 @@ public class CreateAccountController implements Initializable {
         }
     }
 
+    //Check that all required fields are filled.
     private void inputCheck(){
         createNewAccountButton.disableProperty().bind(Bindings.createBooleanBinding(
                 () -> {

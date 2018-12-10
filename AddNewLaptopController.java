@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file
+ * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file,
+ * Handles all widgets within the fxml file and returns the appropriate values.
  *
  *
  * @author Auguste Tomaseviciute
@@ -41,30 +42,34 @@ public class AddNewLaptopController extends AddNewSuperclassController {
     private TextField newLaptopOS;
     
     /**
-     * This method adds a new laptop to the database
+     * This method adds a new laptop to the database, it reads the input text from the
+     * fxml fields and translates them into usable data which constructs a laptop object,
+     * that object is then written to the Conn class which writes it as a entry to the database.
      * <br>
-     * It also has a constructor
+     * It also has a constructor for a new laptop object.
      * @param event
      */
     @FXML
     public void addNewLaptop(ActionEvent event) {
 
+        //Initially there is one copy
         ArrayList IDsOfCopies = new ArrayList<>();
         IDsOfCopies.add(1);
 
-
-        System.out.println("adding new dvd");
+        //Fetches the next free resourceID so that every resource has a unique identifier in the database.
         int laptopID = Conn.getNextAvailableID("laptop");
+
+        //Retrieves input data from fxml fields and stores them in usable variables.
         String laptopTitle = titleField.getText();
         int laptopYear = Integer.parseInt(yearField.getText());
         String imageID = "hello";
         int laptopNumOfCopies = Integer.parseInt(numOfCopiesField.getText());
         int laptopDuration = Integer.parseInt(loanDurationField.getText());
-
         String laptopModel  = newLaptopModel.getText();
         String laptopBrand = newLaptopBrand.getText();
         String laptopOperatingSystem = newLaptopOS.getText();
 
+        //Every book object can have more than one copy when inserted into the database.
         for (int idcount = 0; idcount < laptopNumOfCopies; idcount++) {
             IDsOfCopies.add(idcount);
         }
@@ -72,17 +77,23 @@ public class AddNewLaptopController extends AddNewSuperclassController {
 
         Laptop laptop = new Laptop (laptopID, laptopTitle, laptopYear, imageID, IDsOfCopies, laptopModel,
                 laptopBrand, laptopOperatingSystem);
+
+        //Write the book object to the databse.
         Conn.writeObject(laptop);
+
+        //Reset the form.
         for(TextField field:textFieldArrayList){
             field.setText("");
         }
-         //Alert Window
+
+         //Alert Window, informs a successfull addition to the database.
         Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
         alert.setWidth(100);
         alert.showAndWait();
 
     }
 
+    //Passes all text fields into an array for easier manipulation.
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

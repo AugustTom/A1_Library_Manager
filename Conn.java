@@ -1,18 +1,17 @@
 package tawelib;
 
-import javax.management.AttributeList;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.time.LocalDateTime;
 
-/**
- * This is the connection class that connects the source code to the database
+/* This class is the connection manager for the database
+ * <br>
+ * It performs quries for relevant data and alters the database when new data is added.
  *
  *
- * @author James Hinns
- * @version 1.0
- * @since 09/12/2018
+ * @author James Hinnis
+ * @version 3.0
+ * @since 03/12/2018
  */
 
 public class Conn {
@@ -35,6 +34,8 @@ public class Conn {
                 } else if (binds.get(i) instanceof Integer) {
                     prepStmt.setInt(i+1,(int)binds.get(i));
                     //System.out.println("Int" + binds.get(i));
+                } else if (binds.get(i) instanceof Long) {
+                    prepStmt.setLong(i+1,(Long) binds.get(i));
                 } else {
                     prepStmt.setString(i+1,(String)binds.get(i));
                     //System.out.println("String" + binds.get(i));
@@ -43,19 +44,91 @@ public class Conn {
 
             return prepStmt;
 
-            } catch ( SQLException err ) {
-                System.out.println( err.getMessage() + "Error preparing statement");
-            }
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error preparing statement");
+        }
 
-            return null;
+        return null;
 
     }
 
-    /**
-     * This method retrieves address data from the database via an SQL query and outputs the result set
-     * @return the full address
-     */
+    public static double getFines(String username) {
 
+
+        final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
+                "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
+                "WHERE loan.username = ? AND active = 'onloan'";
+
+        final String otherSQL = "SELECT *" +
+                "FROM `loan`" +
+                "WHERE copy_ID = ? AND loan_datetime > ? AND active = 'requested' ORDER BY loan_datetime DESC";
+
+        final String moreSQL = "SELECT resource_type FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
+                "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
+                "WHERE loan.copy_id = ?";
+
+        ArrayList binds = new ArrayList();
+        binds.add(username);
+
+        ResultSet rs = runQuery(sql,binds);
+
+        try {
+
+            while (rs.next()) {
+
+                //If the request is older than a week
+                if (System.currentTimeMillis() - (604800000) + (rs.getLong("loan_datetime")) > 0) {
+
+                    binds.clear();
+                    binds.add(rs.getInt("copy_id"));
+                    binds.add(rs.getLong("loan_datetime"));
+
+                    ResultSet rs2 = runQuery(otherSQL, binds);
+
+                    while (rs2.next()) {
+                        //If request is older than 2 days
+                        if ((System.currentTimeMillis() - 86400000 + (rs2.getLong("loan_datetime"))) > 0) {
+                            binds.clear();
+                            binds.add(rs.getInt("copy_id"));
+
+                            ResultSet rs3 = runQuery(moreSQL, binds);
+
+                            rs3.next();
+
+                            String type = rs3.getString("resource_type");
+
+                            if (type.equals("laptop")) {
+                                return Math.max(25,2 * ((System.currentTimeMillis() - (rs2.getLong("loan_datetime"))) / 86400000));
+                            } else {
+                                return Math.max(100,10 * ((System.currentTimeMillis() - (rs2.getLong("loan_datetime"))) / 86400000));
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        } catch (SQLException err) {
+            System.out.println("Error getting fines");
+        }
+
+        return 0;
+
+    }
+
+
+
+    //Reading
+
+    /**
+     * Creates an address object from the database given address id
+     * @param id the address id of the address to be fetched
+     * @return The created address object
+     * @throws SQLException
+     */
     private static Address getAddress(int id) throws SQLException {
 
         final String sql = "SELECT * FROM address WHERE address_ID = ?";
@@ -72,12 +145,14 @@ public class Conn {
                 rs.getString("post_code"));
 
     }
-    
-    /**
-     * This method retrieves librarian data from the database via an SQL query and outputs the result set
-     * @return the librarian attributes
-     */
 
+    /**
+     * Creates a Librarian object from the database given a username and created address object
+     * @param username The username of the librarian
+     * @param address A created address object
+     * @return Created Librarian Object
+     * @throws SQLException
+     */
     private static Librarian getLibrarian(String username,Address address) throws SQLException {
 
         final String sql = "SELECT * FROM users INNER JOIN librarian ON users.username=librarian.username WHERE " +
@@ -96,72 +171,12 @@ public class Conn {
                 rs.getString("employment_date"),rs.getInt("staff_id"));
 
     }
-    
+
     /**
-     * This method checks if the entered username is a librarian via an SQL query and outputs a boolean
-     * @return false if the username is not a librarian
+     * Checks whether a given username belongs to a librarian or not
+     * @param username The username to check
+     * @return True if a librarian has the given username, false if not
      */
-
-
-    public static ArrayList getLoanRequests(String username) {
-
-        try {
-
-            final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
-                    "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
-                    "WHERE loan.username = ? AND active = 'requested'";
-
-            ArrayList binds = new ArrayList();
-            binds.add(username);
-
-            ResultSet rs = runQuery(sql,binds);
-
-            ArrayList requests = new ArrayList();
-
-            while (rs.next()) {
-                requests.add(readResource(rs.getInt("resource_id"),
-                        rs.getString("resource_type")));
-            }
-
-            return requests;
-
-        } catch ( SQLException err ) {
-            System.out.println( err.getMessage() + "Error getting loan requests");
-        }
-
-        return null;
-
-    }
-
-    public static ArrayList getActiveLoans(String username) {
-
-        try {
-
-            final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
-                    "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
-                    "WHERE loan.username = ? AND active = 'onloan'";
-
-            ArrayList binds = new ArrayList();
-            binds.add(username);
-
-            ResultSet rs = runQuery(sql,binds);
-
-            ArrayList requests = new ArrayList();
-
-            while (rs.next()) {
-                requests.add(readResource(rs.getInt("resource_id"),rs.getString("resource_type")));
-            }
-
-            return requests;
-
-        } catch ( SQLException err ) {
-            System.out.println( err.getMessage() + "Error getting loan requests");
-        }
-
-        return null;
-
-    }
-
     public static boolean isLibrarian(String username) {
 
         try {
@@ -180,8 +195,12 @@ public class Conn {
         return false;
 
     }
-    
-   
+
+    /**
+     * Creates an arraylist filled with users and librarians where they relate to the search term
+     * @param searchTerm The term to be searched
+     * @return Arraylist of users and librarians
+     */
     public static ArrayList searchUsers(String searchTerm) {
 
         ArrayList users = new ArrayList();
@@ -220,41 +239,89 @@ public class Conn {
         return users;
 
     }
-    
-    
 
-    public static ResultSet getActiveLoan(int id,String username) {
+    /**
+     * Get all active loans for a given user (represented by username)
+     * @param username The username of the user whose loans you are searching for
+     * @return An arraylist of all objects currently loaned to the user
+     */
+    public static ArrayList getActiveLoans(String username) {
 
-        final String sql = "SELECT * FROM loan WHERE copy_id = ? AND username = ? AND active = 'onloan'";
+        try {
 
-        ArrayList binds = new ArrayList();
-        binds.add(id);
-        binds.add(username);
+            final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
+                    "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
+                    "WHERE loan.username = ? AND active = 'onloan'";
 
-        return runQuery(sql,binds);
+            ArrayList binds = new ArrayList();
+            binds.add(username);
+
+            ResultSet rs = runQuery(sql,binds);
+
+            ArrayList requests = new ArrayList();
+
+            while (rs.next()) {
+                requests.add(readResource(rs.getInt("resource_id"),rs.getString("resource_type")));
+            }
+
+            return requests;
+
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error getting loan requests");
+        }
+
+        return null;
 
     }
 
-    public static  ResultSet getLoanRequest(int id,String username) {
+    /**
+     * Get all loan requests for a given user (represented by username)
+     * @param username The username of the user whose loans you are searching for
+     * @return An arraylist of all objects currently requested by the user
+     */
+    public static ArrayList getLoanRequests(String username) {
 
-        final String sql = "SELECT * FROM loan WHERE copy_id = ? AND username = ? AND active = 'requested'";
+        try {
 
-        ArrayList binds = new ArrayList();
-        binds.add(id);
-        binds.add(username);
+            final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
+                    "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
+                    "WHERE loan.username = ? AND active = 'requested'";
 
-        return runQuery(sql,binds);
+            ArrayList binds = new ArrayList();
+            binds.add(username);
+
+            ResultSet rs = runQuery(sql,binds);
+
+            ArrayList requests = new ArrayList();
+
+            while (rs.next()) {
+                requests.add(readResource(rs.getInt("resource_id"),
+                        rs.getString("resource_type")));
+            }
+
+            return requests;
+
+        } catch ( SQLException err ) {
+            System.out.println( err.getMessage() + "Error getting loan requests");
+        }
+
+        return null;
 
     }
 
-    //Loan and Borrow stuff
-
+    /**
+     * Runs a query on the database given a sql string and an array of objects to bind to it
+     * @param sql A string storing the sql query
+     * @param binds An arraylist of objects to bind to the sql statement
+     * @return The result set of the query
+     */
     private static ResultSet runQuery(String sql,ArrayList<Object> binds) {
 
         try {
+
             String url = "jdbc:mysql://localhost:3306/cs230library";
 
-            Connection con = DriverManager.getConnection(url, "root", "2Sg3zMab$66");
+            Connection con = DriverManager.getConnection(url, "root", "");
 
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt = bindPreparedStatement(prepStmt,binds);
@@ -269,6 +336,11 @@ public class Conn {
 
     }
 
+    /**
+     * Returns an array of integers containing copy ids given a resource id
+     * @param id The resource id
+     * @return An arraylist of copy id
+     */
     private static ArrayList<Integer> getCopies(int id) {
 
         try {
@@ -293,6 +365,13 @@ public class Conn {
 
     }
 
+    /**
+     * Read in a resource given its id and type
+     * @param id The resource id
+     * @param type The type of the resource, e.g. Book,Laptop or DVD
+     * @return An object of type book,laptop or dvd
+     * @throws SQLException
+     */
     private static Object readResource(int id,String type) throws SQLException {
 
         final String sql = "SELECT * FROM resources INNER JOIN "+type+" ON resources.resource_id="+type+".resource_id " +
@@ -329,6 +408,11 @@ public class Conn {
 
     }
 
+    /**
+     * Get the state of copy e.g. Available,Requested Or Borrowed
+     * @param id The id of the copy to check
+     * @return The string of the copies state
+     */
     public static String getCopyState(int id) {
 
         try {
@@ -357,6 +441,11 @@ public class Conn {
 
     }
 
+    /**
+     * Get the next available id in the database given a table
+     * @param table The database table name to check (NOT A PREPARED STATEMENT)
+     * @return The number of affected rows
+     */
     public static int getNextAvailableID(String table) {
 
         try {
@@ -375,6 +464,11 @@ public class Conn {
 
     }
 
+    /**
+     * Creates an arraylist filled with resources where they relate to the search term
+     * @param searchTerm The term to search against
+     * @return An arraylist of resources
+     */
     public static ArrayList searchResource(Object searchTerm) {
 
         try {
@@ -404,10 +498,16 @@ public class Conn {
 
     //Writing
 
+    /**
+     * Writes a loan to the loan table, given an id, username and state
+     * @param id The copy id of the loaned resource
+     * @param username The username of the user in the transaction
+     * @param active The state of the loan e.g. onloan,returned,requested
+     * @return The number of affected rows
+     */
     public static int writeLoan(int id,String username,String active) {
 
-        String locatime = LocalDateTime.now().toString();
-        String datetime = locatime.substring(0,10) + " " + locatime.substring(11,19);
+        long timeMillis = System.currentTimeMillis();
 
         int rowsAffected = 0;
 
@@ -417,7 +517,7 @@ public class Conn {
                 "VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE loan_datetime = ?,active = ?";
 
         ArrayList binds = new ArrayList();
-        binds.addAll(Arrays.asList(id,username,datetime,active,datetime,active));
+        binds.addAll(Arrays.asList(id,username,timeMillis,active,timeMillis,active));
 
         rowsAffected += runUpdate(loanSQL,binds);
 
@@ -435,12 +535,18 @@ public class Conn {
 
     }
 
+    /**
+     * Inserts of updates the database given a sql, and an arraylist of objects to bind to it
+     * @param sql A string storing the sql query
+     * @param binds An arraylist of objects to bind to the sql query
+     * @return The number of affected rows
+     */
     private static int runUpdate(String sql,ArrayList<Object> binds) {
 
         try {
             String url = "jdbc:mysql://localhost:3306/cs230library";
 
-            Connection con = DriverManager.getConnection(url, "root", "2Sg3zMab$66");
+            Connection con = DriverManager.getConnection(url, "root", "");
 
             PreparedStatement prepStmt = con.prepareStatement(sql);
             prepStmt = bindPreparedStatement(prepStmt,binds);
@@ -474,6 +580,11 @@ public class Conn {
 
     }
 
+    /**
+     * Writes a users data to the database
+     * @param object the user object
+     * @return the number of affected rows
+     */
     private static int writeUser(Object object) {
 
         //General
@@ -484,7 +595,9 @@ public class Conn {
 
         User user = (User) object;
         int rows = 0;
+
         rows += writeAddress(user.getAddress());
+
         ArrayList binds = new ArrayList();
         binds.addAll(Arrays.asList(user.getUserName(), user.getFirstName(), user.getLastName(), user.getPhone(),
                 user.getAddress().getId(), user.getBalance(),user.getAvatarID(), user.getFirstName(), user.getLastName(), user.getPhone(),
@@ -505,12 +618,15 @@ public class Conn {
 
         }
 
-        rows += writeAddress(user.getAddress());
-
         return rows;
 
     }
 
+    /**
+     * Writes an addresses data to the database
+     * @param address The address to be written to the database
+     * @return the number of affected rows
+     */
     private static int writeAddress(Address address) {
 
         final String sql = "INSERT INTO address (address_id,post_code,house_name,street_name,city) " +
