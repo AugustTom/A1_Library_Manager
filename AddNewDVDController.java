@@ -20,10 +20,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * This AddNewDVDController Class pairs with the "AddNewDVD.fxml" file,
- * Handles all widgets within the fxml file and returns the appropriate values.
- *
- *
+ * This AddNewDVDController Class pairs with the "AddNewDVD.fxml" file,<br>
+ * Handles all widgets within the fxml file and returns the appropriate values.<br>
  * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
@@ -83,7 +81,7 @@ public class AddNewDVDController extends AddNewSuperclassController{
             IDsOfCopies.add(idcount);
         }
 
-
+        // New dvd object is created.
         DVD dvd = new DVD (dvdID, dvdTitle, dvdYear, "1nsn", IDsOfCopies, dvdDirector, dvdRuntime,
                  dvdSubtitleLanguages, dvdLanguage);
 

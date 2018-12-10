@@ -22,8 +22,6 @@ import java.util.ResourceBundle;
 /**
  * This AddNewLaptopController Class pairs with the "AddNewLaptop.fxml" file,
  * Handles all widgets within the fxml file and returns the appropriate values.
- *
- *
  * @author Auguste Tomaseviciute
  * @author Ronalyn Nanong
  * @version 1.0
@@ -74,7 +72,7 @@ public class AddNewLaptopController extends AddNewSuperclassController {
             IDsOfCopies.add(idcount);
         }
 
-
+        // Creates new laptop object.
         Laptop laptop = new Laptop (laptopID, laptopTitle, laptopYear, imageID, IDsOfCopies, laptopModel,
                 laptopBrand, laptopOperatingSystem);
 

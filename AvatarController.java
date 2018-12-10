@@ -15,11 +15,10 @@ import javax.imageio.ImageIO;
 import java.io.File;
 
 /**
- * This AvatarController Class pairs with the AvatarMain Class.
+ * The AvatarController class adds functionality to the Avatar.fxml class.<br>
+ *     by allowing users to draw their own avatar.
  *
- * This class allows the user to draw their own avatar for their account.
- *
- * @author Seb Gappa
+ * @author Sebastian Gappa
  * @version 1.0
  * @since 04/12/2018
  */
@@ -53,7 +52,7 @@ public class AvatarController {
      * it then fills an oval with the selected colour and draws it at the mouse position of size "double size".
      */
     private String username;
-    
+
     public void particleTrace() {
         selectedTool.setText("Particle Trace");
         canvas.setOnMouseReleased(null);
@@ -80,7 +79,7 @@ public class AvatarController {
      * <br>
      * and draws it at the mouse position of width "double size".
      */
-    
+
     public void line() {
         selectedTool.setText("Line");
         canvas.setOnMouseDragged(null);
@@ -114,7 +113,7 @@ public class AvatarController {
      * <br>
      * it then fills a clear rectangle and draws it at the mouse position of size "double size".
      */
-    
+
     public void eraser() {
         selectedTool.setText("Eraser");
         canvas.setOnMouseReleased(null);

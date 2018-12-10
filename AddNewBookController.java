@@ -13,11 +13,11 @@ import java.util.ResourceBundle;
 /**
  * This AddNewBookController Class pairs with the "AddNewBook.fxml" file
  * Handles all widgets within the fxml file and returns the appropriate values.
- *
  * @author Auguste Tomaseviciute
  * @author Ronalyn Nanong
  * @version 1.0
  * @since 04/12/2018
+ *
  */
 
 public class AddNewBookController extends AddNewSuperclassController {
@@ -70,6 +70,7 @@ public class AddNewBookController extends AddNewSuperclassController {
             IDsOfCopies.add(idcount);
         }
 
+        // New book object is created.
         Book book = new Book(bookID, bookTitle, bookYear, imageID , IDsOfCopies, bookAuthor, bookPublisher,
                 bookISBN, bookLanguage);
 
