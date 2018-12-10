@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="dvdResourceInfo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="320.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.DVDResourceController">
+    <children>
+        <Pane layoutX="16.0" layoutY="13.0" prefHeight="510.0" prefWidth="290.0">
+            <children>
+                <Text layoutX="5.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Copies: ">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Text>
+                <Text fx:id="numberOfCopies" layoutX="118.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="50.0" />
+                <Text layoutX="5.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loan Duration: ">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Text>
+                <Text layoutX="154.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Days">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Text>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff5e6" height="161.0" layoutX="57.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="172.0" />
+                <Button fx:id="loanItemButton" alignment="CENTER_RIGHT" layoutX="210.0" layoutY="471.0" mnemonicParsing="false" onAction="#loanItem" prefHeight="25.0" text="Loan Item">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Text layoutX="12.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username: ">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Text>
+                <Text fx:id="username" layoutX="82.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="121.13671875" />
+                <Text fx:id="numberOfCopies" layoutX="93.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="50.0" />
+                <ImageView fx:id="newBookImage" fitHeight="150.0" fitWidth="150.0" layoutX="68.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="5.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="5.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="5.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Director:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="5.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Runtime">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="5.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language: ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="dvdTitle" layoutX="36.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="251.0078091621399" />
+            <Text fx:id="dvdYear" layoutX="36.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="251.0078091621399" />
+            <Text fx:id="dvdDirector" layoutX="59.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="217.00780868530273" />
+            <Text fx:id="dvdRuntime" layoutX="59.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="217.0078091621399" />
+            <Text fx:id="dvdLanguage" layoutX="66.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="217.00780868530273" />
+            <TextField fx:id="username" layoutX="74.0" layoutY="471.0" prefHeight="25.0" prefWidth="130.0" />
+            <Text layoutX="5.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unique ID:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="uniqueID" layoutX="66.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.0" />
+            <Text layoutX="6.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtitle Languages:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="dvdSubLanguages" layoutX="121.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="163.99999809265137" />
+            </children>
+        </Pane>
+    </children>
+</Pane>
