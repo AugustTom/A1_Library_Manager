@@ -1,25 +1,21 @@
 package tawelib;
 
-import javafx.embed.swing.SwingFXUtils;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -34,7 +30,9 @@ import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
 
-    String imageID;
+    private ArrayList<TextField> textFieldArrayList = new ArrayList<>();
+
+    private String imageID;
 
     @FXML
     private Pane createAccount;
@@ -157,7 +155,7 @@ public class CreateAccountController implements Initializable {
     void setCustomAvatar(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Avatar.fxml"));
 
-        Parent rootAvatar = (Parent) fxmlLoader.load();
+        Parent rootAvatar = fxmlLoader.load();
         AvatarController avatarController = fxmlLoader.getController();
         String username = newUsername.getText();
         avatarController.setUsername(username);
@@ -193,6 +191,7 @@ public class CreateAccountController implements Initializable {
             User user = new User(userName, userFirstName, userLastName, userPhoneNum, 0.0,imageID, address1);
             System.out.println("new user created!");
             Conn.writeObject(user);
+
         }
         else {
             Librarian user = new Librarian(userName, userFirstName, userLastName, userPhoneNum, 0.0,imageID,
@@ -200,9 +199,38 @@ public class CreateAccountController implements Initializable {
             System.out.println("new librarian created!");
             Conn.writeObject(user);
         }
+
+        Alert alert = new Alert(Alert.AlertType.NONE, "New user created", ButtonType.OK);
+        alert.setWidth(100);
+        alert.showAndWait();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        for (Node node : createAccount.getChildren()) {
+            if (node instanceof TextField) {
+                textFieldArrayList.add((TextField)node);
+            }
+        }
+    }
 
+    private void inputCheck(){
+        createNewAccountButton.disableProperty().bind(Bindings.createBooleanBinding(
+                () -> {
+                    boolean check = true;
+                    for (TextField textField: textFieldArrayList){
+                        check = check && textField.getText().isEmpty();
+                    }
+                    return check;
+                }));
+    }
+
+    private void addListeners(){
+
+        for(TextField textField:textFieldArrayList)
+        {
+            textField.textProperty().addListener((observable) -> {
+                inputCheck();
+            });
+        }
     }
 }
