@@ -103,6 +103,7 @@ public class SearchResourceController implements Initializable {
                 activeView = bookResults;
                 activeView.setItems(FXCollections.observableArrayList(bookData));
 
+
             } else if (selectedTab == dvdTab) {
                 activeView = dvdResults;
                 activeView.setItems(FXCollections.observableArrayList(dvdData));
@@ -132,12 +133,16 @@ public class SearchResourceController implements Initializable {
         activeView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov, String old_val, String new_val) {
+
                         if(Conn.isLibrarian(activeUser.getUserName())) {
                             FXMLLoader librarianFXMLLoader = new FXMLLoader(getClass().getResource("LibrarianResourceInfo.fxml"));
+                            String resourceID = ov.getValue().split(" ")[1];
+                            Resources res = (Resources)Conn.searchResource(resourceID).get(0);
                             Parent resourceRoot = null;
                             try {
                                 resourceRoot = librarianFXMLLoader.load();
                                 LibrarianResourceInfoController controller = librarianFXMLLoader.getController();
+                                controller.setResources(res);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
