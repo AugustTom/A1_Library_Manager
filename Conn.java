@@ -4,6 +4,7 @@ import javax.management.AttributeList;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.time.LocalDateTime;
 
 /**
  * This is the connection class that connects the source code to the database
@@ -101,12 +102,13 @@ public class Conn {
      * @return false if the username is not a librarian
      */
 
+
     public static ArrayList getLoanRequests(String username) {
 
         try {
 
             final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
-                    "INNER JOIN resources ON resources.resource_id = copy.copy_ID " +
+                    "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
                     "WHERE loan.username = ? AND active = 'requested'";
 
             ArrayList binds = new ArrayList();
@@ -117,7 +119,8 @@ public class Conn {
             ArrayList requests = new ArrayList();
 
             while (rs.next()) {
-                requests.add(readResource(rs.getInt("resource_id"),rs.getString("resource_type")));
+                requests.add(readResource(rs.getInt("resource_id"),
+                        rs.getString("resource_type")));
             }
 
             return requests;
@@ -135,7 +138,7 @@ public class Conn {
         try {
 
             final String sql = "SELECT * FROM loan INNER JOIN copy ON copy.copy_ID = loan.copy_ID " +
-                    "INNER JOIN resources ON resources.resource_id = copy.copy_ID " +
+                    "INNER JOIN resources ON resources.resource_id = copy.resource_id " +
                     "WHERE loan.username = ? AND active = 'onloan'";
 
             ArrayList binds = new ArrayList();
@@ -401,7 +404,14 @@ public class Conn {
 
     //Writing
 
-    public static int writeLoan(int id,String username,String datetime,String active) {
+    public static int writeLoan(int id,String username,String active) {
+
+        String locatime = LocalDateTime.now().toString();
+        String datetime = locatime.substring(0,10) + " " + locatime.substring(11,19);
+
+        int rowsAffected = 0;
+
+        //Loan
 
         final String loanSQL = "INSERT INTO loan (copy_id,username,loan_datetime,active)" +
                 "VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE loan_datetime = ?,active = ?";
@@ -409,7 +419,19 @@ public class Conn {
         ArrayList binds = new ArrayList();
         binds.addAll(Arrays.asList(id,username,datetime,active,datetime,active));
 
-        return runUpdate(loanSQL,binds);
+        rowsAffected += runUpdate(loanSQL,binds);
+
+        //Copy
+
+        final String copySQL = "UPDATE copy SET status = 'Requested' WHERE copy_ID = ?";
+
+        binds.clear();
+
+        binds.add(id);
+
+        rowsAffected += runUpdate(copySQL,binds);
+
+        return rowsAffected;
 
     }
 

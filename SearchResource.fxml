@@ -10,7 +10,7 @@
 
 <Pane fx:id="searchResourcePage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.SearchResourceController">
    <children>
-      <TextField fx:id="resourceSearchBar" layoutX="13.0" layoutY="15.0" onAction="#searchResourcesQuery" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
+      <TextField fx:id="resourceSearchBar" layoutX="13.0" layoutY="15.0" prefHeight="25.0" prefWidth="333.0" promptText="Search..." />
       <Button fx:id="resourceSearchButton" layoutX="345.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchResourceButton" text="Go" />
       <TabPane fx:id="resourcesTable" layoutX="14.0" layoutY="41.0" prefHeight="443.0" prefWidth="362.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="22.0" tabMaxWidth="40.0" tabMinHeight="22.0" tabMinWidth="40.0">
          <tabs>

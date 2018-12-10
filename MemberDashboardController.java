@@ -94,6 +94,9 @@ public class MemberDashboardController implements Initializable {
                 } else if(path.equals("ViewResource")) {
                     ViewResourceController controller = loader.getController();
                     controller.setActiveUser(activeUser);
+                } else if(path.equals("SearchResource")) {
+                    SearchResourceController controller = loader.getController();
+                    controller.setActiveUser(activeUser);
                 }
             }
 
