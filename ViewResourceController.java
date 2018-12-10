@@ -45,20 +45,26 @@ public class ViewResourceController implements Initializable {
         ListView activeView;
 
         ArrayList actives = Conn.getActiveLoans(activeUser.getUserName());
-        ArrayList<String> titles = new ArrayList<String>();
+        ArrayList<String> activeTitles = new ArrayList<String>();
+        ArrayList requests = Conn.getLoanRequests(activeUser.getUserName());
+        ArrayList<String> requestTitles = new ArrayList<String>();
 
         for (Object active: actives) {
-            titles.add(((Resources) active).getTitle());
+            activeTitles.add(((Resources) active).getTitle());
+            System.out.println(activeTitles.toString());
         }
 
-        ObservableList data = FXCollections.observableArrayList(titles);
+        for (Object request: requests) {
+            requestTitles.add(((Resources) request).getTitle());
+            System.out.print((requestTitles.toString()));
+        }
 
         if (selectedTab == borrowedTab) {
             activeView = borrowedList;
-            activeView.setItems(data);
+            activeView.setItems(FXCollections.observableArrayList(activeTitles));
         } else if (selectedTab == requestedTab) {
             activeView = requestedList;
-            activeView.setItems(data);
+            activeView.setItems(FXCollections.observableArrayList(requestTitles));
         }
 
     }
