@@ -82,19 +82,19 @@ public class SearchResourceController implements Initializable {
         ArrayList<String> laptopData = new ArrayList<>();
         ObservableList data;
 
-        System.out.println(this.activeUser.getUserName());
-
         for (Object b : filterResources) {
             filterData.add(((Resources)b).getTitle());
+            filterData.add(Integer.toString(((Resources)b).getID()));
+            filterData.add(Integer.toString(((Resources)b).getYear()));
         }
 
         for (Object b : allResources) {
             if(b instanceof Book) {
-                bookData.add(((Book)b).getTitle());
+                bookData.add("ID: " + ((Book)b).getID() + " " + "'" + ((Book)b).getTitle() + "'"  + " " +((Book)b).getYear());
             } else if (b instanceof  DVD) {
-                dvdData.add(((DVD)b).getTitle());
+                dvdData.add("ID: " + ((DVD)b).getID() + " " + "'" + ((DVD)b).getTitle() + "'"  + " " +((DVD)b).getYear());
             } else if (b instanceof Laptop) {
-                laptopData.add(((Laptop)b).getTitle());
+                laptopData.add("ID: " + ((Laptop)b).getID() + " " + "'" + ((Laptop)b).getTitle() + "'"  + " " +((Laptop)b).getYear());
             }
         }
 
