@@ -71,10 +71,10 @@ public class MemberDashboardController implements Initializable {
     void viewResource(MouseEvent event) { loadUI("ViewResource",0); }
 
 /**
- * @throws IOException
+ * @throws IOException - if login page not found
  */
     @FXML
-    void loginPage (MouseEvent event) throws IOException {
+    void loginPage () throws IOException {
         Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
         memberDashboard.getChildren().setAll(loginPage);
     }

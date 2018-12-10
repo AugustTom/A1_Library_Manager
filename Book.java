@@ -52,7 +52,7 @@ public class Book extends Resources {
     
     /** 
     * set method for author 
-    * @param author 
+    * @param author - sets the author
     */ 
 
     public void setAuthor(String author) {
@@ -70,7 +70,7 @@ public class Book extends Resources {
     
     /** 
     * set method for publisher 
-    * @param publisher 
+    * @param publisher - sets the publisher
     */ 
 
     public void setPublisher(String publisher) {
@@ -88,7 +88,7 @@ public class Book extends Resources {
     
     /** 
     * set method for ISBN 
-    * @param ISBN 
+    * @param ISBN - sets the ISBN
     */ 
 
     public void setISBN(String ISBN) {
@@ -106,7 +106,7 @@ public class Book extends Resources {
     
     /** 
     * set method for language 
-    * @param language 
+    * @param languages - sets the language
     */
 
     public void setLanguage(String languages) {

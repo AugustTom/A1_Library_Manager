@@ -52,7 +52,7 @@ public class ViewResourceController implements Initializable {
      */
 
     @FXML
-    public void searchLoans(javafx.event.ActionEvent actionEvent) {
+    public void searchLoans() {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
         ListView activeView;
 

@@ -35,7 +35,7 @@ public class Address {
 	
 	/**
 	 * Set method for address ID
-	 * @param id
+	 * @param id - Sets the id address
 	 */
 	public void setId(int id) {
         this.id = id;
@@ -51,7 +51,7 @@ public class Address {
 	
 	/**
 	 * Set method for house name
-	 * @param houseName
+	 * @param houseName - sets the house name
 	 */
 	public void setHouseName(String houseName) {
 		this.houseName = houseName;
@@ -68,7 +68,7 @@ public class Address {
 	
 	/**
 	 * Set method for street name
-	 * @param streetName
+	 * @param streetName - sets the street name
 	 */
 	public void setStreetName(String streetName) {
         this.streetName = streetName;
@@ -84,7 +84,7 @@ public class Address {
 	
 	/**
 	 * Set method for city
-	 * @param city
+	 * @param city - sets the city
 	 */
 	public void setCity(String city) {
         this.city = city;
@@ -100,7 +100,7 @@ public class Address {
 	
 	/**
 	 * Set method for postcode
-	 * @param postCode
+	 * @param postCode - sets the post code
 	*/
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;

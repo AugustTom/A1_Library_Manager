@@ -45,10 +45,9 @@ public class AddNewLaptopController extends AddNewSuperclassController {
      * that object is then written to the Conn class which writes it as a entry to the database.
      * <br>
      * It also has a constructor for a new laptop object.
-     * @param event
      */
     @FXML
-    public void addNewLaptop(ActionEvent event) {
+    public void addNewLaptop() {
 
         //Initially there is one copy
         ArrayList IDsOfCopies = new ArrayList<>();

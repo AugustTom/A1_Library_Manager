@@ -113,7 +113,7 @@ public class CreateAccountController implements Initializable {
      * set method for the cat avatar
      */
     @FXML
-    void setCatAvatar(ActionEvent event) {
+    void setCatAvatar() {
         imageID = avatarCat.getId();
     }
 
@@ -121,7 +121,7 @@ public class CreateAccountController implements Initializable {
      * set method for the ghost avatar
      */
     @FXML
-    void setGhostAvatar(ActionEvent event) {
+    void setGhostAvatar() {
         imageID = avatarGhost.getId();
     }
     
@@ -129,7 +129,7 @@ public class CreateAccountController implements Initializable {
      * Set method for the bird avatar
      */
     @FXML
-    void setBirdAvatar(ActionEvent event) {
+    void setBirdAvatar() {
         imageID = avatarBird.getId();
     }
     
@@ -137,7 +137,7 @@ public class CreateAccountController implements Initializable {
      * Set method for fish avatar
      */
     @FXML
-    void setFishAvatar(ActionEvent event) {
+    void setFishAvatar() {
         imageID = avatarFish.getId();
     }
     
@@ -145,14 +145,14 @@ public class CreateAccountController implements Initializable {
      * Set method for the monster avatar
      */
     @FXML
-    void setMonsterAvatar(ActionEvent event) {
+    void setMonsterAvatar() {
         imageID = avatarMonster.getId();
     }
 
     /**
      * Opens Avatar.fxml for users to draw their own avatar and sets it as the
      * @param event - when 'createNewAccountButton' is pushed this event happens.
-     * @throws IOException
+     * @throws IOException - when no file of that location can be found
      */
     @FXML
     void setCustomAvatar(ActionEvent event) throws IOException {
@@ -176,7 +176,7 @@ public class CreateAccountController implements Initializable {
      * Otherwise this method creates a librarian account
      */
     @FXML
-    void createNewAccount(ActionEvent event) {
+    void createNewAccount() {
 
         String userName = newUsername.getText();
         String userFirstName = newFirstName.getText();

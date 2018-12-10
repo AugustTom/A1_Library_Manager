@@ -71,7 +71,7 @@ public class SearchResourceController implements Initializable {
      */
 
     @FXML
-    public void searchResourceButton(ActionEvent event) {
+    public void searchResourceButton() {
         Tab selectedTab = resourcesTable.getSelectionModel().getSelectedItem();
         ListView activeView;
 

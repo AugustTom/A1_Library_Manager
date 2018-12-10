@@ -50,7 +50,7 @@ public class Laptop extends Resources {
     
     /** 
      * set method for manufacturer 
-     * @param manufacturer 
+     * @param manufacturer  - sets the manufacturer
      */ 
 
     public void setManufacturer(String manufacturer) {
@@ -59,7 +59,7 @@ public class Laptop extends Resources {
     
     /** 
      * get method for model 
-     * @return model 
+     * @return model - returns the model
      */ 
 
     public String getModel() {
@@ -68,7 +68,7 @@ public class Laptop extends Resources {
     
     /** 
      * set method for model 
-     * @param manufacturer 
+     * @param model - sets the model
      */ 
 
     public void setModel(String model) {
@@ -77,7 +77,7 @@ public class Laptop extends Resources {
     
     /** 
      * get method for operating system 
-     * @return opeartingSystem 
+     * @return opeartingSystem - returns the operating system
      */
 
     public String getOperatingSystem() {
@@ -86,7 +86,7 @@ public class Laptop extends Resources {
     
     /** 
      * set method for operating system 
-     * @param manufacturer 
+     * @param operatingSystem - sets the operating system
      */ 
 
     public void setOperatingSystem(String operatingSystem) {

@@ -46,7 +46,7 @@ public class User {
 	
 	/**
 	* set method for address
-	* @param address
+	* @param address -sets address
 	*/
 
 	public void setAddress(Address address) {
@@ -55,7 +55,7 @@ public class User {
 	
 	/**
 	* get method for address
-	* @return address
+	* @return address -gets address
 	*/
 
     	public Address getAddress() {
@@ -64,7 +64,7 @@ public class User {
 	
 	/**
 	* set method for username
-	* @param userName
+	* @param userName -sets username
 	*/
 	
 	public void setUserName(String userName) {
@@ -73,7 +73,7 @@ public class User {
 	
 	/**
 	* get method for username
-	* @return userName
+	* @return userName - gets username
 	*/
 	
 	public String getUserName() {
@@ -82,7 +82,7 @@ public class User {
 	
 	/**
 	* set method for first name
-	* @param firstName
+	* @param firstName -sets firstname
 	*/
 	
 	public void setFirstName(String firstName) {
@@ -91,7 +91,7 @@ public class User {
 	
 	/**
 	* get method for first name
-	* @return firstName
+	* @return firstName - gets firstname
 	*/
 	
 	public String getFirstName() {
@@ -100,7 +100,7 @@ public class User {
 	
 	/**
 	* set method for last name
-	* @param lastName
+	* @param lastName - sets lastnamew
 	*/
 	
 	public void setLastName(String lastName) {
@@ -109,7 +109,7 @@ public class User {
 	
 	/**
 	* get method for last name
-	* @return lastName
+	* @return lastName - gets lastname
 	*/
 	
 	public String getLastName() {
@@ -118,7 +118,7 @@ public class User {
 	
 	/**
 	* set method for phone number
-	* @param phoneNum
+	* @param phoneNum -sets phonenum
 	*/
 	
 	public void setPhone(String phoneNum) {
@@ -127,7 +127,7 @@ public class User {
 	
 	/**
 	* get method for phone number
-	* @return phoneNum
+	* @return phoneNum -returns phone num
 	*/
 	
 	public String getPhone() {
@@ -136,7 +136,7 @@ public class User {
 	
 	/**
 	* get method for balance
-	* @return balance
+	* @return balance -returns balance
 	*/
 
    	public Double getBalance() {
@@ -145,7 +145,7 @@ public class User {
 	
 	/**
 	* set method for balance
-	* @param balance
+	* @param balance -sets balance
 	*/
 
     	public void setBalance(Double balance) {
@@ -154,7 +154,7 @@ public class User {
 	
 	/**
 	* set method for avatar ID
-	* @param avatarID
+	* @param avatarID - sets avatar ID
 	*/
 
     	public void setAvatarID(String avatarID) {
@@ -163,7 +163,7 @@ public class User {
 	
 	/**
 	* get method for avatarID
-	* @return avatarID
+	* @return avatarID - returns acatarID
 	*/
 	
 	public String getAvatarID() {

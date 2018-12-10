@@ -53,10 +53,9 @@ public class AddNewDVDController extends AddNewSuperclassController{
      * that object is then written to the Conn class which writes it as a entry to the database.
      * <br>
      * It contains a constructor to initialise a dvd object.
-     * @param event
      */
     @FXML
-    public void addNewDVD(ActionEvent event) {
+    public void addNewDVD() {
 
         //Initially there is one copy
         ArrayList IDsOfCopies = new ArrayList<>();

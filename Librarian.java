@@ -41,7 +41,7 @@ public class Librarian extends User {
     
     /**
      * get method for employment date
-     * @return employDate
+     * @return employDate - returns the employdate
      */
 
     public String getEmployDate() {
@@ -50,7 +50,7 @@ public class Librarian extends User {
     
     /**
      * set method for employment date
-     * @param employDate
+     * @param employDate - sets the employ date
      */
 
     public void setEmployDate(String employDate) {
@@ -59,7 +59,7 @@ public class Librarian extends User {
     
     /**
      * get method for staff number
-     * @return staffNum
+     * @return staffNum - returns the staff number
      */
 
     public int getStaffNum() {
@@ -68,7 +68,7 @@ public class Librarian extends User {
     
     /**
      * set method for staff number
-     * @param staffNum
+     * @param staffNum - sets the staff number
      */
 
     public void setStaffNum(int staffNum) {

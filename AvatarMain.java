@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class AvatarMain extends Application {
     /** This start method shows the stage and creates a new scene by loading the "Avatar.fxlml" file
-    * @param stage
+    * @param stage - passes in the current stage
     */
 
     public void start(Stage stage) throws Exception {

@@ -68,7 +68,7 @@ public class MembersMyAccountController implements Initializable {
      * Gets the text in the button, if it reads "Edit", the editAccountInfo method is called.
      * If the text equals something else ("Save"), the showAccountInfo is called.
      * @param event when a button pressed.
-     * @throws IOException
+     * @throws IOException - if account not found
      */
     @FXML
     void editAccount(ActionEvent event) throws IOException {

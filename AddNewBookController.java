@@ -41,12 +41,11 @@ public class AddNewBookController extends AddNewSuperclassController {
      * that object is then written to the Conn class which writes it as a entry to the database.
      * <br>
      * It contains a constructor to initialise a book object.
-     * @param event
-     * @throws IOException
+     * @throws IOException - if no image can be found at the specified location.
      */
     
     @FXML
-    public void addNewBook(ActionEvent event) throws IOException {
+    public void addNewBook() throws IOException {
 
         //Initially there is one copy
         ArrayList IDsOfCopies = new ArrayList<>();

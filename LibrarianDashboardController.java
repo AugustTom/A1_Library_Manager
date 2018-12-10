@@ -87,10 +87,10 @@ public class LibrarianDashboardController implements Initializable {
     }
 
     /**
-     * @throws IOException
+     * @throws IOException - if login page cannot be found
      */
     @FXML
-    void loginPage (MouseEvent event) throws IOException {
+    void loginPage () throws IOException {
         Parent loginPage = FXMLLoader.load(getClass().getResource("Login.fxml"));
         librarianDashboard.getChildren().setAll(loginPage);
     }
@@ -139,6 +139,7 @@ public class LibrarianDashboardController implements Initializable {
     
     /**
      * This method loads the UI for a specific librarian account
+     * @param user - passes in the user librarian object
      */
     public void loadUser(Librarian user) {
         this.activeUser = user;
