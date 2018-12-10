@@ -83,6 +83,8 @@ public class SearchResourceController implements Initializable {
         ArrayList<String> laptopData = new ArrayList<>();
         ObservableList data;
 
+        System.out.println(this.activeUser.getUserName());
+
         for (Object b : filterResources) {
             filterData.add(((Resources)b).getTitle());
         }
@@ -129,28 +131,37 @@ public class SearchResourceController implements Initializable {
 
         activeView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<String>() {
-                    public void changed(ObservableValue<? extends String> ov,
-                                        String old_val, String new_val) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResourceInfo.fxml"));
-                        Parent resourceRoot = null;
-                        try {
-                            resourceRoot = fxmlLoader.load();
-                            ResourceInfoController controller = fxmlLoader.getController();
-                            //controller.setResources(ov.getValue());
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                    public void changed(ObservableValue<? extends String> ov, String old_val, String new_val) {
+                        if(Conn.isLibrarian(activeUser.getUserName())) {
+                            FXMLLoader librarianFXMLLoader = new FXMLLoader(getClass().getResource("LibrarianResourceInfo.fxml"));
+                            Parent resourceRoot = null;
+                            try {
+                                resourceRoot = librarianFXMLLoader.load();
+                                LibrarianResourceInfoController controller = librarianFXMLLoader.getController();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(resourceRoot));
+                            stage.show();
+                        } else {
+                            FXMLLoader userFXMLLoader = new FXMLLoader(getClass().getResource("UserResourceInfo.fxml"));
+                            Parent resourceRoot = null;
+                            try {
+                                resourceRoot = userFXMLLoader.load();
+                                UserResourceInfoController controller = userFXMLLoader.getController();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(resourceRoot));
+                            stage.show();
                         }
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(resourceRoot));
-                        stage.show();
-
                     }
-
                 });
     }
 
-    @FXML
-    public void searchResourcesQuery(ActionEvent event) {
-
+    public void setActiveUser(User user) {
+        this.activeUser = user;
     }
 }
