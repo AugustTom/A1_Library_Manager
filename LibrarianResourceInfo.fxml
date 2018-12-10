@@ -38,8 +38,13 @@
                     </font>
                 </Text>
                 <Text fx:id="username" layoutX="82.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="121.13671875" />
-            <Text fx:id="numberOfCopies" layoutX="93.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="50.0" />
+                <Text fx:id="username" layoutX="82.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="121.13671875" />
             <ImageView fx:id="newBookImage" fitHeight="150.0" fitWidth="150.0" layoutX="68.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="24.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username: ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
             </children>
         </Pane>
     </children>

@@ -37,8 +37,13 @@
                     </font>
                 </Text>
                 <Text fx:id="username" layoutX="82.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="121.13671875" />
-                <Text fx:id="numberOfCopies" layoutX="93.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="50.0" />
                 <ImageView fx:id="newBookImage" fitHeight="150.0" fitWidth="150.0" layoutX="68.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="id" layoutX="17.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" underline="true" wrappingWidth="121.13671875" />
+            <Text fx:id="Title" layoutX="17.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" underline="true" wrappingWidth="121.13671875" />
+            <Text fx:id="year" layoutX="17.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" underline="true" wrappingWidth="121.13671875" />
+            <Text fx:id="author" layoutX="17.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" underline="true" wrappingWidth="121.13671875" />
+            <Text fx:id="publisher" layoutX="17.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" underline="true" wrappingWidth="121.13671875" />
+            <Text fx:id="isbn" layoutX="17.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" underline="true" wrappingWidth="121.13671875" />
             </children>
         </Pane>
     </children>
