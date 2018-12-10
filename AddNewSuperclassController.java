@@ -73,7 +73,7 @@ public class AddNewSuperclassController implements Initializable {
      */ 
     
     @FXML
-    void chooseFile(ActionEvent event) {
+    public void chooseFile(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
         fileChooser.setInitialDirectory(new File(currentPath));
@@ -99,12 +99,10 @@ public class AddNewSuperclassController implements Initializable {
     
     /**
      * set method for IDs of copies
-     * @param IDsOfCopies
+     * @param copies
      */
 
-
-
-    void setIDsOfCopies(int copies) {
+    public void setIDsOfCopies(int copies) {
         for (int i = 0; i < copies; i++){
             IDsOfCopies.add(Conn.getNextAvailableID("copy"));
         }
@@ -126,7 +124,7 @@ public class AddNewSuperclassController implements Initializable {
                 }));
     }
 
-    void addListeners(){
+    public void addListeners(){
 
         for(TextField textField:textFieldArrayList)
         {
@@ -136,7 +134,7 @@ public class AddNewSuperclassController implements Initializable {
         }
     }
     
-    void init(){
+    public void init(){
         textFieldArrayList.add(titleField);
         textFieldArrayList.add(numOfCopiesField);
         textFieldArrayList.add(loanDurationField);
@@ -147,9 +145,5 @@ public class AddNewSuperclassController implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-
-
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
 }

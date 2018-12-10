@@ -64,7 +64,7 @@ public class AddNewBookController extends AddNewSuperclassController {
      */
     
     @FXML
-    void addNewBook(ActionEvent event) throws IOException {
+    public void addNewBook(ActionEvent event) throws IOException {
         
         int bookID = Conn.getNextAvailableID("resource");
         String bookTitle = titleField.getText();
@@ -100,8 +100,5 @@ public class AddNewBookController extends AddNewSuperclassController {
         textFieldArrayList.add(newBookISBN);
         textFieldArrayList.add(newBookPublisher);
         init();
-
-
-
     }
 }

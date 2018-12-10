@@ -31,12 +31,8 @@ import java.util.ResourceBundle;
 
 public class AddNewLaptopController extends AddNewSuperclassController {
 
-    File imageFile;
-
-
     @FXML
     private TextField newLaptopModel;
-
 
     @FXML
     private TextField newLaptopBrand;
@@ -50,9 +46,9 @@ public class AddNewLaptopController extends AddNewSuperclassController {
      * It also has a constructor
      * @param event
      */
-
     @FXML
-    void addNewLaptop(ActionEvent event) {
+    public void addNewLaptop(ActionEvent event) {
+
         ArrayList IDsOfCopies = new ArrayList<>();
         IDsOfCopies.add(1);
 
@@ -86,14 +82,14 @@ public class AddNewLaptopController extends AddNewSuperclassController {
         alert.showAndWait();
 
     }
-    
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         textFieldArrayList.add(newLaptopModel);
         textFieldArrayList.add(newLaptopBrand);
         textFieldArrayList.add(newLaptopOS);
         init();
+
     }
 }

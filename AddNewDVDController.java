@@ -55,7 +55,8 @@ public class AddNewDVDController extends AddNewSuperclassController{
      */
 
     @FXML
-    void addNewDVD(ActionEvent event) {
+    public void addNewDVD(ActionEvent event) {
+
         ArrayList IDsOfCopies = new ArrayList<>();
         IDsOfCopies.add(1);
 
@@ -80,7 +81,7 @@ public class AddNewDVDController extends AddNewSuperclassController{
         DVD dvd = new DVD (dvdID, dvdTitle, dvdYear, "1nsn", IDsOfCopies, dvdDirector, dvdRuntime,
                  dvdSubtitleLanguages, dvdLanguage);
         Conn.writeObject(dvd);
-        
+
         //Alert Window
         Alert alert = new Alert(Alert.AlertType.NONE, "Resource added", ButtonType.OK);
         alert.setWidth(100);
@@ -90,11 +91,13 @@ public class AddNewDVDController extends AddNewSuperclassController{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         textFieldArrayList.add(newDVDLanguage);
         textFieldArrayList.add(newDVDRunTime);
         textFieldArrayList.add(newDVDDirector);
         textFieldArrayList.add(newDVDSubtitleLanguages);
         init();
+
     }
 }
 
