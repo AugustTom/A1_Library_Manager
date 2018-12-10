@@ -68,7 +68,7 @@ public class LibrarianDashboardController implements Initializable {
 
     @FXML
     void searchResource(MouseEvent event) {
-        loadUI("searchResource");
+        loadUI("SearchResource");
     }
 
     @FXML
@@ -103,6 +103,7 @@ public class LibrarianDashboardController implements Initializable {
 
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path + ".fxml"));
+
             root = loader.load();
             librarianDashboard.setCenter(root);
 
@@ -111,8 +112,10 @@ public class LibrarianDashboardController implements Initializable {
                 LibrariansMyAccountController  controller = loader.getController();
                 controller.setActiveUser(activeUser);
 
-            } else if (path.equals("SearchResources")){
+            } else if (path.equals("SearchResource")){
+                System.out.println("loading controller");
                 SearchResourceController controller = loader.getController();
+                controller.setActiveUser(activeUser);
 
             } else if(path.equals("NewResourcePanel")){
                 NewResourcePanelController controller = loader.getController();
@@ -123,7 +126,11 @@ public class LibrarianDashboardController implements Initializable {
             } else if (path.equals("CreateAccount")){
                 CreateAccountController controller = loader.getController();
 
+            } else {
+                System.out.println("controller failed to load");
             }
+
+
 
         } catch (IOException ex){
             Logger.getLogger(MemberDashboardController.class.getName()).log(Level.SEVERE, null, ex);

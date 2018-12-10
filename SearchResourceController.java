@@ -12,9 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -117,16 +116,17 @@ public class SearchResourceController implements Initializable {
             data = FXCollections.observableArrayList(filterData);
             if (selectedTab == bookTab) {
                 activeView = bookResults;
-                activeView.setItems(data);
+
 
             } else if (selectedTab == dvdTab) {
                 activeView = dvdResults;
-                activeView.setItems(data);
+
 
             } else {
                 activeView = laptopResults;
-                activeView.setItems(data);
+
             }
+            activeView.setItems(data);
         }
 
         activeView.getSelectionModel().selectedItemProperty().addListener(
@@ -162,6 +162,7 @@ public class SearchResourceController implements Initializable {
     }
 
     public void setActiveUser(User user) {
+
         this.activeUser = user;
     }
 }
