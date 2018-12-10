@@ -13,6 +13,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import javafx.scene.control.*;
 
+/**
+ * This class allows us to view resources
+ *
+ * @author Sebastain Gappa
+ * @version 1.0
+ * @since 10/12/2018
+ */
+
 public class ViewResourceController implements Initializable {
 
     private User activeUser;
@@ -38,6 +46,10 @@ public class ViewResourceController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resource) {
     }
+    
+    /**
+     * This method searches everything you've borrowed and everything you've requested
+     */
 
     @FXML
     public void searchLoans(javafx.event.ActionEvent actionEvent) {
@@ -45,26 +57,20 @@ public class ViewResourceController implements Initializable {
         ListView activeView;
 
         ArrayList actives = Conn.getActiveLoans(activeUser.getUserName());
-        ArrayList<String> activeTitles = new ArrayList<String>();
-        ArrayList requests = Conn.getLoanRequests(activeUser.getUserName());
-        ArrayList<String> requestTitles = new ArrayList<String>();
+        ArrayList<String> titles = new ArrayList<String>();
 
         for (Object active: actives) {
-            activeTitles.add(((Resources) active).getTitle());
-            System.out.println(activeTitles.toString());
+            titles.add(((Resources) active).getTitle());
         }
 
-        for (Object request: requests) {
-            requestTitles.add(((Resources) request).getTitle());
-            System.out.print((requestTitles.toString()));
-        }
+        ObservableList data = FXCollections.observableArrayList(titles);
 
         if (selectedTab == borrowedTab) {
             activeView = borrowedList;
-            activeView.setItems(FXCollections.observableArrayList(activeTitles));
+            activeView.setItems(data);
         } else if (selectedTab == requestedTab) {
             activeView = requestedList;
-            activeView.setItems(FXCollections.observableArrayList(requestTitles));
+            activeView.setItems(data);
         }
 
     }
